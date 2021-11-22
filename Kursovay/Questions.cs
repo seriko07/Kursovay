@@ -12,21 +12,15 @@ namespace Kursovay
     using System;
     using System.Collections.Generic;
     
-    public partial class gender
+    public partial class Questions
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public gender()
-        {
-            this.Users = new HashSet<Users>();
-            this.Teachers = new HashSet<Teachers>();
-        }
-    
         public int ID { get; set; }
-        public string Gender1 { get; set; }
+        public string Question { get; set; }
+        public string First_answer { get; set; }
+        public string Second_answer { get; set; }
+        public string Third_answer { get; set; }
+        public int ID_test { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Teachers> Teachers { get; set; }
+        public virtual Test Test { get; set; }
     }
 }

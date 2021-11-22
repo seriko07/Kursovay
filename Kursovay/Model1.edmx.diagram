@@ -6,11 +6,23 @@
     <edmx:Diagrams>
       <Diagram DiagramId="2facc7e1f33e4afebc1e99dbf80e6de3" Name="Diagram1" ZoomLevel="114">
         <EntityTypeShape EntityType="KursovayModel.gender" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="KursovayModel.Role" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="KursovayModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KursovayModel.Users" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="KursovayModel.FK_Users_gender" ManuallyRouted="false" />
-        <AssociationConnector Association="KursovayModel.FK_Users_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KursovayModel.questions" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="KursovayModel.theory" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="KursovayModel.Questions" Width="1.5" PointX="9.5" PointY="5.5" />
+        <EntityTypeShape EntityType="KursovayModel.Results" Width="1.5" PointX="5.25" PointY="1.5" />
+        <EntityTypeShape EntityType="KursovayModel.Teachers" Width="1.5" PointX="5" PointY="5.125" />
+        <EntityTypeShape EntityType="KursovayModel.Test" Width="1.5" PointX="7.25" PointY="5.5" />
+        <AssociationConnector Association="KursovayModel.FK_Teachers_gender" />
+        <AssociationConnector Association="KursovayModel.FK_questions_Test" />
+        <AssociationConnector Association="KursovayModel.FK_Results_Test" />
+        <AssociationConnector Association="KursovayModel.FK_Results_Users" />
+        <AssociationConnector Association="KursovayModel.FK_Test_Teachers" />
+        <EntityTypeShape EntityType="KursovayModel.Role" Width="1.5" PointX="0.75" PointY="4.75" />
+        <AssociationConnector Association="KursovayModel.FK_Teachers_Role" />
+        <AssociationConnector Association="KursovayModel.FK_Users_Role" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

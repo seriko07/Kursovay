@@ -22,6 +22,7 @@
         <PasswordBox x:Name="pas" HorizontalAlignment="Left" Height="46" Margin="222,213,0,0" VerticalAlignment="Top" Width="162"/>
         <Button x:Name="button_login" Content="Авторизоваться" HorizontalAlignment="Left" Margin="430,311,0,0" VerticalAlignment="Top" Width="132" Click="Button_autoriz" Height="53"/>
         <Button x:Name="button_reg" Content="Регистрация" HorizontalAlignment="Left" Margin="587,311,0,0" VerticalAlignment="Top" Width="132" Click="Button_reg_Click" Height="53"/>
+        <Button x:Name="button_less" Content="уроки" HorizontalAlignment="Left" Margin="268,311,0,0" VerticalAlignment="Top" Width="132" Click="Button_less" Height="53"/>
 
     </Grid>
 </Window>

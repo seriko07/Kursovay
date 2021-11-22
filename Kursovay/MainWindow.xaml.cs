@@ -20,6 +20,9 @@ namespace Kursovay
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List <Users> Mystudents { get; set; }
+        public List <Teachers> Teachers { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +39,6 @@ namespace Kursovay
             reg.Show();
             this.Close();
         }
-
         private void Button_autoriz(object sender, RoutedEventArgs e)
         {
             //log.Text
@@ -46,20 +48,85 @@ namespace Kursovay
             //    MessageBox.Show(
             //           "Пользователь есть в базе");
             //}
-            
-            var user = Core.db.Users.AsNoTracking().FirstOrDefault(x => x.Login == log.Text);
-            var userr = Core.db.Users.AsNoTracking().FirstOrDefault(x => x.Password == pas.Password);
 
-            if (user != null && userr != null)
+
+            //if (log.Text.Length > 0) // проверяем введён ли логин     
+            //{
+            //    if (pas.Password.Length > 0) // проверяем введён ли пароль         
+            //    {             // ищем в базе данных пользователя с такими данными         
+            //         Users users = MainWindow.Select("SELECT * FROM [dbo].[users] WHERE [login] = '" + log.Text + "' AND [password] = '" + pas.Password + "'");
+            //        if (dt_user.Rows.Count > 0) // если такая запись существует       
+            //        {
+            //            MessageBox.Show("Пользователь авторизовался"); // говорим, что авторизовался         
+            //        }
+            //        else MessageBox.Show("Пользователя не найден"); // выводим ошибку  
+            //    }
+            //    else MessageBox.Show("Введите пароль"); // выводим ошибку    
+            //}
+            //else MessageBox.Show("Введите логин"); // выводим ошибку 
+
+
+            //Users users = Core.db.Users.Last();
+            //int b = users.ID;
+            var users = Core.db.Users.ToList();
+            foreach (var p in users)
             {
-                MessageBox.Show(
-                     "Пользователь есть в базе");
+                if (p.Password == pas.Password && p.Login == log.Text)
+                {
+                    MessageBox.Show("Пользователь авторизовался- ученик");
+                    Mystudents  = Core.db.Users.Where(c => c.ID == p.ID).ToList();// сохраняем в лист информацию о том какой студент зашёл
+                   
+                    //Console.WriteLine(users);
+                }
+               // Console.WriteLine("{0} - {1} - {2} - {3}", p.ID, p.Name, p.Login, p.Password);
             }
-            else
+            //Console.WriteLine(users);
+
+            var teachers = Core.db.Teachers.ToList();// список всех учителей
+            foreach (var p in teachers)
             {
-                MessageBox.Show(
-                     "Пользователя нет в базе");
+                if (p.Password == pas.Password && p.Login == log.Text)
+                {
+                    MessageBox.Show("Пользователь авторизовался - учитель");
+                    Teachers  = Core.db.Teachers.Where(c => c.ID == p.ID).ToList();
+                    //Teachers = Core.db.Teachers.Where(c => c.ID == p.ID).ToList();// сохраняем в лист информацию о том какой учитель зашёл
+                    
+                }
             }
+            //Console.WriteLine(teachers); 
+             
+            
+            foreach (var p in Teachers)
+                Console.WriteLine("{0} - {1} - {2} - {3}", p.ID, p.Name, p.Login, p.Password);
+            
+        }
+
+
+
+
+
+        //var user = Core.db.Users.AsNoTracking().FirstOrDefault(x => x.Login == log.Text);
+        //var userr = Core.db.Users.AsNoTracking().FirstOrDefault(x => x.Password == pas.Password);
+
+        //if (user != null && userr != null)
+        //{
+        //    MessageBox.Show(
+        //         "Пользователь есть в базе");
+        //}
+        //else
+        //{
+        //    MessageBox.Show(
+        //         "Пользователя нет в базе");
+        //}
+
+
+
+        private void Button_less(object sender, RoutedEventArgs e)
+        {
+            Lesson lesson = new Lesson();
+            lesson.Show();
+            this.Close();
         }
     }
-}
+} 
+
