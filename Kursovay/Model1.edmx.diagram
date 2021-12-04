@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2facc7e1f33e4afebc1e99dbf80e6de3" Name="Diagram1" ZoomLevel="114">
+      <Diagram DiagramId="2facc7e1f33e4afebc1e99dbf80e6de3" Name="Diagram1" ZoomLevel="142">
         <EntityTypeShape EntityType="KursovayModel.gender" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="KursovayModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KursovayModel.Users" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />

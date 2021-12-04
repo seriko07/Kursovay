@@ -1,0 +1,40 @@
+﻿<Window x:Class="Kursovay.Test_student_choice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursovay"
+        mc:Ignorable="d"
+        Title="Test_student_choice" Height="450" Width="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Grid.Background>
+            <ImageBrush ImageSource="photo_2021-11-25_23-20-50.jpg"/>
+        </Grid.Background>
+
+        <!--<TextBlock HorizontalAlignment="Left" Margin="288,194,0,0" TextWrapping="Wrap" Text="{Binding Title}"  VerticalAlignment="Top"/>-->
+        <Label Content="{Binding Ts.Title}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="62" Width="386" Grid.ColumnSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" Margin="10,0,0,0" Grid.RowSpan="2"/>
+        <Label Content="{Binding Ts.Question}" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="57" Grid.RowSpan="2" Width="188" Margin="10,0,0,0"/>
+        
+        
+    </Grid>
+</Window>

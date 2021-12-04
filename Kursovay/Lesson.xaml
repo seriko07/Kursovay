@@ -23,15 +23,13 @@
 
         </Grid.RowDefinitions>
 
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.4,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="0"/>
-                <GradientStop Color="#FF8D6363" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Button Content="Сохранить" Grid.Column="2"  Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="127" Height="45" RenderTransformOrigin="0.173,0.644" Click="Button_Click"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="photo_2021-11-25_23-20-50.jpg"/>
+            </Grid.Background>
+        <Button Content="Сохранить" Grid.Column="2"  Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="127" Height="45" RenderTransformOrigin="0.173,0.644" Click="Button_Click" FontFamily="/Kursovay;component/#Cocomat Pro"/>
         <TextBox HorizontalAlignment="Left" Height="316" Grid.Row="1"  TextWrapping="Wrap" Name="Theory"  VerticalAlignment="Top" Width="528" Grid.ColumnSpan="3" Grid.RowSpan="4" Margin="10,0,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,51,0,0" TextWrapping="Wrap" Text="Введите теорию урока" VerticalAlignment="Top" Width="184" Name="Title"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,51,0,0" TextWrapping="Wrap" Text="Введите тему урока" VerticalAlignment="Top" Width="184" Name="Title" FontFamily="/Kursovay;component/#Cocomat Pro"/>
+        <Button Content="Создать тест к уроку" Grid.Column="2"  Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="128" Height="45" RenderTransformOrigin="0.173,0.644" Click="Button_Click_Test" FontFamily="/Kursovay;component/#Cocomat Pro" />
 
 
 

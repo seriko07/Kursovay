@@ -62,5 +62,12 @@ namespace Kursovay
             this.Close();
 
         }
+
+        private void GenderID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        
     }
 }

@@ -19,10 +19,12 @@ namespace Kursovay
     /// </summary>
     public partial class Lesson : Window
     {
-        public Lesson()
+        public Lesson(Teachers Teacher)
         {
             InitializeComponent();
+            T = Teacher;
         }
+        public Teachers T { get; set; }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -30,9 +32,20 @@ namespace Kursovay
             test.ID = Core.db.Test.ToList().Last().ID + 1;
             test.Title = Title.Text;
             test.Theory = Theory.Text;
-            //test.TeacherID = Teachers.ID;
-            
+            test.TeacherID = T.ID;
             Core.db.Test.Add(test);
+            Core.db.SaveChanges();
+            Lesson l2 = new Lesson(T);
+            l2.Show();
+            this.Close();
+        }
+
+        private void Button_Click_Test(object sender, RoutedEventArgs e)
+        {
+            test_creation test_Creation = new test_creation();
+            test_Creation.Show();
+
+
         }
     }
 }
