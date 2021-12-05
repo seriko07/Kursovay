@@ -26,8 +26,8 @@ namespace Kursovay
             Ts = test;
 
             //Ques = (List<Questions>)Ts.Questions;
-            
-            //Qs = 
+
+            //Qs = Ques;
 
         }
 
