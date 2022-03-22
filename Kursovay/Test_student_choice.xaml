@@ -9,10 +9,11 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="25*"></ColumnDefinition>
+            <ColumnDefinition Width="25*"></ColumnDefinition>
+            <ColumnDefinition Width="18*"></ColumnDefinition>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="25*"></ColumnDefinition>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -35,7 +36,7 @@
         <Label Content="{Binding Ts.Title}" HorizontalAlignment="Left" VerticalAlignment="Top" 
           Height="62" Width="386" Grid.ColumnSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" Margin="10,0,0,0" Grid.RowSpan="2"/>
         <Label Content="{Binding Ts.Question}" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top"
-               Height="57" Grid.RowSpan="2" Width="406" Margin="166,10,0,0" Grid.ColumnSpan="3"/>
+               Height="57" Grid.RowSpan="2" Width="406" Margin="166,10,0,0" Grid.ColumnSpan="4"/>
 
 
     </Grid>

@@ -4,7 +4,7 @@ namespace Kursovay
 {
     class Core
     {
-        public static KursovayEntities1 db = new KursovayEntities1();
+        public static KursovayEntities2 db = new KursovayEntities2();
     }
   
 }

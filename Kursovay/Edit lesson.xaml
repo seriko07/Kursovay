@@ -1,0 +1,47 @@
+﻿<Window x:Class="Kursovay.Edit_lesson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursovay"
+        mc:Ignorable="d"
+        Title="Edit_lesson" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <!--<RowDefinition Height="0.5 *" />-->
+
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="photo_2021-11-25_23-20-50.jpg"/>
+        </Grid.Background>
+        <Button Content="Сохранить" Grid.Column="2"  Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="127" Height="45" RenderTransformOrigin="0.173,0.644" Click="Button_Click" FontFamily="/Kursovay;component/#Cocomat Pro"/>
+        <TextBox HorizontalAlignment="Left" Height="316" Grid.Row="1"  TextWrapping="Wrap" Name="Theory"  VerticalAlignment="Top" Width="528" Grid.ColumnSpan="3" Grid.RowSpan="4" Margin="10,0,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,51,0,0" TextWrapping="Wrap" Text="Введите тему урока" VerticalAlignment="Top" Width="184" Name="Title" FontFamily="/Kursovay;component/#Cocomat Pro"/>
+        <Button Content="Создать тест к уроку" Grid.Column="2"  Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="128" Height="45" RenderTransformOrigin="0.173,0.644" Click="Button_Click_Test" FontFamily="/Kursovay;component/#Cocomat Pro" />
+
+
+
+
+
+        <!--<StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <TextBox x:Name="Name" Height="46" Margin="7,0,7,5" Background="White"  />
+            <TextBox x:Name="Surname" Grid.Column="1" Width="250" Margin="0,0,0,5" Height="35"  />
+            <Button x:Name="Add" Click="Add_Click" Width="250" Margin="139,0,139,5" Height="35" Content="Добавить"/>
+
+        </StackPanel>-->
+
+
+    </Grid>
+</Window>

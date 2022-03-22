@@ -31,11 +31,6 @@ namespace Kursovay
             InitializeComponent();
             //Openpage(pages.login); // Открываем авторизацию
         }
-
-        private void Frame_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
         private void Button_reg_Click(object sender, RoutedEventArgs e)
         {
             Reg reg = new Reg();
@@ -43,8 +38,7 @@ namespace Kursovay
             this.Close();
         }
         private void Button_autoriz(object sender, RoutedEventArgs e)
-        {
-            
+        {        
             var users = Core.db.Users.ToList();
             foreach (var p in users)
             {
@@ -73,7 +67,10 @@ namespace Kursovay
                     Teacher = Core.db.Teachers.First(c => c.ID == p.ID);// сохраняем в лист информацию о том какой учитель зашёл
                     Lesson L1 = new Lesson(Teacher);
                     test_student test_Student = new test_student(Teacher);
+                    Lessons_teacher lessons_Teacher =new Lessons_teacher();
                     L1.Show();
+                    lessons_Teacher.Show();
+
 
                 }
             }
@@ -85,15 +82,6 @@ namespace Kursovay
                 //Console.WriteLine("{0} - {1} - {2} - {3}", p.ID, p.Name, p.Login, p.Password);
 
         }
-
-
-
-
-
-        
-
-
-
         private void Button_less(object sender, RoutedEventArgs e)
         {
             Lesson lesson = new Lesson(Teacher);
