@@ -23,7 +23,7 @@ namespace Kursovay
         public List <Users> Mystudents { get; set; }
         public List<Teachers> Teachers { get; set; }
         public Teachers Teacher { get; set; }
-       
+        public Test test { get; set; }
 
 
         public MainWindow()
@@ -44,7 +44,7 @@ namespace Kursovay
             {
                 if (p.Password == pas.Password && p.Login == log.Text)
                 {
-                    MessageBox.Show("Пользователь авторизовался- ученик");
+                    //MessageBox.Show("Пользователь авторизовался- ученик");
                     Mystudents  = Core.db.Users.Where(c => c.ID == p.ID).ToList();// сохраняем в лист информацию о том какой студент зашёл
                     test_student ts = new test_student();
                     ts.Show();
@@ -61,14 +61,14 @@ namespace Kursovay
             {
                 if (p.Password == pas.Password && p.Login == log.Text)
                 {
-                    MessageBox.Show("Пользователь авторизовался - учитель");
+                    //MessageBox.Show("Пользователь авторизовался - учитель");
                     //Teachers  = Core.db.Teachers.Where(c => c.ID == p.ID).ToList();
                     //Teachers  teachers1 = new Core.db.Teachers.First(c => c.ID == p.ID);
                     Teacher = Core.db.Teachers.First(c => c.ID == p.ID);// сохраняем в лист информацию о том какой учитель зашёл
-                    Lesson L1 = new Lesson(Teacher);
-                    test_student test_Student = new test_student(Teacher);
-                    Lessons_teacher lessons_Teacher =new Lessons_teacher();
-                    L1.Show();
+                    //Lesson L1 = new Lesson(Teacher,test);
+                    //test_student test_Student = new test_student(Teacher);
+                    Lessons_teacher lessons_Teacher =new Lessons_teacher(Teacher);
+                    //L1.Show();
                     lessons_Teacher.Show();
 
 
@@ -84,7 +84,7 @@ namespace Kursovay
         }
         private void Button_less(object sender, RoutedEventArgs e)
         {
-            Lesson lesson = new Lesson(Teacher);
+            Lesson lesson = new Lesson(Teacher,test);
             lesson.Show();
             this.Close();
         }

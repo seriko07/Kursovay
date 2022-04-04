@@ -18,8 +18,8 @@ namespace Kursovay
         public string Question { get; set; }
         public string First_answer { get; set; }
         public string Second_answer { get; set; }
-        public string Third_answer { get; set; }
-        public int ID_test { get; set; }
+        public string Сorrect_answer { get; set; }
+        public Nullable<int> ID_test { get; set; }
     
         public virtual Test Test { get; set; }
     }

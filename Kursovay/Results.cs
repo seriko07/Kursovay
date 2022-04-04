@@ -19,6 +19,7 @@ namespace Kursovay
         public int IDTest { get; set; }
         public int Attempt_number { get; set; }
         public int Result { get; set; }
+        public Nullable<int> Assessment_task { get; set; }
     
         public virtual Test Test { get; set; }
         public virtual Users Users { get; set; }

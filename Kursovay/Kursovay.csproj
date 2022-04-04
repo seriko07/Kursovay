@@ -101,6 +101,9 @@
     <Compile Include="Results.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Result_test.xaml.cs">
+      <DependentUpon>Result_test.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -116,8 +119,11 @@
     <Compile Include="test_student.xaml.cs">
       <DependentUpon>test_student.xaml</DependentUpon>
     </Compile>
-    <Compile Include="test_student_choice.xaml.cs">
-      <DependentUpon>test_student_choice.xaml</DependentUpon>
+    <Compile Include="Test_student_choice.xaml.cs">
+      <DependentUpon>Test_student_choice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Theory.xaml.cs">
+      <DependentUpon>Theory.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -146,6 +152,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Result_test.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="test creation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,7 +164,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="test_student_choice.xaml">
+    <Page Include="Test_student_choice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theory.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -199,6 +213,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="photo_2021-11-25_23-20-50.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="pages\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -209,10 +229,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="photo_2021-11-25_23-20-50.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

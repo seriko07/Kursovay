@@ -26,6 +26,7 @@ namespace Kursovay
         public string Theory { get; set; }
         public int TeacherID { get; set; }
         public Nullable<System.DateTime> Date_of_creation { get; set; }
+        public string Task { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Questions> Questions { get; set; }

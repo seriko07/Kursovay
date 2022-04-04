@@ -23,37 +23,42 @@ namespace Kursovay
         private Teachers Teacher;
 
         public List<Test> Tests { get; set; }
+        public Test tests { get; set; }
 
-        public Lessons_teacher()
+        public Lessons_teacher(Teachers Teacher)
         {
-
+            this.Teacher = Teacher;
             InitializeComponent();
             Tests = Core.db.Test.ToList();
-
             testgrid.ItemsSource = Tests;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
         }
-        private void testgrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+       
 
-        }
         private void Testgrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
             //    Tests path = testgrid.SelectedItem as tests;
             //    MessageBox.Show(" ID: " + path.Id + "\n Исполнитель: " + path.Vocalist + "\n Альбом: " + path.Album
             //    //    + "\n Год: " + path.Year);
 
-
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void New_lesson(object sender, RoutedEventArgs e)
         {
-            Lesson tc = new Lesson(Teacher);
+            Lesson tc = new Lesson(Teacher,tests) ;
             tc.Show();
         }
+        private void New_test(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Editing_Test(object sender, RoutedEventArgs e)
+        {
+            var a = (Test)testgrid.SelectedItem;
+            Console.WriteLine(a.ID + a.Title);
+            Lesson red = new Lesson(Teacher,a);
+            red.Show();
+        }
+
+        
     }
 }

@@ -9,17 +9,12 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25*"></ColumnDefinition>
-            <ColumnDefinition Width="25*"></ColumnDefinition>
-            <ColumnDefinition Width="18*"></ColumnDefinition>
-            <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="25*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -34,9 +29,36 @@
 
         <!--<TextBlock HorizontalAlignment="Left" Margin="288,194,0,0" TextWrapping="Wrap" Text="{Binding Title}"  VerticalAlignment="Top"/>-->
         <Label Content="{Binding Ts.Title}" HorizontalAlignment="Left" VerticalAlignment="Top" 
-          Height="62" Width="386" Grid.ColumnSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" Margin="10,0,0,0" Grid.RowSpan="2"/>
-        <Label Content="{Binding Ts.Question}" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top"
-               Height="57" Grid.RowSpan="2" Width="406" Margin="166,10,0,0" Grid.ColumnSpan="4"/>
+          Height="53" Width="386" Grid.ColumnSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" Margin="10,0,0,0"/>
+        <Label Content="{Binding Qs.Question}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" x:Name="Ques_xaml"
+               FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Background="White" Opacity="0.9"
+               Height="66" Grid.RowSpan="2" Width="446" Margin="173,40,0,0" Grid.ColumnSpan="4"/>
+
+        <Button Grid.Row="3"  Grid.Column="0" Click="First_but_click" HorizontalAlignment="Right" Width="110" Height="79" FontFamily="/Kursovay;component/#Cocomat Pro" Background="White" Foreground="Black" Opacity="0.9"  Grid.RowSpan="2" VerticalAlignment="Top">
+            <!--x:Name="Firanswer"  Grid.Column="1" HorizontalAlignment="Left">-->
+            <TextBlock x:Name="Firranswer" Text="1" TextWrapping="Wrap"
+                       TextAlignment="Center"/>
+            <!--Grid.Row="5" Width="110" Height="79" VerticalAlignment="Top" FontFamily="/Kursovay;component/#Cocomat Pro" RenderTransformOrigin="0.507,1.8" Click="First_but_click" Background="White" Foreground="Black" Opacity="0.9" Grid.RowSpan="2"-->
+        </Button>
+
+
+        <Button   Grid.Column="1" HorizontalAlignment="Center" Width="110"  Grid.Row="3" VerticalAlignment="Top" FontFamily="/Kursovay;component/#Cocomat Pro"  Height="79" Click="Sec_but_click" Background="White" Foreground="Black" Opacity="0.9" Grid.RowSpan="2">
+            <TextBlock x:Name="Sectanswer" Text="2" TextWrapping="Wrap"
+                       TextAlignment="Center"/>
+            <!--Grid.Row="5" Width="110" Height="79" VerticalAlignment="Top" FontFamily="/Kursovay;component/#Cocomat Pro" RenderTransformOrigin="0.507,1.8" Click="First_but_click" Background="White" Foreground="Black" Opacity="0.9" Grid.RowSpan="2"-->
+        </Button>
+
+
+        <Button  Grid.Column="2" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="110"  FontFamily="/Kursovay;component/#Cocomat Pro" RenderTransformOrigin="0.52,0.2" Click="Thir_but_Click" Height="79" Background="White" Foreground="Black" Opacity="0.9" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <TextBlock x:Name="Thiranswer" Text="3" TextWrapping="Wrap"
+                       TextAlignment="Center"/>
+            <!--Grid.Row="5" Width="110" Height="79" VerticalAlignment="Top" FontFamily="/Kursovay;component/#Cocomat Pro" RenderTransformOrigin="0.507,1.8" Click="First_but_click" Background="White" Foreground="Black" Opacity="0.9" Grid.RowSpan="2"-->
+        </Button>
+
+
+        <!--<Button x:Name="Sectanswer" />-->
+        <!--<Button x:Name="Thiranswer" Content="3ответ" Grid.Column="2" HorizontalAlignment="Left" Margin="113,0,0,0" Grid.Row="5" VerticalAlignment="Top" Width="110"  FontFamily="/Kursovay;component/#Cocomat Pro" RenderTransformOrigin="0.52,0.2" Click="Thir_but_Click" Height="79" Background="White" Foreground="Black" Opacity="0.9" Grid.RowSpan="2" Grid.ColumnSpan="2"/>-->
+
 
 
     </Grid>

@@ -17,11 +17,11 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Question" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="First_answer" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Second_answer" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Third_answer" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ID_test" Type="int" Nullable="false" />
+          <Property Name="Question" Type="nvarchar" MaxLength="50" />
+          <Property Name="First_answer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Second_answer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Сorrect_answer" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_test" Type="int" />
         </EntityType>
         <EntityType Name="Results">
           <Key>
@@ -32,6 +32,7 @@
           <Property Name="IDTest" Type="int" Nullable="false" />
           <Property Name="Attempt_number" Type="int" Nullable="false" />
           <Property Name="Result" Type="int" Nullable="false" />
+          <Property Name="Assessment_task" Type="int" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -61,7 +62,8 @@
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Theory" Type="text" Nullable="false" />
           <Property Name="TeacherID" Type="int" Nullable="false" />
-          <Property Name="Date of creation" Type="smalldatetime" />
+          <Property Name="Date of creation" Type="date" />
+          <Property Name="Task" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -77,7 +79,7 @@
           <Property Name="Role" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_questions_Test">
-          <End Role="Test" Type="Self.Test" Multiplicity="1" />
+          <End Role="Test" Type="Self.Test" Multiplicity="0..1" />
           <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Test">
@@ -231,11 +233,11 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Question" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="First_answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Second_answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Third_answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ID_test" Type="Int32" Nullable="false" />
+          <Property Name="Question" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="First_answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Second_answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Сorrect_answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_test" Type="Int32" />
           <NavigationProperty Name="Test" Relationship="Self.FK_questions_Test" FromRole="Questions" ToRole="Test" />
         </EntityType>
         <EntityType Name="Results">
@@ -249,6 +251,7 @@
           <Property Name="Result" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Test" Relationship="Self.FK_Results_Test" FromRole="Results" ToRole="Test" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Results_Users" FromRole="Results" ToRole="Users" />
+          <Property Name="Assessment_task" Type="Int32" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -283,10 +286,11 @@
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Theory" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TeacherID" Type="Int32" Nullable="false" />
+          <Property Name="Date_of_creation" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Questions" Relationship="Self.FK_questions_Test" FromRole="Test" ToRole="Questions" />
           <NavigationProperty Name="Results" Relationship="Self.FK_Results_Test" FromRole="Test" ToRole="Results" />
           <NavigationProperty Name="Teachers" Relationship="Self.FK_Test_Teachers" FromRole="Test" ToRole="Teachers" />
-          <Property Name="Date_of_creation" Type="DateTime" Precision="0" />
+          <Property Name="Task" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -329,7 +333,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_questions_Test">
-          <End Role="Test" Type="Self.Test" Multiplicity="1" />
+          <End Role="Test" Type="Self.Test" Multiplicity="0..1" />
           <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Test">
@@ -400,7 +404,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="KursovayEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="KursovayEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="gender" EntityType="Self.gender" />
           <EntitySet Name="Questions" EntityType="Self.Questions" />
           <EntitySet Name="Results" EntityType="Self.Results" />
@@ -446,7 +450,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище KursovayModelContainer" CdmEntityContainer="KursovayEntities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище KursovayModelContainer" CdmEntityContainer="KursovayEntities3">
           <EntitySetMapping Name="gender">
             <EntityTypeMapping TypeName="KursovayModel.gender">
               <MappingFragment StoreEntitySet="gender">
@@ -462,7 +466,7 @@
                 <ScalarProperty Name="Question" ColumnName="Question" />
                 <ScalarProperty Name="First_answer" ColumnName="First_answer" />
                 <ScalarProperty Name="Second_answer" ColumnName="Second_answer" />
-                <ScalarProperty Name="Third_answer" ColumnName="Third_answer" />
+                <ScalarProperty Name="Сorrect_answer" ColumnName="Сorrect_answer" />
                 <ScalarProperty Name="ID_test" ColumnName="ID_test" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -470,6 +474,7 @@
           <EntitySetMapping Name="Results">
             <EntityTypeMapping TypeName="KursovayModel.Results">
               <MappingFragment StoreEntitySet="Results">
+                <ScalarProperty Name="Assessment_task" ColumnName="Assessment_task" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDstudents" ColumnName="IDstudents" />
                 <ScalarProperty Name="IDTest" ColumnName="IDTest" />
@@ -503,11 +508,12 @@
           <EntitySetMapping Name="Test">
             <EntityTypeMapping TypeName="KursovayModel.Test">
               <MappingFragment StoreEntitySet="Test">
-                <ScalarProperty Name="Date_of_creation" ColumnName="Date of creation" />
+                <ScalarProperty Name="Task" ColumnName="Task" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Theory" ColumnName="Theory" />
                 <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="Date_of_creation" ColumnName="Date of creation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

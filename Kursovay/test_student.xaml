@@ -13,7 +13,7 @@
 
         <DataGrid AutoGenerateColumns="False" x:Name="testgrid" Margin="0,50,0,0" MouseUp="Testgrid_MouseUp" SelectionChanged="testgrid_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Название теста" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Title}" Header="Название лекции" Width="*"/>
                 <DataGridTemplateColumn Width="*" Header="Учитель">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -29,7 +29,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Выберите  тест" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="45" Width="282" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22"/>
-        <Button Content="Перейти к тесту" Background="#FFFEF20A" HorizontalAlignment="Left" Margin="361,0,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50"/>
+        <Label Content="Выберите  лекцию" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="45" Width="282" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22"/>
+        <Button Content="Перейти к лекции" Background="#FFFEF20A" HorizontalAlignment="Left" Margin="361,0,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50"/>
     </Grid>
 </Window>

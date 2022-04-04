@@ -13,10 +13,10 @@ namespace Kursovay
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KursovayEntities2 : DbContext
+    public partial class KursovayEntities3 : DbContext
     {
-        public KursovayEntities2()
-            : base("name=KursovayEntities2")
+        public KursovayEntities3()
+            : base("name=KursovayEntities3")
         {
         }
     
