@@ -5,11 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
+        ResizeMode="CanMinimize"
         Title="Test" Height="450" Width="500">
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="photo_2021-11-25_23-20-50.jpg"/>
-        </Grid.Background>
+
 
         <DataGrid AutoGenerateColumns="False" x:Name="testgrid" Margin="0,50,0,0" MouseUp="Testgrid_MouseUp" SelectionChanged="testgrid_SelectionChanged">
             <DataGrid.Columns>
@@ -30,6 +29,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Выберите  лекцию" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="45" Width="282" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22"/>
-        <Button Content="Перейти к лекции" Background="#FFFEF20A" HorizontalAlignment="Left" Margin="361,0,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50"/>
+        <Button Content="Перейти к лекции" Background="#ff6347 " HorizontalAlignment="Left" Margin="369,0,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" RenderTransformOrigin="0.727,0.51"/>
     </Grid>
 </Window>

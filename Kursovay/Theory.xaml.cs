@@ -43,5 +43,11 @@ namespace Kursovay
             new Test_student_choice((Test)Test_theory,users1).Show();
             this.Close();
         }
+
+        private void Task_click(object sender, RoutedEventArgs e)
+        {
+            new Task().Show();
+
+        }
     }
 }

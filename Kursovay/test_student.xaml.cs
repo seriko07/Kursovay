@@ -20,13 +20,15 @@ namespace Kursovay
     /// </summary>
     public partial class test_student : Window
     {
-        public test_student(Teachers Teacher)
+        public test_student(Users users)
             : this()
         {
             // InitializeComponent();
             T = Teacher;
+             student=users;
         }
         public Teachers T { get; set; }
+        public Users student { get; set; }
 
         public List<Teachers> teachers { get; set; }
         //public Test tests { get; set; }
@@ -65,7 +67,7 @@ namespace Kursovay
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new Test_student_choice((Test)testgrid.SelectedItem).Show();
+            new Theory((Test)testgrid.SelectedItem,student).Show();
             
         }
 

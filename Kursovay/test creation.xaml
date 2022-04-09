@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
-        Title="test_creation" Height="450" Width="800">
+        ResizeMode="CanMinimize"
+        Title="Tests" Height="450" Width="800">
 
     <Grid >
-        <Grid.Background>
-            <ImageBrush ImageSource="photo_2021-11-25_23-20-50.jpg"/>
-        </Grid.Background>
+
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -35,14 +34,14 @@
         <Label Content="Введите вариант ответа:" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="61" Width="371" FontSize="24" Foreground="Black" RenderTransformOrigin="0.308,0.433" Grid.ColumnSpan="2" Grid.Row="4" FontFamily="/Kursovay;component/#Cocomat Pro"/>
         <Label Content="Введите вариант ответа:" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="61" Width="371" FontSize="24" Foreground="Black" RenderTransformOrigin="0.308,0.433" Grid.ColumnSpan="2" Grid.Row="5" FontFamily="/Kursovay;component/#Cocomat Pro"/>
         <Label Content="Введите вариант ответа:" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="59" Width="366" FontSize="24" Foreground="Black" RenderTransformOrigin="0.308,0.433" Grid.ColumnSpan="2" Grid.Row="3" FontFamily="/Kursovay;component/#Cocomat Pro"/>
-        <TextBox x:Name="ques" HorizontalAlignment="Center" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center"  Width="309" RenderTransformOrigin="0.466,-0.147" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="51,10,168,10"  />
-        <TextBox x:Name="answer_1" HorizontalAlignment="Center" Height="40"  VerticalAlignment="Center" Width="213" Grid.Row="2" Grid.Column="1" Margin="51,10,0,10"/>
-        <TextBox x:Name="answer_2" HorizontalAlignment="Center" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="213" RenderTransformOrigin="0.466,-0.147" Grid.Row="3" Grid.Column="1" Margin="51,10,0,10"/>
-        <TextBox x:Name="answer_3" HorizontalAlignment="Center" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="213" RenderTransformOrigin="0.466,-0.147" Grid.Row="4" Grid.Column="1" Margin="51,10,0,10"/>
-        <TextBox x:Name="counter" HorizontalAlignment="Center" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="213" RenderTransformOrigin="0.466,-0.147" Grid.Row="5" Grid.Column="1" Margin="51,10,0,10"/>
+        <TextBox x:Name="ques" HorizontalAlignment="Center" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center"  Width="309" RenderTransformOrigin="0.466,-0.147" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="51,10,168,10" BorderThickness="3" />
+        <TextBox x:Name="answer_1" HorizontalAlignment="Center" Height="40"  VerticalAlignment="Center" Width="213" Grid.Row="2" Grid.Column="1" Margin="51,10,0,10" BorderThickness="3"/>
+        <TextBox x:Name="answer_2" HorizontalAlignment="Center" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="213" RenderTransformOrigin="0.466,-0.147" Grid.Row="3" Grid.Column="1" Margin="51,10,0,10" BorderThickness="3"/>
+        <TextBox x:Name="answer_3" HorizontalAlignment="Center" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="213" RenderTransformOrigin="0.466,-0.147" Grid.Row="4" Grid.Column="1" Margin="51,10,0,10" BorderThickness="3"/>
+        <TextBox x:Name="counter" HorizontalAlignment="Center" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="213" RenderTransformOrigin="0.466,-0.147" Grid.Row="5" Grid.Column="1" Margin="51,10,0,10" BorderThickness="3"/>
         <!--<TextBox x:Name="number_of_questions" HorizontalAlignment="Center" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="212" RenderTransformOrigin="0.466,-0.147" Grid.Row="1" Grid.Column="1" Margin="52,10,0,10" />-->
-        <Button x:Name="one_more_ques" Content="Создать ещё один вопрос" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="157" Click="Button_add_ques" Height="52" Grid.Row="5" Grid.Column="2" FontFamily="/Kursovay;component/#Cocomat Pro" />
-        <Button x:Name="Save_test" Content="Сохранить тест" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="157" Click="Save_test_Click" Height="52" Grid.Row="6" Grid.Column="2"  Grid.RowSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro"/>
+        <Button x:Name="one_more_ques" Content="Создать ещё один вопрос" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="157" Click="Button_add_ques" Height="52" Grid.Row="5" Grid.Column="2" FontFamily="/Kursovay;component/#Cocomat Pro" Background="#ff6347" />
+        <Button x:Name="Save_test" Content="Сохранить тест" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="157" Click="Save_test_Click" Height="52" Grid.Row="6" Grid.Column="2"  Grid.RowSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347"/>
 
     </Grid>
 </Window>

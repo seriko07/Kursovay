@@ -59,6 +59,11 @@ namespace Kursovay
             red.Show();
         }
 
-        
+        private void Del_lesson(object sender, RoutedEventArgs e)
+        {
+            Core.db.Test.Remove((Test)testgrid.SelectedItem);
+            Core.db.SaveChanges();
+
+        }
     }
 }

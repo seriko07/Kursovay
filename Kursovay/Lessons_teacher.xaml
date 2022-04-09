@@ -5,17 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
-        Title="Lessons_teacher" Height="450" Width="800">
+        ResizeMode="CanMinimize"
+        Title="Tests" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="223*"/>
             <ColumnDefinition Width="215*"/>
             <ColumnDefinition Width="232*"/>
         </Grid.ColumnDefinitions>
-        <Grid.Background>
-            <ImageBrush ImageSource="photo_2021-11-25_23-20-50.jpg"/>
-        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height ="0.16*"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -36,11 +33,10 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Binding="{Binding Date_of_creation./}" Header="Дата создания" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Date_of_creation}" Header="Дата создания" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         
-        <Button Content="Создать тест " VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50"  Click="New_test" Background="#FFFFFF" Grid.Column="1" Width="140"  RenderTransformOrigin="0.5,0.5" Margin="211,0,183,0" Grid.ColumnSpan="2"/>
         <Grid Grid.Row="0" Grid.ColumnSpan="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -49,20 +45,18 @@
                 <ColumnDefinition Width="*"/>
 
             </Grid.ColumnDefinitions>
-            <Grid.Background>
-                <ImageBrush ImageSource="photo_2021-11-25_23-20-50.jpg"/>
-            </Grid.Background>
+
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Label Content="Выберите лекцию" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="194" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22" Grid.Column="0" Grid.ColumnSpan="2" />
-            <Button Background="#FFFFFF" VerticalAlignment="Center" Click="Editing_Test" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="140"  Grid.Column="1" >
+            <Button  Background="#ff6347" VerticalAlignment="Center" Click="Editing_Test" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="140"  Grid.Column="1"  >
                 <TextBlock TextAlignment="Center"> Редактировать  <LineBreak/> урок</TextBlock>
             </Button>
-            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="New_lesson" Background="#FFFFFF" Width="140"  Grid.Column="2" >
+            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="New_lesson"  Background="#ff6347" Width="140"  Grid.Column="2" >
                 <TextBlock TextAlignment="Center"> Создать  <LineBreak/> урок</TextBlock>
             </Button>
-            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="New_lesson" Background="#FFFFFF" Width="140"  Grid.Column="3" >
+            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="Del_lesson"  Background="#ff6347" Width="140"  Grid.Column="3" >
                 <TextBlock TextAlignment="Center"> Удалить  <LineBreak/> урок</TextBlock>
             </Button>
 

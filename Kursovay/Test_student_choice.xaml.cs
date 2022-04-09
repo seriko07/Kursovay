@@ -84,7 +84,7 @@ namespace Kursovay
                     Ques_xaml.Content = Qs.Question;
                     Firranswer.Text = Qs.First_answer;
                     Sectanswer.Text = Qs.Second_answer;
-                    Thiranswer.Text = Qs.Third_answer;
+                    Thiranswer.Text = Qs.Сorrect_answer;
                     ans++;
                 }
                 else
@@ -93,7 +93,7 @@ namespace Kursovay
                     Ques_xaml.Content = Qs.Question;
                     Sectanswer.Text = Qs.First_answer;
                     Firranswer.Text = Qs.Second_answer;
-                    Thiranswer.Text = Qs.Third_answer;
+                    Thiranswer.Text = Qs.Сorrect_answer;
                     ans++;
                 }
                 else
@@ -103,7 +103,7 @@ namespace Kursovay
                     Thiranswer.Text = Qs.First_answer;
                     //Firanswer.Content = Qs.Second_answer;
                     Firranswer.Text = Qs.Second_answer;
-                    Sectanswer.Text = Qs.Third_answer;
+                    Sectanswer.Text = Qs.Сorrect_answer;
                     ans++;
                 }
             }

@@ -20,7 +20,7 @@ namespace Kursovay
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List <Users> Mystudents { get; set; }
+        public Users student { get; set; }
         public List<Teachers> Teachers { get; set; }
         public Teachers Teacher { get; set; }
         public Test test { get; set; }
@@ -45,8 +45,9 @@ namespace Kursovay
                 if (p.Password == pas.Password && p.Login == log.Text)
                 {
                     //MessageBox.Show("Пользователь авторизовался- ученик");
-                    Mystudents  = Core.db.Users.Where(c => c.ID == p.ID).ToList();// сохраняем в лист информацию о том какой студент зашёл
-                    test_student ts = new test_student();
+                    student  = Core.db.Users.First(c => c.ID == p.ID);// сохраняем в поле информацию о том какой студент зашёл
+
+                    test_student ts = new test_student(student);
                     ts.Show();
                     this.Close();
 

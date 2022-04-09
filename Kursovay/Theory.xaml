@@ -5,12 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
-        Title="Theory" Height="450" Width="800">
+        ResizeMode="CanMinimize"
+        Title="Tests" Height="450" Width="800">
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="photo_2021-11-25_23-20-50.jpg"/>
-        </Grid.Background>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -20,13 +17,7 @@
         </Grid.RowDefinitions>
         <TextBlock x:Name="Name_Theory"  Text="{Binding Test_theory.Title}" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Height="84" Width="209" FontSize="20" FontFamily="/Kursovay;component/#Cocomat Pro"/>
         <TextBlock x:Name="Theory_text" Text="{Binding Test_theory.Theory}" HorizontalAlignment="Left"  Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Height="336" Width="794" FontSize="20" FontFamily="/Kursovay;component/#Cocomat Pro" Background="White" Opacity="0.9" />
-        <Button Content="Перейти к тесту" Background="#FFFEF20A" HorizontalAlignment="Right"  VerticalAlignment="Center" Height="80" Width="150" Click="Test_click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" />
-
-
-
-
-
-
-
+        <Button Content="Перейти к тесту" Background="#ff6347 " HorizontalAlignment="Left"  VerticalAlignment="Center" Height="86" Width="150" Click="Test_click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Margin="650,0,0,0" />
+        <Button Content="Перейти к заданию" Background="#ff6347 " HorizontalAlignment="Left"  VerticalAlignment="Center" Height="86" Width="150" Click="Task_click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Margin="495,0,0,0" />
     </Grid>
 </Window>
