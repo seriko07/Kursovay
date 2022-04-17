@@ -3,6 +3,7 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Kursovay
 {
@@ -22,9 +24,20 @@ namespace Kursovay
     /// </summary>
     public partial class Task : Window
     {
-        public Task()
+        DispatcherTimer dt = new DispatcherTimer();
+        public Users users1 { get; set; }
+        public Test test1 { get; set; }
+
+        public Task(Users user, Test test)
         {
+           test1=test;
+            Stopwatch sw = new Stopwatch();
+            string currentTime = string.Empty;
+            users1 = user;
             InitializeComponent();
+                dt.Tick += new EventHandler(dt_Tick);
+                dt.Interval = new TimeSpan(0, 0, 0, 0, 1);
+
         }
 
         private void Perform_click(object sender, RoutedEventArgs e)
@@ -41,15 +54,71 @@ namespace Kursovay
             else
             {
                 TxtStatus.Text = "--------Build succedeed--------";
-                Process.Start(TxtSource.Text);
+                String appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+                Process.Start($"{appStartPath}/{TxtOutput.Text}");
 
             }
-            
+
         }
 
-        private void Save_click(object sender, RoutedEventArgs e)
+        private async void Save_click(object sender, RoutedEventArgs e)
         {
-            TxtSource.Text += "using System; namespace MyApp // Note: actual namespace depends on the project name.{internal class Program {static void Main(string[] args)/*{Console.WriteLine(Hello World!";
+            string path = @"C:\dsds\"+(string)test1.Title + (string)users1.FCS +".txt";
+            //string dsdsds = users1.FCS;
+            //string textConcat = (string)dsdsds.Concat("and prosper!");
+            //string txt = path + (string)users1.FCS;
+
+            using (FileStream fstream = new FileStream(path, FileMode.OpenOrCreate))
+            {
+                byte[] buffer = Encoding.Unicode.GetBytes(TxtSource.Text);
+                char[] chars = Encoding.Unicode.GetChars(buffer);
+                await fstream.WriteAsync(buffer, 0, buffer.Length);
+                Console.WriteLine("текст записаг");
+                //f.WriteLine(TxtSource.Text + "\r\n");
+            }
         }
-    }
+        public string currentTime = string.Empty;
+        public Stopwatch sw = new Stopwatch();
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+         
+
+        }
+
+
+        private void dt_Tick(object sender, EventArgs e)
+        {
+            if (sw.IsRunning)
+            {
+                TimeSpan ts = sw.Elapsed;
+                currentTime = String.Format("{0:00}:{1:00}:{2:00}",
+                ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                clocktxtblock.Text = currentTime;
+            }
+
+        }
+        private void startbtn_Click(object sender, RoutedEventArgs e)
+        {
+            sw.Start();
+            dt.Start();
+        }
+
+        private void stopbtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (sw.IsRunning)
+            {
+                sw.Stop();
+            }
+            elapsedtimeitem.Items.Add(currentTime);
+        }
+
+        private void resetbtn_Click(object sender, RoutedEventArgs e)
+        {
+            sw.Reset();
+            clocktxtblock.Text = "00:00:00";
+        }
+    
 }
+}
+ 

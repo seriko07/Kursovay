@@ -70,8 +70,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class1.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="gender.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Group.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Lesson.xaml.cs">
@@ -108,6 +112,15 @@
       <DependentUpon>Result_test.xaml</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Task.xaml.cs">
@@ -229,10 +242,6 @@
     <Folder Include="pages\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="1633521631_new_preview_test.png" />
-    <Resource Include="icon.ico" />
-    <Resource Include="Frame-3.ico" />
-    <Content Include="icon.svg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -243,6 +252,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="1633521631_new_preview_test.png" />
+    <Resource Include="icon.ico" />
+    <Resource Include="Frame-3.ico" />
+    <Content Include="icon.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,7 +21,6 @@ namespace Kursovay
     {
         public Users student { get; set; }
         public Test Test { get; set; }
-        public Results Attempt_number_student { get; set; }
 
         public Result_test(int ans, int amount_cor_ans, Users users, Test test)
         {
@@ -31,7 +30,7 @@ namespace Kursovay
             var amount_cor_anss = amount_cor_ans;
             Test = test;
             student = users;
-            SSS.Text = student.Name + " " + student.Surname;
+            SSS.Text = student.FCS + " " ;
 
 
             int bal = 0;
@@ -79,9 +78,6 @@ namespace Kursovay
             results.ID = Core.db.Results.ToList().Last().ID + 1;
             results.IDstudents = student.ID;
             results.IDTest = Test.ID;
-
-            Attempt_number_student = Core.db.Results.First(c => c.IDstudents == student.ID);
-            results.Attempt_number = Attempt_number_student.Attempt_number + 1;
             results.Result = bal;
             Core.db.Results.Add(results);
             Core.db.SaveChanges();

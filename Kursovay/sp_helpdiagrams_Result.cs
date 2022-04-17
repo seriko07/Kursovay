@@ -10,18 +10,13 @@
 namespace Kursovay
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Results
+    public partial class sp_helpdiagrams_Result
     {
+        public string Database { get; set; }
+        public string Name { get; set; }
         public int ID { get; set; }
-        public int IDstudents { get; set; }
-        public int IDTest { get; set; }
-        public int Result { get; set; }
-        public Nullable<int> Assessment_task { get; set; }
-        public string Assignment_comment { get; set; }
-    
-        public virtual Test Test { get; set; }
-        public virtual Users Users { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

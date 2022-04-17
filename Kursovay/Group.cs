@@ -12,26 +12,18 @@ namespace Kursovay
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class Group
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public Group()
         {
-            this.Results = new HashSet<Results>();
+            this.Users = new HashSet<Users>();
         }
     
         public int ID { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public string FCS { get; set; }
-        public int GenderID { get; set; }
-        public int Role { get; set; }
-        public int GroupID { get; set; }
+        public string Number { get; set; }
     
-        public virtual gender gender { get; set; }
-        public virtual Group Group { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Results> Results { get; set; }
-        public virtual Role Role1 { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

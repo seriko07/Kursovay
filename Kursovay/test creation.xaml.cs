@@ -19,6 +19,7 @@ namespace Kursovay
     /// </summary>
     public partial class test_creation : Window
     {
+        int counter_ = 0;
         public test_creation()
         {
             InitializeComponent();
@@ -28,11 +29,13 @@ namespace Kursovay
             Core.db.SaveChanges();
             this.Close();
         }
-
         private void Button_add_ques(object sender, RoutedEventArgs e)
         {
-            int counter_ = 0;
-
+            
+            answer_1.Clear();
+            answer_2.Clear();
+            answer_3.Clear();
+            ques.Clear();
             for (int i = 0; i < 1; i++)
             {
                 counter_++;

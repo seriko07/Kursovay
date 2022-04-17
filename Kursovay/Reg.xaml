@@ -34,8 +34,9 @@
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"  Height="34" Width="95" FontFamily="/Kursovay;component/#Cocomat Pro" Grid.ColumnSpan="1" FontSize="20" Grid.Row="3"><Run Text="Отчество"/></TextBlock>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"   Height="34" Width="91" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Grid.Row="4"><Run Text="Пол"/></TextBlock>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"   Height="34" Width="91" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Grid.Row="5"><Run Text="Роль"/></TextBlock>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"  Height="32" Width="91" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Grid.Row="6"><Run Text="Логин"/></TextBlock>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"  Height="34" Width="91" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Grid.Row="7"><Run Text="Пароль"/></TextBlock>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"  Height="32" Width="91" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Grid.Row="7"><Run Text="Логин"/></TextBlock>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"  Height="32" Width="91" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Grid.Row="6"><Run Text="Группа"/></TextBlock>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"  Height="34" Width="91" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Grid.Row="8"><Run Text="Пароль"/></TextBlock>
 
 
 
@@ -61,7 +62,7 @@
 
         <ComboBox x:Name="Role" Grid.Column="1" Grid.Row="5" Width="250"  Height="36"       
                  IsEditable="False" 
-                 IsReadOnly="true">
+                 IsReadOnly="true" SelectionChanged="Role_SelectionChanged">
                 
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -69,10 +70,20 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+        <ComboBox x:Name="GroupID" Grid.Column="1" Grid.Row="6" Width="250"  Height="36"       
+                 IsEditable="False" 
+                 IsReadOnly="true">
+                
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Number}" FontFamily="/Kursovay;component/#Cocomat Pro"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
-            <TextBox x:Name="Login" Grid.Column="1" Grid.Row="6" Width="250"  Height="36"  />
-            <PasswordBox x:Name="Password" Grid.Column="1" Grid.Row="7" Width="250"  Height="36"  />
-            <Button x:Name="Add" Click="Add_Click" Width="250" Grid.Column="1" Grid.Row="8"
+            <TextBox x:Name="Login" Grid.Column="1" Grid.Row="7" Width="250"  Height="36"  />
+            <PasswordBox x:Name="Password" Grid.Column="1" Grid.Row="8" Width="250"  Height="36"  />
+            <Button x:Name="Add" Click="Add_Click" Width="250" Grid.Column="1" Grid.Row="9"
                     FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" Height="36">Сохранить</Button>
 
         

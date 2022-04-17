@@ -44,12 +44,13 @@ namespace Kursovay
             {
                 if (p.Password == pas.Password && p.Login == log.Text)
                 {
+                    
                     //MessageBox.Show("Пользователь авторизовался- ученик");
                     student  = Core.db.Users.First(c => c.ID == p.ID);// сохраняем в поле информацию о том какой студент зашёл
-
                     test_student ts = new test_student(student);
                     ts.Show();
-                    this.Close();
+                    Close();
+
 
                     //Console.WriteLine(users);
                 }
@@ -71,8 +72,7 @@ namespace Kursovay
                     Lessons_teacher lessons_Teacher =new Lessons_teacher(Teacher);
                     //L1.Show();
                     lessons_Teacher.Show();
-
-
+                    this.Close();
                 }
             }
             //Console.WriteLine(teachers); 
