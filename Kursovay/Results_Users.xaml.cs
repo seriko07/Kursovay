@@ -17,11 +17,15 @@ namespace Kursovay
     /// <summary>
     /// Логика взаимодействия для Results.xaml
     /// </summary>
-    public partial class Results : Window
+    public partial class Results_Users : Window
     {
-        public Results()
+        public Results_Users()
         {
-            //InitializeComponent();
+            
+            results=Core.db.Results.ToList();
+            ssss.ItemsSource = results;
         }
+        public List<Results> results { get; set; }
+
     }
 }

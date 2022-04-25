@@ -29,6 +29,8 @@ namespace Kursovay
         public MainWindow()
         {
             InitializeComponent();
+            Results results = new Results();
+            results.Show(); 
             //Openpage(pages.login); // Открываем авторизацию
         }
         private void Button_reg_Click(object sender, RoutedEventArgs e)
