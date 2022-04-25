@@ -32,8 +32,31 @@ namespace Kursovay
             users1 = users;
 
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Test_theory.Task != null)
+            {
+                task_but.Visibility = Visibility.Hidden;
+            }
 
-     
+            try
+            {
+                Qs = Core.db.Questions.First(c => c.ID_test == Test_theory.ID);
+                test_but.Visibility = Visibility.Visible;
+
+            }
+            catch (Exception)
+            {
+                test_but.Visibility = Visibility.Hidden;
+
+
+            }
+
+        }
+
+        public int ID_test;
+
+        public Questions Qs { get; set; }
 
         public Test Test_theory { get; }
         public Users users1 { get; set; }

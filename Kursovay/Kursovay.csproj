@@ -108,6 +108,9 @@
     <Compile Include="Results.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Results.xaml.cs">
+      <DependentUpon>Results.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Result_test.xaml.cs">
       <DependentUpon>Result_test.xaml</DependentUpon>
     </Compile>
@@ -168,6 +171,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Reg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Results.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

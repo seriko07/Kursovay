@@ -1,12 +1,11 @@
-﻿<Window x:Class="Kursovay.Lessons_teacher"
+﻿<Window x:Class="Kursovay.Results"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
-        ResizeMode="CanMinimize"
-        Title="Tests" Height="450" Width="800">
+        Title="Results" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="223*"/>
@@ -17,14 +16,16 @@
             <RowDefinition Height ="0.16*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid AutoGenerateColumns="False" x:Name="testgrid" MouseUp="Testgrid_MouseUp" Grid.Row="1" Grid.ColumnSpan="3" >
+        <DataGrid AutoGenerateColumns="False" x:Name="Results_" Grid.Row="1" Grid.ColumnSpan="3" >
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Название лекции" Width="*"/>
-                <DataGridTextColumn Binding="{Binding FCS}" Width="*" Header="Учитель" />
-                <DataGridTextColumn Binding="{Binding Date_of_creation}" Header="Дата создания" Width="*"/>
+                <DataGridTextColumn Binding="{Binding FCS}" Header="ФИО" Width="*"/>
+                <DataGridTextColumn Binding="{Binding GROUP}" Header="Группа" Width="*"/>
+                <DataGridTextColumn Binding="{Binding GROUP}" Header="Лекция" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Title}" Header="Оценка за тест" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Result}" Header="Оценка за практ задание" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        
+
         <Grid Grid.Row="0" Grid.ColumnSpan="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -38,14 +39,14 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Label Content="Выберите лекцию" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="194" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22" Grid.Column="0" Grid.ColumnSpan="2" />
-            <Button  Background="#ff6347" VerticalAlignment="Center" Click="Editing_Test" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="140"  Grid.Column="1"  >
+            <Button  Background="#ff6347" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="140"  Grid.Column="1"  >
                 <TextBlock TextAlignment="Center"> Редактировать  <LineBreak/> урок</TextBlock>
             </Button>
-            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="New_lesson"  Background="#ff6347" Width="140"  Grid.Column="2" >
+            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="140"  Grid.Column="2" >
                 <TextBlock TextAlignment="Center"> Создать  <LineBreak/> урок</TextBlock>
             </Button>
-            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="Del_lesson"  Background="#ff6347" Width="140"  Grid.Column="3" >
-                <TextBlock TextAlignment="Center"> Удалить  <LineBreak/> урок</TextBlock>
+            <Button   VerticalAlignment="Center"   FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="150"  Grid.Column="3" >
+                <TextBlock TextAlignment="Center" Height="40" Width="146">Перейти к практич<LineBreak/>еской части ученика</TextBlock>
             </Button>
 
 
@@ -53,8 +54,4 @@
 
         </Grid>
     </Grid>
-   
-    
-    
-    
 </Window>
