@@ -38,7 +38,6 @@ namespace Kursovay
             task.Show();
             ////Process.Start(@"C:\dsds\ddddШахбабянСерёжаРафикович.txt");
             //Console.WriteLine(code);
-            Console.WriteLine("SDsds");
         }
     }
 }

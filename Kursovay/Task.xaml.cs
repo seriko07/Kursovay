@@ -44,7 +44,7 @@ namespace Kursovay
 
         private void Perform_click(object sender, RoutedEventArgs e)
         {
-            CSharpCodeProvider csc = new CSharpCodeProvider(new Dictionary<string, string>() { { "CompilerVersion", "v4.0" } });
+            CSharpCodeProvider csc = new CSharpCodeProvider(new Dictionary<string, string>() { { "CompilerVersion","v4.0"} });
             CompilerParameters parameters = new CompilerParameters(new[] {"mscorlib.dll","System.Core.dll"}, "test.exe",true);
             parameters.GenerateExecutable = true;
             CompilerResults results= csc.CompileAssemblyFromSource(parameters,TxtSource.Text);
@@ -126,8 +126,8 @@ namespace Kursovay
             sw.Reset();
             clocktxtblock.Text = "00:00:00";
         }
+
         
-    
-}
+    }
 }
  
