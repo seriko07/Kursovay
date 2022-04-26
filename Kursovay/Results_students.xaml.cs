@@ -25,19 +25,22 @@ namespace Kursovay
         {
             InitializeComponent(); 
             Results_list = Core.db.Results.ToList();
-
             results_grid.ItemsSource = Results_list;
         }
         public List <Results> Results_list { get; set; }
-
         private void Check_task(object sender, RoutedEventArgs e)
         {
-
+         
             //string code/* = File.ReadAllText(@"C:\dsds\ddddШахбабянСерёжаРафикович.txt")*/;
-            Task task = new Task(null,null,null);
+            Task task = new Task(null,null,(Results)(results_grid.SelectedItem));
             task.Show();
             ////Process.Start(@"C:\dsds\ddddШахбабянСерёжаРафикович.txt");
             //Console.WriteLine(code);
+
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Core.db.SaveChanges();
         }
     }
 }

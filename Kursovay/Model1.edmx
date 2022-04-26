@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище KursovayModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище KursovayModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="gender">
           <Key>
             <PropertyRef Name="ID" />
@@ -37,9 +37,11 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="IDstudents" Type="int" Nullable="false" />
           <Property Name="IDTest" Type="int" Nullable="false" />
-          <Property Name="Result" Type="int" Nullable="false" />
+          <Property Name="Result" Type="int" />
           <Property Name="Assessment_task" Type="int" />
           <Property Name="Assignment_comment" Type="nvarchar" MaxLength="50" />
+          <Property Name="Task_done" Type="bit" />
+          <Property Name="Test_done" Type="bit" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -278,8 +280,7 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KursovayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -319,9 +320,11 @@
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="IDstudents" Type="Int32" Nullable="false" />
           <Property Name="IDTest" Type="Int32" Nullable="false" />
-          <Property Name="Result" Type="Int32" Nullable="false" />
+          <Property Name="Result" Type="Int32" />
           <Property Name="Assessment_task" Type="Int32" />
           <Property Name="Assignment_comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Task_done" Type="Boolean" />
+          <Property Name="Test_done" Type="Boolean" />
           <NavigationProperty Name="Test" Relationship="Self.FK_Results_Test" FromRole="Results" ToRole="Test" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Results_Users" FromRole="Results" ToRole="Users" />
         </EntityType>
@@ -496,7 +499,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="KursovayEntities7" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="KursovayEntities8" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="gender" EntityType="Self.gender" />
           <EntitySet Name="Group" EntityType="Self.Group" />
           <EntitySet Name="Questions" EntityType="Self.Questions" />
@@ -589,7 +592,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище KursovayModelContainer" CdmEntityContainer="KursovayEntities7">
+        <EntityContainerMapping StorageEntityContainer="Хранилище KursovayModelContainer" CdmEntityContainer="KursovayEntities8">
           <EntitySetMapping Name="gender">
             <EntityTypeMapping TypeName="KursovayModel.gender">
               <MappingFragment StoreEntitySet="gender">
@@ -627,6 +630,8 @@
                 <ScalarProperty Name="Result" ColumnName="Result" />
                 <ScalarProperty Name="Assessment_task" ColumnName="Assessment_task" />
                 <ScalarProperty Name="Assignment_comment" ColumnName="Assignment_comment" />
+                <ScalarProperty Name="Task_done" ColumnName="Task_done" />
+                <ScalarProperty Name="Test_done" ColumnName="Test_done" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

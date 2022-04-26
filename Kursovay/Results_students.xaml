@@ -39,12 +39,9 @@
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Content="Выберите лекцию" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="194" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22" Grid.Column="0" Grid.ColumnSpan="2" />
-                <Button  Background="#ff6347" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="150"  Grid.Column="1"  >
-                    <TextBlock TextAlignment="Center"> Проверрить практи<LineBreak/>ческое задание</TextBlock>
-                </Button>
-                <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="140"  Grid.Column="2" >
-                    <TextBlock TextAlignment="Center"> Создать  <LineBreak/> урок</TextBlock>
+                <Label Content="Результаты тестов " HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="220" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22" Grid.Column="0" Grid.ColumnSpan="2" />
+                <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="140"  Grid.Column="2" Click="Button_Click" >
+                    <TextBlock TextAlignment="Center">Сохранить</TextBlock>
                 </Button>
                 <Button  Click="Check_task" VerticalAlignment="Center"   FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="150"  Grid.Column="3" >
                     <TextBlock TextAlignment="Center" Height="40" Width="146">Перейти к практич<LineBreak/>еской части ученика</TextBlock>

@@ -53,9 +53,7 @@ namespace Kursovay
         }
         private void Editing_Test(object sender, RoutedEventArgs e)
         {
-            var a = (Test)testgrid.SelectedItem;
-            Console.WriteLine(a.ID + a.Title);
-            Lesson red = new Lesson(Teacher,a);
+            Lesson red = new Lesson(Teacher, (Test)testgrid.SelectedItem);
             red.Show();
         }
 

@@ -27,11 +27,11 @@ namespace Kursovay
         DispatcherTimer dt = new DispatcherTimer();
         public Users users1 { get; set; }
         public Test test1 { get; set; }
-        public string Code { get; set; }    
+        public Results results { get; set; }
 
-        public Task(Users user, Test test, string code)
+        public Task(Users user, Test test, Results res)
         {
-
+            results = res;
            test1=test;
             Stopwatch sw = new Stopwatch();
             string currentTime = string.Empty;
@@ -68,6 +68,13 @@ namespace Kursovay
 
         private async void Save_click(object sender, RoutedEventArgs e)
         {
+            Results resultss = new Results();
+            resultss.ID= Core.db.Results.ToList().Last().ID + 1;
+            resultss.IDstudents = users1.ID;
+            resultss.IDTest = test1.ID;
+            Core.db.Results.Add(resultss);
+            Core.db.SaveChanges(); 
+            
             string path = @"C:\dsds\"+(string)test1.Title + (string)users1.FCS +".txt";
             //string dsdsds = users1.FCS;
             //string textConcat = (string)dsdsds.Concat("and prosper!");
@@ -77,8 +84,7 @@ namespace Kursovay
             {
                 byte[] buffer = Encoding.Unicode.GetBytes(TxtSource.Text);
                 char[] chars = Encoding.Unicode.GetChars(buffer);
-                await fstream.WriteAsync(buffer, 0, buffer.Length);
-                Console.WriteLine("текст записаг");
+                 await fstream.WriteAsync(buffer, 0, buffer.Length);
                 //f.WriteLine(TxtSource.Text + "\r\n");
             }
         }
@@ -87,14 +93,16 @@ namespace Kursovay
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            TxtSource.Text = File.ReadAllText(@"C:\dsds\ddddШахбабянСерёжаРафикович.txt");
-
-            //TxtSource.Text = File.ReadAllText(@"C:\dsds\ddddШахбабянСерёжаРафикович.cs");
-
-
+            if (results!=null)
+            {
+                var Test = Core.db.Test.First(c => c.ID == results.IDTest);// сохраняем в лист информацию о том какой тест проверяет учитель
+                var User = Core.db.Users.First(c => c.ID == results.IDstudents);// сохраняем в лист информацию о том чей тест проверяет учитель
+                TxtSource.Text = File.ReadAllText(@"C:\dsds\" + (string)Test.Title + (string)User.FCS+".txt");
+                save_but.Visibility = Visibility.Hidden;
+            }
+            
+           //TxtSource.Text = File.ReadAllText(@"C:\dsds\ddddШахбабянСерёжаРафикович.cs");
         }
-
-
         private void dt_Tick(object sender, EventArgs e)
         {
             if (sw.IsRunning)
@@ -102,7 +110,7 @@ namespace Kursovay
                 TimeSpan ts = sw.Elapsed;
                 currentTime = String.Format("{0:00}:{1:00}:{2:00}",
                 ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
-                clocktxtblock.Text = currentTime;
+                //clocktxtblock.Text = currentTime;
             }
 
         }
@@ -124,7 +132,7 @@ namespace Kursovay
         private void resetbtn_Click(object sender, RoutedEventArgs e)
         {
             sw.Reset();
-            clocktxtblock.Text = "00:00:00";
+            //clocktxtblock.Text = "00:00:00";
         }
 
         

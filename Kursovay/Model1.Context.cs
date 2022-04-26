@@ -15,10 +15,10 @@ namespace Kursovay
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class KursovayEntities7 : DbContext
+    public partial class KursovayEntities8 : DbContext
     {
-        public KursovayEntities7()
-            : base("name=KursovayEntities7")
+        public KursovayEntities8()
+            : base("name=KursovayEntities8")
         {
         }
     
