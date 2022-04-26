@@ -21,8 +21,10 @@ namespace Kursovay
     /// </summary>
     public partial class Results_students : Window
     {
-        public Results_students()
+        public Teachers teacher { get; set; }
+        public Results_students(Teachers teachers)
         {
+            teacher = teachers;
             InitializeComponent(); 
             Results_list = Core.db.Results.ToList();
             results_grid.ItemsSource = Results_list;
@@ -41,6 +43,13 @@ namespace Kursovay
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Core.db.SaveChanges();
+        }
+
+        private void Open_lt(object sender, RoutedEventArgs e)
+        {
+            Lessons_teacher lessons_Teacher = new Lessons_teacher(teacher);
+            lessons_Teacher.Show();
+            this.Close();
         }
     }
 }

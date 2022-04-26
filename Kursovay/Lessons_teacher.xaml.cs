@@ -63,5 +63,11 @@ namespace Kursovay
             Core.db.SaveChanges();
 
         }
+        private void Open_Rs(object sender, RoutedEventArgs e)
+        {
+            Results_students results_Students = new Results_students(Teacher);
+            results_Students.Show();
+            this.Close();
+        }
     }
 }
