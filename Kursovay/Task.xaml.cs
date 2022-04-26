@@ -27,9 +27,11 @@ namespace Kursovay
         DispatcherTimer dt = new DispatcherTimer();
         public Users users1 { get; set; }
         public Test test1 { get; set; }
+        public string Code { get; set; }    
 
-        public Task(Users user, Test test)
+        public Task(Users user, Test test, string code)
         {
+
            test1=test;
             Stopwatch sw = new Stopwatch();
             string currentTime = string.Empty;
@@ -43,9 +45,12 @@ namespace Kursovay
         private void Perform_click(object sender, RoutedEventArgs e)
         {
             CSharpCodeProvider csc = new CSharpCodeProvider(new Dictionary<string, string>() { { "CompilerVersion", "v4.0" } });
-            CompilerParameters parameters = new CompilerParameters(new[] {"mscorlib.dll","System.Core.dll"}, TxtOutput.Text,true);
+            CompilerParameters parameters = new CompilerParameters(new[] {"mscorlib.dll","System.Core.dll"}, "test.exe",true);
             parameters.GenerateExecutable = true;
             CompilerResults results= csc.CompileAssemblyFromSource(parameters,TxtSource.Text);
+
+
+
             if (results.Errors.HasErrors)
             {
                 results.Errors.Cast<CompilerError>().ToList().ForEach(error => TxtStatus.Text += error.ErrorText + "\r\n");
@@ -55,7 +60,7 @@ namespace Kursovay
             {
                 TxtStatus.Text = "--------Build succedeed--------";
                 String appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
-                Process.Start($"{appStartPath}/{TxtOutput.Text}");
+                Process.Start($"{appStartPath}/{"test.exe"}");
 
             }
 
@@ -82,7 +87,10 @@ namespace Kursovay
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-         
+            TxtSource.Text = File.ReadAllText(@"C:\dsds\ddddШахбабянСерёжаРафикович.txt");
+
+            //TxtSource.Text = File.ReadAllText(@"C:\dsds\ddddШахбабянСерёжаРафикович.cs");
+
 
         }
 
@@ -110,7 +118,7 @@ namespace Kursovay
             {
                 sw.Stop();
             }
-            elapsedtimeitem.Items.Add(currentTime);
+            //elapsedtimeitem.Items.Add(currentTime); нужен для таймера
         }
 
         private void resetbtn_Click(object sender, RoutedEventArgs e)
@@ -118,6 +126,7 @@ namespace Kursovay
             sw.Reset();
             clocktxtblock.Text = "00:00:00";
         }
+        
     
 }
 }

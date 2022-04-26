@@ -69,7 +69,7 @@ namespace Kursovay
 
         private void Task_click(object sender, RoutedEventArgs e)
         {
-            new Task(users1,Test_theory).Show();
+            new Task(users1,Test_theory,null).Show();
 
         }
     }

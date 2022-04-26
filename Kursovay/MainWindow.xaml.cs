@@ -29,7 +29,7 @@ namespace Kursovay
         public MainWindow()
         {
             InitializeComponent();
-            Results results = new Results();
+            Results_students results = new Results_students();
             results.Show(); 
             //Openpage(pages.login); // Открываем авторизацию
         }
