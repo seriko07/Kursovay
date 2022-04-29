@@ -24,6 +24,9 @@ namespace Kursovay
 
         public List<Test> Tests { get; set; }
         public Test tests { get; set; }
+        public List<Questions> q { get; set; }
+        public Results a { get; set; }
+        public List<Results> r { get; set; }
 
         public Lessons_teacher(Teachers Teacher)
         {
@@ -59,7 +62,19 @@ namespace Kursovay
 
         private void Del_lesson(object sender, RoutedEventArgs e)
         {
-            Core.db.Test.Remove((Test)testgrid.SelectedItem);
+            var Si = ((Test)testgrid.SelectedItem);
+            Core.db.Test.Remove(Si);
+
+            r = Core.db.Results.Where(c => c.IDTest == Si.ID).ToList();
+            q = Core.db.Questions.Where(c => c.ID_test == Si.ID).ToList();
+            foreach (var item in r)
+            {
+             
+            }
+         
+          
+            //Core.db.Results.Remove((Results)r.ToList());
+            //Core.db.Questions.Remove((Questions)q.ToList());
             Core.db.SaveChanges();
 
         }
