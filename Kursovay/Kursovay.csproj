@@ -84,6 +84,9 @@
     <Compile Include="Lessons_teacher.xaml.cs">
       <DependentUpon>Lessons_teacher.xaml</DependentUpon>
     </Compile>
+    <Compile Include="List_questions.xaml.cs">
+      <DependentUpon>List_questions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -155,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lessons_teacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="List_questions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

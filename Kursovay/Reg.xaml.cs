@@ -65,13 +65,24 @@ namespace Kursovay
                 }
 
                 Teachers teacherss = new Teachers();
-                teacherss.ID = Core.db.Teachers.ToList().Last().ID + 1;
+                try
+                {
+                    teacherss.ID = Core.db.Teachers.ToList().Last().ID + 1;
+                }
+                catch (Exception)
+                {
+                    teacherss.ID = 1;
+                }
                 teacherss.FCS = FIO_Teachers;
                 teacherss.Login = Login.Text;
                 teacherss.Password = Password.Password;
                 teacherss.Role1 = (Role)Role.SelectedItem;
                 teacherss.gender = (gender)GenderID.SelectedItem;
                 Core.db.Teachers.Add(teacherss);
+                Core.db.SaveChanges();
+                MainWindow main = new MainWindow();
+                main.Show();
+                this.Close();
             }
             else
             {
@@ -101,7 +112,14 @@ namespace Kursovay
                     
                     }
                 Users userss = new Users();
-                userss.ID = Core.db.Users.ToList().Last().ID + 1;
+                try
+                {
+                    userss.ID = Core.db.Users.ToList().Last().ID + 1;
+                }
+                catch (Exception)
+                {
+                    userss.ID = 1;
+                }
                  
                 userss.FCS = FIO_Student;
                 userss.Login = Login.Text;
@@ -110,6 +128,10 @@ namespace Kursovay
                 userss.gender = (gender)GenderID.SelectedItem;
                 userss.Group = (Group)GroupID.SelectedItem;
                 Core.db.Users.Add(userss);
+                Core.db.SaveChanges();
+                MainWindow main = new MainWindow();
+                main.Show();
+                this.Close();
             }
             //Core.db.SaveChanges();
             //MainWindow main = new MainWindow();

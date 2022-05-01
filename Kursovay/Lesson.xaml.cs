@@ -22,13 +22,22 @@ namespace Kursovay
         //private Test selectedItem;
         public Teachers T { get; set; }
         public Test currentTest { get; set; }
+        public Test CurrentTest { get; set; }
         public Lesson(Teachers Teacher, Test test)
         {
 
             InitializeComponent();
             DataContext = this;
             currentTest = test;
-
+            CurrentTest = test;
+            var questions = Core.db.Questions.ToList();
+            //foreach (var item in questions)
+            //{
+            //    if (item.ID_test == currentTest.ID)
+            //    {
+            //        View_test.Visibility = Visibility.Visible;
+            //    }
+            //}
             T = Teacher;
             
             //if (currentTest != null)
@@ -56,11 +65,8 @@ namespace Kursovay
 
        
 
-        
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void savetest()
         {
-
             if (currentTest != null)
             {
                 currentTest.Theory = Theory.Text;
@@ -74,12 +80,20 @@ namespace Kursovay
             else
             {
                 Test newtest = new Test();
-                newtest.ID = Core.db.Test.ToList().Last().ID + 1;
+                try
+                {
+                    newtest.ID = Core.db.Test.ToList().Last().ID + 1;
+
+                }
+                catch (Exception)
+                {
+                    newtest.ID = 1;
+                }
                 newtest.Title = Title.Text;
                 newtest.Theory = Theory.Text;
                 newtest.TeacherID = T.ID;
-                newtest.Date_of_creation= DateTime.Now ;
-                newtest.Task= Task.Text;
+                newtest.Date_of_creation = DateTime.Now;
+                newtest.Task = Task.Text;
                 Core.db.Test.Add(newtest);
                 Core.db.SaveChanges();
                 Lesson l2 = new Lesson(T, newtest);
@@ -87,6 +101,12 @@ namespace Kursovay
                 this.Close();
 
             }
+        }
+        
+        private void Save_click(object sender, RoutedEventArgs e)
+        {
+
+            savetest();
 
 
 
@@ -94,11 +114,57 @@ namespace Kursovay
 
         private void Button_Click_Test(object sender, RoutedEventArgs e)
         {
-            test_creation test_Creation = new test_creation();
+            savetest();
+
+            test_creation test_Creation = new test_creation(CurrentTest);
             test_Creation.Show();
+            var questions = Core.db.Questions.ToList();
+            //foreach (var item in questions)
+            //{
+            //    if (item.ID_test == currentTest.ID)
+            //    {
+            //        View_test.Visibility = Visibility.Visible;
+            //    }
+            //    else { View_test.Visibility = Visibility.Collapsed; }
+
+            //}
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            List_questions questions = new List_questions(CurrentTest);
+            questions.Show();
+        }
 
-        
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //InitializeComponent();
+
+            //var questions = Core.db.Questions.ToList();
+            //try
+            //{
+            //    //questions = Core.db.Questions.Where(u => u.ID_test == CurrentTest.ID).ToList();
+
+            //}
+            //catch (Exception)
+            //{
+
+            //}
+            //Console.WriteLine(questions.Count);
+                            //questions2 = Core.db.Questions.Where(u => u.ID_test == test.ID).ToList();
+
+
+
+            //foreach (var item in questions)
+            //{
+            //    if (item.ID_test == CurrentTest.ID)
+            //    {
+            //        View_test.Visibility = Visibility.Visible;
+            //    }
+            //    else { View_test.Visibility = Visibility.Collapsed; }
+            //    InitializeComponent();
+
+            //}
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace Kursovay
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (Test_theory.Task != null)
+            if (Test_theory.Task == null)
             {
                 task_but.Visibility = Visibility.Hidden;
             }

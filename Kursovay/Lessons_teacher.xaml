@@ -17,10 +17,10 @@
             <RowDefinition Height ="0.16*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid AutoGenerateColumns="False" x:Name="testgrid" MouseUp="Testgrid_MouseUp" Grid.Row="1" Grid.ColumnSpan="3"  >
+        <DataGrid AutoGenerateColumns="False"  x:Name="testgrid" MouseUp="Testgrid_MouseUp" Grid.Row="1" Grid.ColumnSpan="3"  >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Название лекции" Width="*"/>
-                <DataGridTextColumn Binding="{Binding FCS}" Width="*" Header="Учитель" />
+                <DataGridTextColumn Binding="{Binding Teachers.FCS}" Width="*" Header="Учитель" />
                 <DataGridTextColumn Binding="{Binding Date_of_creation}" Header="Дата создания" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -43,16 +43,16 @@
                 HorizontalAlignment="Center" VerticalAlignment="Top"  Height="52" Width="300" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22" Grid.Column="0" Grid.ColumnSpan="3"  >
                 Выберите <LineBreak/> лекцию
             </TextBlock>
-            <Button  Background="#ff6347" VerticalAlignment="Center" Click="Editing_Test" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="140"  Grid.Column="3" Margin="10,0,10,0"  >
+            <Button  Background="#ff6347" VerticalAlignment="Center" Click="Editing_Test" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="140" BorderBrush="Black" Grid.Column="3"  >
                 <TextBlock TextAlignment="Center"> Редактировать  <LineBreak/> урок</TextBlock>
             </Button>
-            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="New_lesson"  Background="#ff6347" Width="140"  Grid.Column="4" Margin="10,0,10,0" >
+            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="New_lesson" BorderBrush="Black" Background="#ff6347" Width="140"  Grid.Column="4"  >
                 <TextBlock TextAlignment="Center"> Создать  <LineBreak/> урок</TextBlock>
             </Button>
-            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="Del_lesson"  Background="#ff6347" Width="140"  Grid.Column="5" Margin="10,0,10,0" >
+            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="Del_lesson" BorderBrush="Black" Background="#ff6347" Width="140"  Grid.Column="5"  >
                 <TextBlock TextAlignment="Center"> Удалить  <LineBreak/> урок</TextBlock>
             </Button>
-            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="Open_Rs"  Background="#ff6347" Width="140"  Grid.Column="2" Margin="10,0,10,0" >
+            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="Open_Rs" BorderBrush="Black" Background="#ff6347" Width="140"  Grid.Column="2" >
                 <TextBlock TextAlignment="Center"> Журнал  </TextBlock>
             </Button>
 

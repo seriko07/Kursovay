@@ -83,7 +83,7 @@
 
             <TextBox x:Name="Login" Grid.Column="1" Grid.Row="7" Width="250"  Height="36"  />
             <PasswordBox x:Name="Password" Grid.Column="1" Grid.Row="8" Width="250"  Height="36"  />
-            <Button x:Name="Add" Click="Add_Click" Width="250" Grid.Column="1" Grid.Row="9"
+        <Button Click="Add_Click" Width="250" Grid.Column="1" Grid.Row="9" BorderBrush="Black"
                     FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" Height="36">Сохранить</Button>
 
         

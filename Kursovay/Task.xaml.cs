@@ -69,7 +69,16 @@ namespace Kursovay
         private async void Save_click(object sender, RoutedEventArgs e)
         {
             Results resultss = new Results();
-            resultss.ID= Core.db.Results.ToList().Last().ID + 1;
+            try
+            {
+                resultss.ID = Core.db.Results.ToList().Last().ID + 1;
+
+            }
+            catch (Exception)
+            {
+
+                results.ID = 1;
+            }
             resultss.IDstudents = users1.ID;
             resultss.IDTest = test1.ID;
             Core.db.Results.Add(resultss);

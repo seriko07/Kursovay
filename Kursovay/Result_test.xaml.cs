@@ -31,15 +31,11 @@ namespace Kursovay
             Test = test;
             student = users;
             SSS.Text = student.FCS + " " ;
-
-
             int bal = 0;
             double b = (double)amount_cor_anss / anss;
             double a = 0;
             a = (double)b * 100;
             a = Math.Round(a, 2);
-
-
             if (a >= 70 && a <= 90)
             {
                 bal = 4;
@@ -68,14 +64,15 @@ namespace Kursovay
 
             string bb = Convert.ToString(a);
             Result.Text = bb + "%";
-
-
-
-
-
-
-            Results results = new Results();
-            results.ID = Core.db.Results.ToList().Last().ID + 1;
+            Results results = new Results(); 
+            try
+            {
+                results.ID = Core.db.Results.ToList().Last().ID + 1;
+            }
+            catch (Exception)
+            {
+                results.ID = 1;
+            }
             results.IDstudents = student.ID;
             results.IDTest = Test.ID;
             results.Result = bal;

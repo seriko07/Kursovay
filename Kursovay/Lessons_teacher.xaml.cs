@@ -24,9 +24,10 @@ namespace Kursovay
 
         public List<Test> Tests { get; set; }
         public Test tests { get; set; }
-        public List<Questions> q { get; set; }
+        public Questions q { get; set; }
+        public List <Questions> w { get; set; }
         public Results a { get; set; }
-        public List<Results> r { get; set; }
+        public List <Results> r { get; set; }
 
         public Lessons_teacher(Teachers Teacher)
         {
@@ -49,6 +50,8 @@ namespace Kursovay
         {
             Lesson tc = new Lesson(Teacher,tests) ;
             tc.Show();
+            Tests = Core.db.Test.ToList();
+            testgrid.ItemsSource = Tests;
         }
         private void New_test(object sender, RoutedEventArgs e)
         {
@@ -64,18 +67,14 @@ namespace Kursovay
         {
             var Si = ((Test)testgrid.SelectedItem);
             Core.db.Test.Remove(Si);
-
             r = Core.db.Results.Where(c => c.IDTest == Si.ID).ToList();
-            q = Core.db.Questions.Where(c => c.ID_test == Si.ID).ToList();
-            foreach (var item in r)
-            {
-             
-            }
-         
-          
-            //Core.db.Results.Remove((Results)r.ToList());
-            //Core.db.Questions.Remove((Questions)q.ToList());
+            w = Core.db.Questions.Where(c => c.ID_test == Si.ID).ToList();
+            Core.db.Results.RemoveRange(r);
+            Core.db.Questions.RemoveRange(w);
             Core.db.SaveChanges();
+            Tests = Core.db.Test.ToList();
+            testgrid.ItemsSource = Tests;
+
 
         }
         private void Open_Rs(object sender, RoutedEventArgs e)
