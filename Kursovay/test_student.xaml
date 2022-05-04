@@ -29,6 +29,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Выберите  лекцию" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="45" Width="282" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22"/>
-        <Button Content="Перейти к лекции" BorderBrush="Black" Background="#ff6347 " HorizontalAlignment="Left" Margin="369,0,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" RenderTransformOrigin="0.727,0.51"/>
+        <Button Content="Перейти к лекции" BorderBrush="Black" Background="#ff6347 " HorizontalAlignment="Right"  VerticalAlignment="Top" Width="131" Click="Button_Click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50"/>
     </Grid>
 </Window>

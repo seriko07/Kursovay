@@ -77,20 +77,24 @@ namespace Kursovay
             catch (Exception)
             {
 
-                results.ID = 1;
+                resultss.ID = 1;
             }
             resultss.IDstudents = users1.ID;
             resultss.IDTest = test1.ID;
             Core.db.Results.Add(resultss);
             Core.db.SaveChanges(); 
             
-            string path = @"C:\dsds\"+(string)test1.Title + (string)users1.FCS +".txt";
+            //string path = @"C:\dsds\"+(string)test1.Title + (string)users1.FCS +".txt";
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string path = (desktop + "\\Practics\\" + (string)test1.Title + (string)users1.FCS + ".txt");
             //string dsdsds = users1.FCS;
             //string textConcat = (string)dsdsds.Concat("and prosper!");
             //string txt = path + (string)users1.FCS;
+            File.WriteAllText(path, string.Empty);
 
             using (FileStream fstream = new FileStream(path, FileMode.OpenOrCreate))
             {
+
                 byte[] buffer = Encoding.Unicode.GetBytes(TxtSource.Text);
                 char[] chars = Encoding.Unicode.GetChars(buffer);
                  await fstream.WriteAsync(buffer, 0, buffer.Length);
@@ -106,11 +110,15 @@ namespace Kursovay
             {
                 var Test = Core.db.Test.First(c => c.ID == results.IDTest);// сохраняем в лист информацию о том какой тест проверяет учитель
                 var User = Core.db.Users.First(c => c.ID == results.IDstudents);// сохраняем в лист информацию о том чей тест проверяет учитель
-                TxtSource.Text = File.ReadAllText(@"C:\dsds\" + (string)Test.Title + (string)User.FCS+".txt");
+                //TxtSource.Text = File.ReadAllText(@"C:\dsds\" + (string)Test.Title + (string)User.FCS+".txt");
+                string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                TxtSource.Text = File.ReadAllText(desktop + "\\Practics\\" + (string)Test.Title + (string)User.FCS+".txt");
                 save_but.Visibility = Visibility.Hidden;
-            }
-            
-           //TxtSource.Text = File.ReadAllText(@"C:\dsds\ddddШахбабянСерёжаРафикович.cs");
+                TxtTask.Text = Test.Task;
+
+            }else TxtTask.Text = test1.Task;
+
+            //TxtSource.Text = File.ReadAllText(@"C:\dsds\ddddШахбабянСерёжаРафикович.cs");
         }
         private void dt_Tick(object sender, EventArgs e)
         {
