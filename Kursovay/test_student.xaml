@@ -10,7 +10,7 @@
     <Grid>
 
 
-        <DataGrid AutoGenerateColumns="False" x:Name="testgrid" Margin="0,50,0,0" MouseUp="Testgrid_MouseUp" SelectionChanged="testgrid_SelectionChanged">
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="testgrid" Margin="0,50,0,0" MouseUp="Testgrid_MouseUp" SelectionChanged="testgrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Название лекции" Width="*"/>
                 <DataGridTemplateColumn Width="*" Header="Учитель">

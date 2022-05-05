@@ -112,7 +112,9 @@ namespace Kursovay
                 var User = Core.db.Users.First(c => c.ID == results.IDstudents);// сохраняем в лист информацию о том чей тест проверяет учитель
                 //TxtSource.Text = File.ReadAllText(@"C:\dsds\" + (string)Test.Title + (string)User.FCS+".txt");
                 string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                TxtSource.Text = File.ReadAllText(desktop + "\\Practics\\" + (string)Test.Title + (string)User.FCS+".txt");
+                var text = File.ReadAllText((desktop + "\\Practics\\" + (string)Test.Title + (string)User.FCS + ".txt"), Encoding.GetEncoding(1251));
+                TxtSource.Text = text;
+                //TxtSource.Text = File.ReadAllText(desktop + "\\Practics\\" + (string)Test.Title + (string)User.FCS+".txt");
                 save_but.Visibility = Visibility.Hidden;
                 TxtTask.Text = Test.Task;
 
