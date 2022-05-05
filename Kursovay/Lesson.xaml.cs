@@ -23,6 +23,7 @@ namespace Kursovay
         public Teachers T { get; set; }
         public Test currentTest { get; set; }
         public Test CurrentTest { get; set; }
+        public Test newtest1 { get; set; }
         public Lesson(Teachers Teacher, Test test)
         {
 
@@ -99,25 +100,29 @@ namespace Kursovay
                 Lesson l2 = new Lesson(T, newtest);
                 l2.Show();
                 this.Close();
-
+                newtest1  = newtest;
             }
         }
         
         private void Save_click(object sender, RoutedEventArgs e)
         {
-
             savetest();
-
-
-
         }
 
         private void Button_Click_Test(object sender, RoutedEventArgs e)
         {
             savetest();
-
-            test_creation test_Creation = new test_creation(CurrentTest);
-            test_Creation.Show();
+            if (currentTest != null)
+            {
+                test_creation test_Creation = new test_creation(CurrentTest);
+                test_Creation.Show();
+            }
+            else
+            {
+                test_creation test_Creation = new test_creation(newtest1);
+                test_Creation.Show();
+            }
+           
             var questions = Core.db.Questions.ToList();
             //foreach (var item in questions)
             //{

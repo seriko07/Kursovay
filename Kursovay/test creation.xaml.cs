@@ -41,9 +41,9 @@ namespace Kursovay
 
             try
             {
-                question1.ID_test = test.ID;
+                question1.ID_test = Test.ID;
             }
-            catch (Exception)
+            catch
             {
                 question1.ID_test = 1;
             }
