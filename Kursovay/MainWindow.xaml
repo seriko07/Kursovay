@@ -31,11 +31,12 @@
             <RowDefinition></RowDefinition>
 
         </Grid.RowDefinitions>
-        <Label Content="Авторизация" HorizontalAlignment="Left" Grid.Column="3" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="87" Width="296" FontSize="44" Foreground="Black" Grid.RowSpan="2" RenderTransformOrigin="0.52,0.632" FontFamily="/Kursovay;component/#Cocomat Pro" Margin="25,23,0,0"/>
+        <Label Content="Авторизация" HorizontalAlignment="Left" Grid.Column="3" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="59" Width="296" FontSize="44" Foreground="Black" RenderTransformOrigin="0.52,0.632" FontFamily="/Kursovay;component/#Cocomat Pro" Margin="25,23,0,0"/>
+
         <Label Content="Логин:"  Grid.Column="3" Grid.Row="1"  VerticalAlignment="Center" Height="84" FontSize="33" Foreground="Black" Grid.ColumnSpan="2"  Grid.RowSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" Margin="0,0,82,0"/>
         <Label Content="Пароль:" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="84" Width="133" FontSize="33 " Foreground="Black" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,58,0,0" Grid.RowSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" />
-        <TextBox x:Name="log" HorizontalAlignment="Left" Height="40"  TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Top" Width="162" RenderTransformOrigin="0.466,-0.147" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="55,47,0,0" Grid.RowSpan="2" />
-        <PasswordBox x:Name="pas" HorizontalAlignment="Left" Height="40" BorderBrush="Black" VerticalAlignment="Top" Width="162" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Margin="55,70,0,0" Grid.RowSpan="2" />
+        <TextBox x:Name="log" HorizontalAlignment="Left" Height="40"  TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Top" Width="162" RenderTransformOrigin="0.466,-0.147" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="55,47,0,0" Grid.RowSpan="2" Text="q" />
+        <PasswordBox x:Name="pas" HorizontalAlignment="Left" Height="40" BorderBrush="Black" VerticalAlignment="Top" Width="162" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Margin="55,70,0,0" Grid.RowSpan="2" Password="q" />
         <Button x:Name="button_login" Content="Авторизоваться" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="132" 
                 Click="Button_autoriz" Height="53" Grid.Row="4" Grid.Column="3" BorderBrush="Black"
                FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" Grid.ColumnSpan="2"
@@ -43,6 +44,7 @@
         <Button x:Name="button_reg" Content="Регистрация" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="132"
                 Click="Button_reg_Click" Height="53" Grid.Row="4" Grid.Column="4" BorderBrush="Black"
                 FontFamily="/Kursovay;component/#Cocomat Pro" Grid.ColumnSpan="2"  Background="#ff6347" Margin="84,0,0,0" FontSize="14"/>
+        <Label Grid.Column="3" x:Name="error_lab" Content="" HorizontalAlignment="Center" FontFamily="c:\users\shakh\desktop\diplom\kursovay\fonts\cocomatpro-regular.ttf" Foreground="Red" FontSize="14" Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
 
     </Grid>
 </Window>

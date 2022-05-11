@@ -86,7 +86,7 @@ namespace Kursovay
             
             //string path = @"C:\dsds\"+(string)test1.Title + (string)users1.FCS +".txt";
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string path = (desktop + "\\Practics\\" + (string)test1.Title + (string)users1.FCS + ".txt");
+            string path = (desktop + "\\Practics\\" + (string)test1.Title + " " + (string)users1.FCS + ".txt");
             //string dsdsds = users1.FCS;
             //string textConcat = (string)dsdsds.Concat("and prosper!");
             //string txt = path + (string)users1.FCS;

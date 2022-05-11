@@ -77,6 +77,7 @@ namespace Kursovay
                     this.Close();
                 }
             }
+            error_lab.Content = "Неверный логин или пароль";
             //Console.WriteLine(teachers); 
 
 
@@ -85,12 +86,12 @@ namespace Kursovay
                 //Console.WriteLine("{0} - {1} - {2} - {3}", p.ID, p.Name, p.Login, p.Password);
 
         }
-        private void Button_less(object sender, RoutedEventArgs e)
-        {
-            Lesson lesson = new Lesson(Teacher,test);
-            lesson.Show();
-            this.Close();
-        }
+        //private void Button_less(object sender, RoutedEventArgs e)
+        //{
+        //    Lesson lesson = new Lesson(Teacher,test);
+        //    lesson.Show();
+        //    this.Close();
+        //}
     }
 } 
 

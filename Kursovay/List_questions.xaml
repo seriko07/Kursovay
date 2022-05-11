@@ -20,7 +20,7 @@
                 </Grid.RowDefinitions>
                 <DataGrid AutoGenerateColumns="False" x:Name="questions_grid" Grid.Row="1" Grid.ColumnSpan="3" >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding ID}" x:Name="line_number" Header="Номер вопроса" Width="*"/>
+                        <DataGridTextColumn Binding="{Binding AlternationIndex, RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
                         <DataGridTextColumn Binding="{Binding Question}" Header="Вопрос" Width="*"/>
                         <DataGridTextColumn Binding="{Binding Сorrect_answer}" Header="Правильный ответ" Width="*"/>
                         <DataGridTextColumn Binding="{Binding First_answer}" Header="Первый вариант ответа" Width="*"/>
