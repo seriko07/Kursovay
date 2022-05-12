@@ -72,7 +72,15 @@ namespace Kursovay
         {
             InitializeComponent();
             DataContext = this;
-            Qs = Core.db.Questions.First(c => c.ID == QS_ID);
+            try
+            {
+                Qs = Core.db.Questions.First(c => c.ID == QS_ID);
+            }
+            catch (Exception)
+            {
+                new Result_test(ans, amount_cor_ans, users1, test1).Show();
+                this.Close();
+            }
             if (TestId == Qs.ID_test)
             {
                 //Создание объекта для генерации чисел

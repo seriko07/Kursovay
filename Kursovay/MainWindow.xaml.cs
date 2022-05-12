@@ -68,13 +68,13 @@ namespace Kursovay
                     //MessageBox.Show("Пользователь авторизовался - учитель");
                     //Teachers  = Core.db.Teachers.Where(c => c.ID == p.ID).ToList();
                     //Teachers  teachers1 = new Core.db.Teachers.First(c => c.ID == p.ID);
-                    Teacher = Core.db.Teachers.First(c => c.ID == p.ID);// сохраняем в лист информацию о том какой учитель зашёл
+                    Teacher = Core.db.Teachers.First(c => c.ID == p.ID);// сохраняем в поле информацию о том какой учитель зашёл
                     //Lesson L1 = new Lesson(Teacher,test);
                     //test_student test_Student = new test_student(Teacher);
                     Lessons_teacher lessons_Teacher =new Lessons_teacher(Teacher);
                     //L1.Show();
                     lessons_Teacher.Show();
-                    this.Close();
+
                 }
             }
             error_lab.Content = "Неверный логин или пароль";
@@ -85,6 +85,19 @@ namespace Kursovay
             //    var id = p.ID;
                 //Console.WriteLine("{0} - {1} - {2} - {3}", p.ID, p.Name, p.Login, p.Password);
 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private void button_login_user_Click_1(object sender, RoutedEventArgs e)
+        {
+            student = Core.db.Users.First(c => c.ID == 1);
+            test_student ts = new test_student(student);
+            ts.Show();
         }
         //private void Button_less(object sender, RoutedEventArgs e)
         //{
