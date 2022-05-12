@@ -72,12 +72,12 @@ namespace Kursovay
             try
             {
                 var d = Core.db.Results.Where(u => u.IDTest == grid_element.ID && u.IDstudents == student.ID).ToList();
-                if (d.Count == 0)
-                {
+                //if (d.Count == 0)
+                //{
                     new Theory((Test)testgrid.SelectedItem, student).Show();
 
-                }
-                else MessageBox.Show("Вы уже выполняли, выбирите пожалуйста другой тест");
+                //}
+                //else MessageBox.Show("Вы уже выполняли, выбирите пожалуйста другой тест");
             }
             catch (Exception)
             {
