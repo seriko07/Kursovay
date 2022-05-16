@@ -21,6 +21,7 @@ namespace Kursovay
     public partial class MainWindow : Window
     {
         public Users student { get; set; }
+        public Test res { get; set; }
         public List<Teachers> Teachers { get; set; }
         public Teachers Teacher { get; set; }
         public Test test { get; set; }
@@ -98,6 +99,15 @@ namespace Kursovay
             student = Core.db.Users.First(c => c.ID == 1);
             test_student ts = new test_student(student);
             ts.Show();
+        }
+
+        private void test_Click(object sender, RoutedEventArgs e)
+        {
+            student = Core.db.Users.First(c => c.ID == 1);// сохраняем в поле информацию о том какой студент зашёл
+            test = Core.db.Test.First(c => c.ID == 1);// сохраняем в поле информацию о том какой студент зашёл
+
+            Testwindow testwindow = new Testwindow(student,res);
+            testwindow.Show();
         }
         //private void Button_less(object sender, RoutedEventArgs e)
         //{
