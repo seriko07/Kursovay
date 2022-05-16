@@ -13,10 +13,10 @@ namespace Kursovay
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KursovayEntities8 : DbContext
+    public partial class KursovayEntities9 : DbContext
     {
-        public KursovayEntities8()
-            : base("name=KursovayEntities8")
+        public KursovayEntities9()
+            : base("name=KursovayEntities9")
         {
         }
     
@@ -30,7 +30,6 @@ namespace Kursovay
         public virtual DbSet<Questions> Questions { get; set; }
         public virtual DbSet<Results> Results { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Teachers> Teachers { get; set; }
         public virtual DbSet<Test> Test { get; set; }
         public virtual DbSet<Users> Users { get; set; }

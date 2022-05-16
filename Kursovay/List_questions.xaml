@@ -18,9 +18,8 @@
                     <RowDefinition Height ="0.16*"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <DataGrid AutoGenerateColumns="False" x:Name="questions_grid" Grid.Row="1" Grid.ColumnSpan="3" >
+                <DataGrid AutoGenerateColumns="False" x:Name="questions_grid" Grid.Row="1" Grid.ColumnSpan="3" LoadingRow="questions_grid_LoadingRow" >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding AlternationIndex, RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
                         <DataGridTextColumn Binding="{Binding Question}" Header="Вопрос" Width="*"/>
                         <DataGridTextColumn Binding="{Binding Сorrect_answer}" Header="Правильный ответ" Width="*"/>
                         <DataGridTextColumn Binding="{Binding First_answer}" Header="Первый вариант ответа" Width="*"/>

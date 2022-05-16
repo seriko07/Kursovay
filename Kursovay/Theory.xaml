@@ -9,18 +9,18 @@
         Title="Tests" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="0.75*"></ColumnDefinition>
+            <ColumnDefinition Width="503*"></ColumnDefinition>
+            <ColumnDefinition Width="297*"></ColumnDefinition>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"></RowDefinition>
             <RowDefinition></RowDefinition>
-            
+
         </Grid.RowDefinitions>
         <TextBlock x:Name="Name_Theory"  Text="{Binding Test_theory.Title}" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Height="84" Width="209" FontSize="20" FontFamily="/Kursovay;component/#Cocomat Pro"/>
-        <TextBlock x:Name="Theory_text" Text="{Binding Test_theory.Theory}" HorizontalAlignment="Left"  Grid.Row="1" TextWrapping="Wrap"   VerticalAlignment="Top" Height="336" Width="794" FontSize="20" FontFamily="/Kursovay;component/#Cocomat Pro" Background="White" Opacity="0.9" />
-        <Button x:Name="test_but" BorderBrush="Black" Content="Перейти к тесту" Background="#ff6347 " HorizontalAlignment="Left"  VerticalAlignment="Center" Height="85" Width="149" Click="Test_click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Grid.Column="1" />
-        <Button x:Name="task_but" BorderBrush="Black" Visibility="Visible"  Content="Перейти к заданию" Background="#ff6347 " HorizontalAlignment="Right"  VerticalAlignment="Center" Height="85" Width="149" Click="Task_click" FontFamily="/Kursovay;component/#Cocomat Pro" Grid.Column="1" FontSize="15" />
+        <TextBox x:Name="Theory_text" Text="{Binding Test_theory.Theory}"  Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" Grid.ColumnSpan="1" FontSize="14" FontFamily="/Kursovay;component/#Cocomat Pro" BorderBrush="White" Background="White" />
+        <Button x:Name="test_but" BorderBrush="Black" Content="Перейти к тесту" Background="#ff6347 " HorizontalAlignment="Left"  VerticalAlignment="Center" Height="82" Width="146" Click="Test_click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Grid.Column="1" />
+        <Button x:Name="task_but" BorderBrush="Black" Visibility="Visible"  Content="Перейти к заданию" Background="#ff6347 " HorizontalAlignment="Right"  VerticalAlignment="Center" Height="82" Width="144" Click="Task_click" FontFamily="/Kursovay;component/#Cocomat Pro" Grid.Column="1" FontSize="15"   />
     </Grid>
 </Window>
