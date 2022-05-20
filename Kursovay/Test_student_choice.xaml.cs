@@ -89,7 +89,7 @@ namespace Kursovay
                 int value = rnd.Next(1, 4);
                 if (value==1)
                 {
-                    Ques_xaml.Content = Qs.Question;
+                    Ques_xaml.Text = Qs.Question;
                     Firranswer.Text = Qs.First_answer;
                     Sectanswer.Text = Qs.Second_answer;
                     Thiranswer.Text = Qs.Сorrect_answer;
@@ -98,7 +98,7 @@ namespace Kursovay
                 else
                 if (value==2)
                 {
-                    Ques_xaml.Content = Qs.Question;
+                    Ques_xaml.Text = Qs.Question;
                     Sectanswer.Text = Qs.First_answer;
                     Firranswer.Text = Qs.Second_answer;
                     Thiranswer.Text = Qs.Сorrect_answer;
@@ -107,7 +107,7 @@ namespace Kursovay
                 else
                 if (value==3)
                 {
-                    Ques_xaml.Content = Qs.Question;
+                    Ques_xaml.Text = Qs.Question;
                     Thiranswer.Text = Qs.First_answer;
                     //Firanswer.Content = Qs.Second_answer;
                     Firranswer.Text = Qs.Second_answer;

@@ -109,6 +109,12 @@ namespace Kursovay
             Testwindow testwindow = new Testwindow(student,res);
             testwindow.Show();
         }
+
+        private void ffdfdfd(object sender, RoutedEventArgs e)
+        {
+            Window2 window2 = new Window2();
+            window2.Show(); 
+        }
         //private void Button_less(object sender, RoutedEventArgs e)
         //{
         //    Lesson lesson = new Lesson(Teacher,test);

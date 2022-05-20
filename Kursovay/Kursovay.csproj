@@ -141,6 +141,9 @@
     <Compile Include="Test.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Testwindow - Копировать.xaml.cs">
+      <DependentUpon>Testwindow - Копировать.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Testwindow.xaml.cs">
       <DependentUpon>Testwindow.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,9 @@
     </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Window2.xaml.cs">
+      <DependentUpon>Window2.xaml</DependentUpon>
     </Compile>
     <Page Include="Lesson.xaml">
       <SubType>Designer</SubType>
@@ -200,6 +206,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Testwindow - Копировать.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Testwindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -215,6 +225,10 @@
     <Page Include="Theory.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Window2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -104,22 +104,37 @@ namespace Kursovay
         public string currentTime = string.Empty;
         public Stopwatch sw = new Stopwatch();
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             TxtSource.Text = " using System;\r\n namespace HelloWorld \r\n{\r\n\r\n class Program\r\n{\r\nstatic void Main(string[] args)\r\n{\r\nConsole.WriteLine();\r\n\r\nConsole.ReadLine();\r\n}\r\n}\r\n}";
-            if (results!=null)
+            if (results != null)
             {
                 var Test = Core.db.Test.First(c => c.ID == results.IDTest);// сохраняем в лист информацию о том какой тест проверяет учитель
                 var User = Core.db.Users.First(c => c.ID == results.IDstudents);// сохраняем в лист информацию о том чей тест проверяет учитель
                 //TxtSource.Text = File.ReadAllText(@"C:\dsds\" + (string)Test.Title + (string)User.FCS+".txt");
                 string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                var text = File.ReadAllText((desktop + "\\Practics\\" + (string)Test.Title +" " +(string)User.FCS + ".txt"), Encoding.GetEncoding(1251));
-                TxtSource.Text = text;
+                //var text = File.ReadAllText((desktop + "\\Practics\\" + (string)Test.Title +" " +(string)User.FCS + ".txt"), Encoding.GetEncoding(1251));
                 //TxtSource.Text = File.ReadAllText(desktop + "\\Practics\\" + (string)Test.Title + (string)User.FCS+".txt");
                 save_but.Visibility = Visibility.Hidden;
                 TxtTask.Text = Test.Task;
 
-            }else TxtTask.Text = test1.Task;
+
+
+                string path = (desktop + "\\Practics\\"+"dsdsds"+ ".docx");
+                // асинхронное чтение
+                //using (StreamReader reader = new StreamReader(path))
+                //{
+                //    string text = await reader.ReadToEndAsync();
+                //    TxtSource.Text = text;
+                //}
+
+                TxtSource.Text = File.ReadAllText(path, System.Text.Encoding.Default);
+
+
+
+
+            }
+            else TxtTask.Text = test1.Task;
 
             //TxtSource.Text = File.ReadAllText(@"C:\dsds\ddddШахбабянСерёжаРафикович.cs");
         }

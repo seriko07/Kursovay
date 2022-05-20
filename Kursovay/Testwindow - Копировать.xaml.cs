@@ -14,15 +14,12 @@ namespace Kursovay
     /// <summary>
     /// Логика взаимодействия для Testwindow.xaml
     /// </summary>
-
-    public partial class Testwindow : Window
+    public partial class Testwindow1 : Window
     {
-        public static string FullVersion { get; }
-
 
         public Users users1 { get; set; }
         public Test test1 { get; set; }
-        public Testwindow(Users users, Test test)
+        public Testwindow1(Users users, Test test)
         {
             InitializeComponent();
              users1 = users;
@@ -54,30 +51,13 @@ namespace Kursovay
                 using (var stream = new MemoryStream())
                 {
                     // Convert input file to RTF stream.
-                    try
-                    {
-                        DocumentModel.Load(dialog.FileName).Save(stream, SaveOptions.RtfDefault);
-
-                    }
-                    catch (Exception)
-                    {
-
-                        
-                    }
+                    DocumentModel.Load(dialog.FileName).Save(stream, SaveOptions.RtfDefault);
 
                     stream.Position = 0;
 
                     // Load RTF stream into RichTextBox.
                     var textRange = new TextRange(this.richTextBox.Document.ContentStart, this.richTextBox.Document.ContentEnd);
-                    try
-                    {
-                        textRange.Load(stream, DataFormats.Rtf);
-
-                    }
-                    catch (Exception)
-                    {
-
-                    }
+                    textRange.Load(stream, DataFormats.Rtf);
                 }
         }
 
@@ -242,25 +222,6 @@ namespace Kursovay
         private void CanPaste(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = this.richTextBox != null && this.richTextBox.IsKeyboardFocused;
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string path = (desktop + "\\Practics\\" + "dsdsds" + ".docx");
-                using (var stream = new MemoryStream())
-                {
-                    // Convert input file to RTF stream.
-                    DocumentModel.Load(path).Save(stream, SaveOptions.RtfDefault);
-
-                    stream.Position = 0;
-
-                    // Load RTF stream into RichTextBox.
-                    var textRange = new TextRange(this.richTextBox.Document.ContentStart, this.richTextBox.Document.ContentEnd);
-                    textRange.Load(stream, DataFormats.Rtf);
-                }
-
-
         }
     }
 }
