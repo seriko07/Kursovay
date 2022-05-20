@@ -120,7 +120,7 @@ namespace Kursovay
 
 
 
-                string path = (desktop + "\\Practics\\"+"dsdsds"+ ".docx");
+                string path = (desktop + "\\Practics\\" + (string)Test.Title +" "+ (string)User.FCS + ".txt");
                 // асинхронное чтение
                 //using (StreamReader reader = new StreamReader(path))
                 //{
@@ -128,9 +128,19 @@ namespace Kursovay
                 //    TxtSource.Text = text;
                 //}
 
-                TxtSource.Text = File.ReadAllText(path, System.Text.Encoding.Default);
+                //TxtSource.Text = File.ReadAllText(path, System.Text.Encoding.Default);
 
 
+                try
+                {
+                    string MyText;
+                    MyText = File.ReadAllText(path);
+                    TxtSource.Text = MyText;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибко тут: " + ex.Message);
+                }
 
 
             }
