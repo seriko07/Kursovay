@@ -92,7 +92,7 @@ namespace Kursovay
             //string dsdsds = users1.FCS;
             //string textConcat = (string)dsdsds.Concat("and prosper!");
             //string txt = path + (string)users1.FCS;
-            File.WriteAllText(path, string.Empty);
+            //File.WriteAllText(path, string.Empty);
 
             using (FileStream fstream = new FileStream(path, FileMode.OpenOrCreate))
             {
@@ -135,9 +135,11 @@ namespace Kursovay
 
                 try
                 {
-                    string MyText;
-                    MyText = File.ReadAllText(path);
-                    TxtSource.Text = MyText;
+                    //FileStream stream = new FileStream(@"C:\txt.txt", FileMode.Open);
+                    StreamReader reader = new StreamReader(path, Encoding.Unicode);
+                    string str = reader.ReadToEnd();
+                    // stream.Close();
+                    TxtSource.Text = str;
                 }
                 catch (Exception ex)
                 {
