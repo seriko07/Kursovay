@@ -53,11 +53,13 @@ namespace Kursovay
 
             if (results.Errors.HasErrors)
             {
+                TxtStatus.Clear();
                 results.Errors.Cast<CompilerError>().ToList().ForEach(error => TxtStatus.Text += error.ErrorText + "\r\n");
 
             }
             else
             {
+                TxtStatus.Clear();
                 TxtStatus.Text = "--------Build succedeed--------";
                 String appStartPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
                 Process.Start($"{appStartPath}/{"test.exe"}");
@@ -104,7 +106,7 @@ namespace Kursovay
         public string currentTime = string.Empty;
         public Stopwatch sw = new Stopwatch();
 
-        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        private async  void Window_Loaded(object sender, RoutedEventArgs e)
         {
             TxtSource.Text = " using System;\r\n namespace HelloWorld \r\n{\r\n\r\n class Program\r\n{\r\nstatic void Main(string[] args)\r\n{\r\nConsole.WriteLine();\r\n\r\nConsole.ReadLine();\r\n}\r\n}\r\n}";
             if (results != null)
@@ -141,6 +143,9 @@ namespace Kursovay
                 {
                     MessageBox.Show("Ошибко тут: " + ex.Message);
                 }
+
+
+            
 
 
             }
