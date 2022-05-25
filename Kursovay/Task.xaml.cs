@@ -73,7 +73,7 @@ namespace Kursovay
         {
             try
             {
-                b = (Results)Core.db.Results.Where(u => u.IDTest == test1.ID && u.IDstudents == users1.ID );
+                b = (Results)Core.db.Results.FirstOrDefault(u => u.IDTest == test1.ID && u.IDstudents == users1.ID );
                 b.Task_done = true;
                 Core.db.SaveChanges();
 

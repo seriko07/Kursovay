@@ -140,11 +140,6 @@ namespace Kursovay
 
         }
 
-        private void GenderID_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void Role_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if ((Role)Role.SelectedItem == Core.db.Role.First(c => c.RoleName == "Учитель"))
@@ -158,6 +153,14 @@ namespace Kursovay
 
             }
 
+        }
+
+        private void Go_back(object sender, RoutedEventArgs e)
+        {
+           
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
         }
     }
 }

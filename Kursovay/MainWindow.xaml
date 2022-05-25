@@ -48,12 +48,6 @@
         <Button x:Name="button_reg" Content="Регистрация" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="132"
                 Click="Button_reg_Click" Height="53" Grid.Row="4" Grid.Column="4" BorderBrush="Black"
                 FontFamily="/Kursovay;component/#Cocomat Pro" Grid.ColumnSpan="2"  Background="#ff6347" Margin="84,0,0,0" FontSize="14"/>
-        <Button x:Name="dsds" Content="test" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="132"
-                Click="test_Click" Height="53" Grid.Row="4" Grid.Column="6" BorderBrush="Black"
-                FontFamily="/Kursovay;component/#Cocomat Pro" Grid.ColumnSpan="2"  Background="#ff6347" Margin="58,13,0,0" FontSize="14"/>
-        <Button x:Name="dsdsdd" Content="test task" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="132"
-                Click="ffdfdfd" Height="53" Grid.Row="2" Grid.Column="6" BorderBrush="Black"
-                FontFamily="/Kursovay;component/#Cocomat Pro" Grid.ColumnSpan="2"  Background="#ff6347" Margin="60,82,0,0" FontSize="14" Grid.RowSpan="2"/>
         <Label Grid.Column="3" x:Name="error_lab" Content="" HorizontalAlignment="Center" FontFamily="c:\users\shakh\desktop\diplom\kursovay\fonts\cocomatpro-regular.ttf" Foreground="Red" FontSize="14" Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
 
     </Grid>

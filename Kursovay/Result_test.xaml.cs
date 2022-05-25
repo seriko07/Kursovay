@@ -37,8 +37,15 @@ namespace Kursovay
             Test = test;
             student = users;
             var res = Regex.Split(student.FCS, "(?=\\p{Lu})");
+            try
+            {
+                FCS.Text = res[1] + " " + res[2] + " " + res[3];
 
-            FCS.Text = res[1] + " "+ res[2]+" " + res[3];
+            }
+            catch (Exception)
+            {
+                FCS.Text = student.FCS;
+            }
             int bal = 0;
             double b = (double)amount_cor_anss / anss;
             double a = 0;
@@ -80,7 +87,7 @@ namespace Kursovay
 
             try
             {
-                Resultssss = (Results)Core.db.Results.Where(u => u.IDTest == Test.ID && u.IDstudents == student.ID);
+                Resultssss = (Results)Core.db.Results.FirstOrDefault(u => u.IDTest == Test.ID && u.IDstudents == student.ID);
                 Resultssss.Test_done = true;
                 Resultssss.Result = bal;
                 Resultssss.Test_done = true;

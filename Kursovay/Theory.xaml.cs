@@ -19,6 +19,13 @@ namespace Kursovay
     /// </summary>
     public partial class Theory : Window
     {
+        public int ID_test;
+
+        public Questions Qs { get; set; }
+
+        public Test Test_theory { get; }
+        public Users users1 { get; set; }
+
         public Theory()
         {
             InitializeComponent();
@@ -73,16 +80,10 @@ namespace Kursovay
 
         }
 
-        public int ID_test;
-
-        public Questions Qs { get; set; }
-
-        public Test Test_theory { get; }
-        public Users users1 { get; set; }
-
+        
         private void Test_click(object sender, RoutedEventArgs e)
         {
-            new Test_student_choice((Test)Test_theory,users1).Show();
+            new Test_student_choice(Test_theory, users1).Show();
             this.Close();
         }
 

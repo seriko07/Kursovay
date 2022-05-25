@@ -21,7 +21,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Title}" Header="Название лекции" Width="*"/>
                 <DataGridTextColumn Binding="{Binding Teachers.FCS}" Width="*" Header="Учитель" />
-                <DataGridTextColumn Binding="{Binding Date_of_creation, StringFormat= d }" Header="Дата создания" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Date_of_creation, StringFormat= D,ConverterCulture=ru }" Header="Дата создания" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 

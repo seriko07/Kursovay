@@ -68,21 +68,19 @@ namespace Kursovay
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var grid_element = (Test)testgrid.SelectedItem;
+            if (grid_element == null)
+            {
+                error_lab.Content = "Вы не выбрали лекцию";
+            }
+            else
+            {
+                new Theory((Test)testgrid.SelectedItem, student).Show();
 
-            //try
-            //{
-            //    var d = Core.db.Results.Where(u => u.IDTest == grid_element.ID && u.IDstudents == student.ID && (u.Test_done == true || u.Task_done==true)  ).ToList();
-            //    if (d.Count == 0)
-                //{
-                    new Theory((Test)testgrid.SelectedItem, student).Show();
+            }
 
-                //}
-            //    else error_lab.Content="Вы уже выполняли, выбирите пожалуйста другой тест";
-            //}
-            //catch (Exception)
-            //{
-            //}
-            
+
+
+
         }
         private void testgrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

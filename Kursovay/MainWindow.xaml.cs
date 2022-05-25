@@ -101,26 +101,9 @@ namespace Kursovay
             ts.Show();
         }
 
-        private void test_Click(object sender, RoutedEventArgs e)
-        {
-            student = Core.db.Users.First(c => c.ID == 1);// сохраняем в поле информацию о том какой студент зашёл
-            test = Core.db.Test.First(c => c.ID == 1);// сохраняем в поле информацию о том какой студент зашёл
+      
 
-            Testwindow testwindow = new Testwindow(student,res);
-            testwindow.Show();
-        }
-
-        private void ffdfdfd(object sender, RoutedEventArgs e)
-        {
-            Window2 window2 = new Window2();
-            window2.Show(); 
-        }
-        //private void Button_less(object sender, RoutedEventArgs e)
-        //{
-        //    Lesson lesson = new Lesson(Teacher,test);
-        //    lesson.Show();
-        //    this.Close();
-        //}
+        
     }
 } 
 
