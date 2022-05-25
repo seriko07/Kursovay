@@ -32,10 +32,16 @@ namespace Kursovay
         public List <Results> Results_list { get; set; }
         private void Check_task(object sender, RoutedEventArgs e)
         {
-         
+
+            var si = (Results)(results_grid.SelectedItem);
+            if (si == null) {error_lab.Text = "Выберите практическое задание"; return; }
+            if (si.Task_done==true)
+            {
+                Task task = new Task(null, null, (Results)(results_grid.SelectedItem));
+                task.Show();
+            }else { error_lab.Text = "Ученик ещё не сделал задание, либо задание не предусматривалось сделать"; }
             //string code/* = File.ReadAllText(@"C:\dsds\ddddШахбабянСерёжаРафикович.txt")*/;
-            Task task = new Task(null,null,(Results)(results_grid.SelectedItem));
-            task.Show();
+            
             ////Process.Start(@"C:\dsds\ddddШахбабянСерёжаРафикович.txt");
             //Console.WriteLine(code);
 
@@ -50,6 +56,16 @@ namespace Kursovay
             Lessons_teacher lessons_Teacher = new Lessons_teacher(teacher);
             lessons_Teacher.Show();
             this.Close();
+        }
+
+        private void Delete_res(object sender, RoutedEventArgs e)
+        {
+            var Si = ((Results)results_grid.SelectedItem);
+            if (Si == null) {error_lab.Text = "Выберите практическое задание"; return; }
+            Core.db.Results.Remove(Si);
+            Core.db.SaveChanges();
+            Results_list = Core.db.Results.ToList();
+            results_grid.ItemsSource = Results_list; 
         }
     }
 }

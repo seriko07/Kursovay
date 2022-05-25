@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
+        ResizeMode="CanMinimize"
         Title="Results_students" Height="450" Width="800">
-    <Grid> 
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="223*"/>
@@ -39,22 +40,31 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
 
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Content="Результаты тестов " HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="220" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                <TextBlock 
+                     HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="138" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22" Margin="7,-2,0,0">
+                    Журнал
+                </TextBlock>
                 <Button BorderBrush="Black" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="140"  Grid.Column="2" Click="Button_Click" >
                     <TextBlock TextAlignment="Center">Сохранить</TextBlock>
                 </Button>
-                <Button BorderBrush="Black" Click="Check_task" VerticalAlignment="Center"   FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="150"  Grid.Column="3"  >
+                <Button BorderBrush="Black" Click="Check_task" VerticalAlignment="Center"      FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="150"  Grid.Column="3"   >
                     <TextBlock TextAlignment="Center" Height="40" Width="146">Перейти к практич<LineBreak/>еской части ученика</TextBlock>
                 </Button>
                 <Button BorderBrush="Black"  Background="#ff6347" VerticalAlignment="Center" Click="Open_lt" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="140"  Grid.Column="1"  >
                     <TextBlock TextAlignment="Center"> Открыть список  <LineBreak/> лекций</TextBlock>
                 </Button>
+                <Button BorderBrush="Black"  Background="#ff6347" VerticalAlignment="Center" Click="Delete_res" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="140"  Grid.Column="4"  >
+                    <TextBlock TextAlignment="Center"> Удалить <LineBreak/> результат</TextBlock>
+                </Button>
+                <TextBlock x:Name="error_lab" Text="" TextWrapping="Wrap" HorizontalAlignment="Left"  FontFamily="c:\users\shakh\desktop\diplom\kursovay\fonts\cocomatpro-regular.ttf" Foreground="Red" FontSize="10" VerticalAlignment="Top" Width="156" Margin="4,22,0,0"/>
 
 
 

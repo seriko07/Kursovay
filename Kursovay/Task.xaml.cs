@@ -158,7 +158,7 @@ namespace Kursovay
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ошибко тут: " + ex.Message);
+                    MessageBox.Show("Ошибка: " + ex.Message);
                 }
 
 

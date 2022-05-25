@@ -90,6 +90,7 @@ namespace Kursovay
         private void Task_click(object sender, RoutedEventArgs e)
         {
             new Task(users1,Test_theory,null).Show();
+            task_but.Visibility = Visibility.Hidden;
 
         }
     }
