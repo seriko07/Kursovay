@@ -22,6 +22,7 @@ namespace Kursovay
     {
         public Users student { get; set; }
         public Test Test { get; set; }
+        public Results Resultssss { get; set; }
 
         public Result_test(int ans, int amount_cor_ans, Users users, Test test)
         {
@@ -69,23 +70,45 @@ namespace Kursovay
 
             }
 
+
+
+
+
+
             string bb = Convert.ToString(a);
             Result.Text = bb + "%";
-            Results results = new Results(); 
+
             try
             {
-                results.ID = Core.db.Results.ToList().Last().ID + 1;
+                Resultssss = (Results)Core.db.Results.Where(u => u.IDTest == Test.ID && u.IDstudents == student.ID);
+                Resultssss.Test_done = true;
+                Resultssss.Result = bal;
+                Resultssss.Test_done = true;
+                Core.db.SaveChanges();
+
             }
             catch (Exception)
             {
-                results.ID = 1;
+                Results results = new Results();
+                try
+                {
+                    results.ID = Core.db.Results.ToList().Last().ID + 1;
+                }
+                catch (Exception)
+                {
+                    results.ID = 1;
+                }
+                results.IDstudents = student.ID;
+                results.IDTest = Test.ID;
+                results.Result = bal;
+                results.Test_done = true;
+                Core.db.Results.Add(results);
+                Core.db.SaveChanges();
             }
-            results.IDstudents = student.ID;
-            results.IDTest = Test.ID;
-            results.Result = bal;
-            results.Test_done = true;
-            Core.db.Results.Add(results);
-            Core.db.SaveChanges();
+
+
+
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
