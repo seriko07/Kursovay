@@ -83,6 +83,7 @@ namespace Kursovay
             results.IDstudents = student.ID;
             results.IDTest = Test.ID;
             results.Result = bal;
+            results.Test_done = true;
             Core.db.Results.Add(results);
             Core.db.SaveChanges();
         }

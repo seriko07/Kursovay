@@ -28,6 +28,7 @@ namespace Kursovay
         public Users users1 { get; set; }
         public Test test1 { get; set; }
         public Results results { get; set; }
+        public Results b  { get; set; }
 
         public Task(Users user, Test test, Results res)
         {
@@ -70,21 +71,35 @@ namespace Kursovay
 
         private async void Save_click(object sender, RoutedEventArgs e)
         {
-            Results resultss = new Results();
             try
             {
-                resultss.ID = Core.db.Results.ToList().Last().ID + 1;
+                b = (Results)Core.db.Results.Where(u => u.IDTest == test1.ID && u.IDstudents == users1.ID );
+                b.Task_done = true;
+                Core.db.SaveChanges();
 
             }
             catch (Exception)
             {
+                Results resultss = new Results();
+                try
+                {
+                    resultss.ID = Core.db.Results.ToList().Last().ID + 1;
 
-                resultss.ID = 1;
+                }
+                catch (Exception)
+                {
+
+                    resultss.ID = 1;
+                }
+                resultss.IDstudents = users1.ID;
+                resultss.IDTest = test1.ID;
+                resultss.Task_done = true;
+                Core.db.Results.Add(resultss);
+                Core.db.SaveChanges();
             }
-            resultss.IDstudents = users1.ID;
-            resultss.IDTest = test1.ID;
-            Core.db.Results.Add(resultss);
-            Core.db.SaveChanges(); 
+
+
+           
             
             //string path = @"C:\dsds\"+(string)test1.Title + (string)users1.FCS +".txt";
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
