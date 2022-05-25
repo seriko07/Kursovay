@@ -30,5 +30,6 @@
         </DataGrid>
         <Label Content="Выберите  лекцию" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="45" Width="282" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22"/>
         <Button Content="Перейти к лекции" BorderBrush="Black" Background="#ff6347 " HorizontalAlignment="Right"  VerticalAlignment="Top" Width="131" Click="Button_Click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50"/>
+        <Label x:Name="error_lab" Content="" HorizontalAlignment="Center"  FontFamily="c:\users\shakh\desktop\diplom\kursovay\fonts\cocomatpro-regular.ttf" Foreground="Red" FontSize="14" VerticalAlignment="Top" Width="204" Margin="0,25,0,0"/>
     </Grid>
 </Window>

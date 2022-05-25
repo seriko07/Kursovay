@@ -31,7 +31,7 @@
           Height="53" Width="386" Grid.ColumnSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" Margin="10,0,0,0"/>
         <TextBox BorderBrush="Black" Text="{Binding Qs.Question}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" x:Name="Ques_xaml" TextWrapping="Wrap" 
                FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Background="White" Opacity="0.9" 
-               Height="106" Grid.RowSpan="2" Width="449" Margin="173,0,0,0" Grid.ColumnSpan="3" IsReadOnly="True"  />
+               Height="122" Grid.RowSpan="2" Width="450" Margin="173,0,0,0" Grid.ColumnSpan="3" IsReadOnly="True"  />
 
         <Button BorderBrush="Black"  Grid.Row="3" Grid.Column="0"  Click="First_but_click" HorizontalAlignment="Right" Width="160" Height="82" FontFamily="/Kursovay;component/#Cocomat Pro" Background="#ff6347" Foreground="Black" Opacity="0.9"   VerticalAlignment="Top"  >
             <!--x:Name="Firanswer"  Grid.Column="1" HorizontalAlignment="Left">-->

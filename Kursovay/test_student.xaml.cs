@@ -69,19 +69,19 @@ namespace Kursovay
         {
             var grid_element = (Test)testgrid.SelectedItem;
 
-            try
-            {
-                var d = Core.db.Results.Where(u => u.IDTest == grid_element.ID && u.IDstudents == student.ID).ToList();
-                //if (d.Count == 0)
+            //try
+            //{
+            //    var d = Core.db.Results.Where(u => u.IDTest == grid_element.ID && u.IDstudents == student.ID && (u.Test_done == true || u.Task_done==true)  ).ToList();
+            //    if (d.Count == 0)
                 //{
                     new Theory((Test)testgrid.SelectedItem, student).Show();
 
                 //}
-                //else MessageBox.Show("Вы уже выполняли, выбирите пожалуйста другой тест");
-            }
-            catch (Exception)
-            {
-            }
+            //    else error_lab.Content="Вы уже выполняли, выбирите пожалуйста другой тест";
+            //}
+            //catch (Exception)
+            //{
+            //}
             
         }
         private void testgrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

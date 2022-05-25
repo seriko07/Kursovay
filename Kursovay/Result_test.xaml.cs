@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace Kursovay
 {
@@ -24,13 +25,19 @@ namespace Kursovay
 
         public Result_test(int ans, int amount_cor_ans, Users users, Test test)
         {
+
+
             InitializeComponent();
+
             DataContext = this;
+
             var anss = ans;
             var amount_cor_anss = amount_cor_ans;
             Test = test;
             student = users;
-            SSS.Text = student.FCS + " " ;
+            var res = Regex.Split(student.FCS, "(?=\\p{Lu})");
+
+            FCS.Text = res[1] + " "+ res[2]+" " + res[3];
             int bal = 0;
             double b = (double)amount_cor_anss / anss;
             double a = 0;
@@ -78,7 +85,14 @@ namespace Kursovay
             results.Result = bal;
             Core.db.Results.Add(results);
             Core.db.SaveChanges();
-        } 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            test_student test_Student = new test_student();
+            test_Student.Show();
+
+        }
     }
 }
 

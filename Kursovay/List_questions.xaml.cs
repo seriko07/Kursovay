@@ -28,14 +28,14 @@ namespace Kursovay
             questions2=Core.db.Questions.Where(u=>u.ID_test==test.ID).ToList();
             questions_grid.ItemsSource=questions2;
         }
-
+        public Questions questions { get; set; }
         public Test test { get; private set; }
 
         private List<Questions> questions2;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Core.db.SaveChanges();
+            this.Close();
         }
         private void Dell_click(object sender, RoutedEventArgs e)
         {
@@ -59,6 +59,22 @@ namespace Kursovay
 
         private void Add_click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                
+                questions = (Questions)questions_grid.SelectedItem;
+                questions.ID = Core.db.Questions.ToList().Last().ID + 1;
+                questions.ID_test =test.ID;
+
+                Core.db.Questions.Add(questions);
+                Core.db.SaveChanges();
+
+            }
+            catch (Exception)
+            {
+
+                
+            } 
 
         }
 

@@ -39,6 +39,7 @@ namespace Kursovay
                 task_but.Visibility = Visibility.Hidden;
             }
 
+
             try
             {
                 Qs = Core.db.Questions.First(c => c.ID_test == Test_theory.ID);
@@ -49,7 +50,25 @@ namespace Kursovay
             {
                 test_but.Visibility = Visibility.Hidden;
 
+            }
 
+            var grid_element = Test_theory;
+
+            try
+            {
+                var d = Core.db.Results.Where(u => u.IDTest == grid_element.ID && u.IDstudents == users1.ID && u.Test_done == true).ToList();
+                if (d.Count != 0)
+                {
+                    test_but.Visibility = Visibility.Hidden;
+                }
+                var sd = Core.db.Results.Where(u => u.IDTest == grid_element.ID && u.IDstudents == users1.ID && u.Task_done == true).ToList();
+                if (sd.Count != 0)
+                {
+                    task_but.Visibility = Visibility.Hidden;
+                }
+            }
+            catch (Exception)
+            {
             }
 
         }
