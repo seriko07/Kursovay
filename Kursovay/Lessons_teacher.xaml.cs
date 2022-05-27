@@ -66,7 +66,15 @@ namespace Kursovay
         private void Del_lesson(object sender, RoutedEventArgs e)
         {
             var Si = ((Test)testgrid.SelectedItem);
-            Core.db.Test.Remove(Si);
+            try
+            {
+                Core.db.Test.Remove(Si);
+
+            }
+            catch (Exception)
+            {
+
+            }
             r = Core.db.Results.Where(c => c.IDTest == Si.ID).ToList();
             w = Core.db.Questions.Where(c => c.ID_test == Si.ID).ToList();
             Core.db.Results.RemoveRange(r);
