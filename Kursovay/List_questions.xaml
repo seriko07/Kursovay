@@ -18,12 +18,37 @@
                     <RowDefinition Height ="0.16*"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <DataGrid AutoGenerateColumns="False" x:Name="questions_grid" Grid.Row="1" Grid.ColumnSpan="3"  LoadingRow="questions_grid_LoadingRow" >
+                <DataGrid AutoGenerateColumns="False" x:Name="questions_grid" Grid.Row="1" Grid.ColumnSpan="3" LoadingRow="questions_grid_LoadingRow" >
+                    
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Question}"  Header="Вопрос" Width="*"/>
-                        <DataGridTextColumn Binding="{Binding Сorrect_answer}" Header="Правильный ответ" Width="*"/>
-                        <DataGridTextColumn Binding="{Binding First_answer}" Header="Первый вариант ответа" Width="*"/>
-                        <DataGridTextColumn Binding="{Binding Second_answer}" Header="Второй вариант ответа" Width="*"/>
+                        <DataGridTextColumn Binding="{Binding Question}" Header="Вопрос" Width="*">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Сorrect_answer}" Header="Правильный ответ" Width="*">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding First_answer}" Header="Первый вариант ответа" Width="*">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding Second_answer}" Header="Второй вариант ответа" Width="*">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
 
