@@ -55,13 +55,13 @@ namespace Kursovay
 
             try
             {
-                grade = (Grade)Core.db.Grade.Where(u => u.ID_Test == Test.ID);
+                grade = (Grade)Core.db.Grade.First(u => u.ID_Test == Test.ID);
 
             }
             catch (Exception)
             {
 
-                grade = (Grade)Core.db.Grade.Where(u => u.ID == 1);
+                grade = (Grade)Core.db.Grade.FirstOrDefault(u => u.ID == 1);
             }
             int grade_5 = (int)grade.assessment_5;
             int grade_4 = (int)grade.assessment_4;

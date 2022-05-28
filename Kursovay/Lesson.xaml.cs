@@ -137,6 +137,7 @@ namespace Kursovay
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            savetest();
             List_questions questions = new List_questions(CurrentTest);
             questions.Show();
         }

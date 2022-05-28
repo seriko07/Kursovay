@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace Kursovay
 {
@@ -29,9 +30,14 @@ namespace Kursovay
             //ID_test = Ts.ID;
             Qs = Core.db.Questions.First(c => c.ID_test == TestId);
             QS_ID = Qs.ID;
-            ans = 0;
-            random_ques();
-
+            
+            
+            List_Qss = Core.db.Questions.Where(u => u.ID_test == test1.ID).ToList();
+            number_of_questions = List_Qss.Count();
+            ans = number_of_questions;
+            Qs_id = 0;
+            Qs = List_Qss[Qs_id];
+            tworightans();
 
             //Console.WriteLine(Qs.First_answer); Console.WriteLine(Qs.Second_answer); Console.WriteLine(Qs.Third_answer);
 
@@ -58,15 +64,29 @@ namespace Kursovay
         public Questions Qs { get; set; }
         public Users users1 { get; set; }
         public Test test1 { get; set; }
-        public List <Questions> Qss { get; set; }
+        public List <Questions> List_Qss { get; set; }
 
         public int ID_test;
 
         public int QS_ID;
+        public int Qs_id;
+       
+
 
         public int TestId;
+        public int number_of_questions;
+
+        public void Question_output()
+        {
+            
+           
+                
+
+            
 
 
+
+        }
 
         public void random_ques()
         {
@@ -121,63 +141,268 @@ namespace Kursovay
                 new Result_test(ans, amount_cor_ans, users1,test1).Show();
                 this.Close();
             }
+        }
+        public void tworightans()
+        {
+            try
+            {
+                Qs = List_Qss[Qs_id];
+            }
+            catch (Exception)
+            {
+                new Result_test(ans, amount_cor_ans, users1, test1).Show();
+                this.Close();
+            }
+            Ques_xaml.Text = Qs.Question;
+            var order_but = new List<int>(Enumerable.Range(1, 4));
+             var  order_ans = new List<int>(Enumerable.Range(1, 4));
+            order_ans.Shuffle();
+            order_but.Shuffle();
+        end_switch:
+
+            foreach (int i in order_but.ToArray())
+            {
+                switch (i)
+                {
+                    case 1:
+                        foreach (int b in order_ans.ToArray())
+                        {
+                            switch (b)
+                            {
+                                    case 1:
+                                    Firranswer.Text = Qs.Сorrect_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch; 
+                                    break;
+
+                                    case 2:
+                                    Firranswer.Text = Qs.Second_correct_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch; 
+                                    break;
+                                     case 3:
+                                    Firranswer.Text = Qs.First_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch; 
+                                    break;
+                                     case 4:
+                                    Firranswer.Text = Qs.Second_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch; 
+                                    break;
+
+                            }  
+                        }
+                        break;
+                    case 2:
+                        foreach (int b in order_ans.ToArray())
+                        {
+                            switch (b)
+                            {
+                                case 1:
+                                    Sectanswer.Text = Qs.Сorrect_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch; break;
+                                case 2:
+                                    Sectanswer.Text = Qs.Second_correct_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch; break;
+                                case 3:
+                                    Sectanswer.Text = Qs.First_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch; break;
+                                case 4:
+                                    Sectanswer.Text = Qs.Second_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch;
+                                    break;
+                            }
+                        }
+                        break; 
+                    case 3:
+                        
+                        foreach (int b in order_ans.ToArray())
+                        {
+                            switch (b)
+                            {
+                                case 1:
+                                    Thiranswer.Text = Qs.Сorrect_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch;
+
+                                    break;
+                                case 2:
+                                    Thiranswer.Text = Qs.Second_correct_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch;
+
+                                    break;
+                                case 3:
+                                    Thiranswer.Text = Qs.First_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch;
+
+                                    break;
+                                case 4:
+                                    Thiranswer.Text = Qs.Second_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch;
+                                    break;
+                            }
+
+                        }
+                        break;
+                    case 4:
+                        foreach (int b in order_ans.ToArray())
+
+                            switch (b)
+                            {
+                                case 1:
+                                    Fourthanswer.Text = Qs.Сorrect_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch;
+                                    break;
+                                case 2:
+                                    Fourthanswer.Text = Qs.Second_correct_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch;
+
+                                    break;
+                                case 3:
+                                    Fourthanswer.Text = Qs.First_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch;
+
+                                    break;
+                                case 4:
+                                    Fourthanswer.Text = Qs.Second_answer;
+                                    order_ans.Remove(b);
+                                    order_but.Remove(i);
+                                    goto end_switch;
+
+                                    break;
+                            }
+                        
+                      
+                        break;
+
+                }
+
+
+            }
+       
+
+            //Console.WriteLine("The winning numbers are: {0}", string.Join(",  ", numbers.GetRange(0, 5)));
+
+
+
+
+
 
 
         }
 
 
-        //public void output_ques()
-        //{
-        //    InitializeComponent();
-        //    DataContext = this;
-        //    Qs = Core.db.Questions.First(c => c.ID == QS_ID);
-        //    if (TestId == Qs.ID_test)
-        //    {
-        //        Ques_xaml.Content = Qs.Question;
-        //        Ans_fir.Text = Qs.First_answer;
-        //        Ans_sec.Text = Qs.Second_answer;
-        //        Ans_thir.Text = Qs.Third_answer;
-        //        ans++;
-        //    }
-        //    else
-        //    {
-        //        new Result_test(ans, amount_cor_ans).Show();
-        //    }
-        //}
 
-        
+
+
+
+
+       
+
+
+
+
+
+
 
 
         private void First_but_click(object sender, RoutedEventArgs e)
         {
-            if (Firranswer.Text == Qs.First_answer)
+            if (Firranswer.Text == Qs.Сorrect_answer|| Firranswer.Text == Qs.Second_correct_answer)
             {
                 amount_cor_ans++;
             }
-            QS_ID++;
-            random_ques();
+            Qs_id++;
+            tworightans();
+            
+            //random_ques();
         }
 
        
 
         private void Thir_but_Click(object sender, RoutedEventArgs e)
         {
-            if (Thiranswer.Text == Qs.First_answer)
+            if (Thiranswer.Text == Qs.Сorrect_answer|| Thiranswer.Text==Qs.Second_correct_answer)
             {
                 amount_cor_ans++;
             }
-            QS_ID++;
-            random_ques();
+            Qs_id++;
+            tworightans();
         }
 
         private void Sec_but_click(object sender, RoutedEventArgs e)
         {
-            if (Sectanswer.Text == Qs.First_answer)
+            if (Sectanswer.Text == Qs.Сorrect_answer || Sectanswer.Text == Qs.Second_correct_answer)
             {
                 amount_cor_ans++;
             }
-            QS_ID++;
-            random_ques();
+            Qs_id++;
+            tworightans();
+
+        }
+
+
+
+        private void Fourth_but_Click(object sender, RoutedEventArgs e)
+        {
+            if (Fourthanswer.Text == Qs.Сorrect_answer || Fourthanswer.Text== Qs.Second_correct_answer)
+            {
+                amount_cor_ans++;
+            }
+            Qs_id++;
+            tworightans();
+
+        }
+    }
+
+    public class ThreadSafeRandom
+    {
+        [ThreadStatic] private static Random Local;
+
+        public static Random ThisThreadsRandom
+        {
+            get { return Local ?? (Local = new Random(unchecked(Environment.TickCount * 31 + Thread.CurrentThread.ManagedThreadId))); }
+        }
+    }
+    static class MyExtensions
+    {
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = ThreadSafeRandom.ThisThreadsRandom.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
         }
     }
 }

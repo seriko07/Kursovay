@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="06d65b5f6f4b478c817f3ba01afade62" Name="Diagram1">
-        <EntityTypeShape EntityType="KursovayModel.gender" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="KursovayModel.Grade" Width="1.5" PointX="7.5" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="KursovayModel.Group" Width="1.5" PointX="3.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="KursovayModel.Questions" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="KursovayModel.Results" Width="1.5" PointX="10.25" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="KursovayModel.Role" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+      <Diagram DiagramId="06f96b4149cd49799cd40ebcbf1cbe69" Name="Diagram1">
+        <EntityTypeShape EntityType="KursovayModel.gender" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KursovayModel.Grade" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KursovayModel.Group" Width="1.5" PointX="3.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KursovayModel.Questions" Width="1.5" PointX="7.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KursovayModel.Results" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KursovayModel.Role" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="KursovayModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KursovayModel.Teachers" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="KursovayModel.Test" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="KursovayModel.Users" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KursovayModel.Teachers" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KursovayModel.Test" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KursovayModel.Users" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
         <AssociationConnector Association="KursovayModel.FK_Teachers_gender" ManuallyRouted="false" />
         <AssociationConnector Association="KursovayModel.FK_Users_gender" ManuallyRouted="false" />
         <AssociationConnector Association="KursovayModel.FK_Grade_Test" ManuallyRouted="false" />

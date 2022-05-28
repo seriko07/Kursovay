@@ -20,6 +20,8 @@ namespace Kursovay
         public string Second_answer { get; set; }
         public string Сorrect_answer { get; set; }
         public Nullable<int> ID_test { get; set; }
+        public string Second_correct_answer { get; set; }
+        public Nullable<bool> Open_question { get; set; }
     
         public virtual Test Test { get; set; }
     }

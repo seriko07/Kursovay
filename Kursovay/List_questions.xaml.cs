@@ -26,6 +26,10 @@ namespace Kursovay
 
             this.test = test1; 
             questions2=Core.db.Questions.Where(u=>u.ID_test==test.ID).ToList();
+            //if (questions.Open_question == true)
+            //{
+            //    CheckBox_list.SetValue() 
+            //}
             questions_grid.ItemsSource=questions2;
         }
         public Questions questions { get; set; }
@@ -81,6 +85,12 @@ namespace Kursovay
         private void questions_grid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.Header = (e.Row.GetIndex()+1).ToString();
+            
+        }
+        private void criteria_for_the_test(object sender, RoutedEventArgs e)
+        {
+             test_creation test_Creation = new test_creation(test);
+            test_Creation.Show();
         }
     }
 }
