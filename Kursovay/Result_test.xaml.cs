@@ -23,6 +23,7 @@ namespace Kursovay
         public Users student { get; set; }
         public Test Test { get; set; }
         public Results Resultssss { get; set; }
+        public Grade grade { get; set; }
 
         public Result_test(int ans, int amount_cor_ans, Users users, Test test)
         {
@@ -51,30 +52,46 @@ namespace Kursovay
             double a = 0;
             a = (double)b * 100;
             a = Math.Round(a, 2);
-            if (a >= 70 && a <= 90)
+
+            try
+            {
+                grade = (Grade)Core.db.Grade.Where(u => u.ID_Test == Test.ID);
+
+            }
+            catch (Exception)
+            {
+
+                grade = (Grade)Core.db.Grade.Where(u => u.ID == 1);
+            }
+            int grade_5 = (int)grade.assessment_5;
+            int grade_4 = (int)grade.assessment_4;
+            int grade_3 = (int)grade.assessment_3;
+
+
+            if(a >= grade_5 )
+            {
+                bal = 5;
+                Ball.Text = "5";
+            }
+            else
+            if (a >= grade_4)
             {
                 bal = 4;
                 Ball.Text = "4";
 
             }
             else
-                if (a >= 90 && a <= 100)
-            {
-                bal = 5;
-                Ball.Text = "5";
-            }
-            else
-                if (a >= 30 && a <= 70)
+                
+                if (a >= grade_3)
             {
                 bal = 3;
                 Ball.Text = "3";
             }
             else
-                if (a >= 0 && a <= 30)
+                if (a < grade_3)
             {
                 bal = 2;
                 Ball.Text = "2";
-
             }
 
 
