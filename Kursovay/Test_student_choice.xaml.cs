@@ -70,8 +70,8 @@ namespace Kursovay
 
         public int QS_ID;
         public int Qs_id;
-       
-
+        public List <int> order_but = new List<int>();
+        public List <int> order_ans = new List<int>();
 
         public int TestId;
         public int number_of_questions;
@@ -147,6 +147,7 @@ namespace Kursovay
             try
             {
                 Qs = List_Qss[Qs_id];
+               
             }
             catch (Exception)
             {
@@ -154,8 +155,19 @@ namespace Kursovay
                 this.Close();
             }
             Ques_xaml.Text = Qs.Question;
-            var order_but = new List<int>(Enumerable.Range(1, 4));
-             var  order_ans = new List<int>(Enumerable.Range(1, 4));
+            if (Qs.Second_correct_answer!=null && Qs.Second_correct_answer !="")   
+            {
+                 order_but = new List<int>(Enumerable.Range(1, 4));
+                 order_ans = new List<int>(Enumerable.Range(1, 4));
+                Fourtanswer_but.Visibility = Visibility.Visible;
+
+            }
+            else {
+                 order_but = new List<int>(Enumerable.Range(1, 3));
+                order_ans = new List<int>(Enumerable.Range(1, 3));
+                Fourtanswer_but.Visibility = Visibility.Hidden;
+            }
+            
             order_ans.Shuffle();
             order_but.Shuffle();
         end_switch:
@@ -167,9 +179,12 @@ namespace Kursovay
                     case 1:
                         foreach (int b in order_ans.ToArray())
                         {
+                             first:
                             switch (b)
                             {
+                                
                                     case 1:
+                                    
                                     Firranswer.Text = Qs.Сorrect_answer;
                                     order_ans.Remove(b);
                                     order_but.Remove(i);
@@ -177,10 +192,19 @@ namespace Kursovay
                                     break;
 
                                     case 2:
-                                    Firranswer.Text = Qs.Second_correct_answer;
-                                    order_ans.Remove(b);
-                                    order_but.Remove(i);
-                                    goto end_switch; 
+                                    if (Qs.Second_correct_answer != null && Qs.Second_correct_answer != "")
+                                    {
+                                        Firranswer.Text = Qs.Second_correct_answer;
+
+                                        order_ans.Remove(b);
+                                        goto end_switch;
+                                    }
+                                    else
+                                    {
+                                        var a = order_ans.IndexOf(b);
+                                        order_ans[a] = 4;
+                                        goto end_switch;
+                                    }
                                     break;
                                      case 3:
                                     Firranswer.Text = Qs.First_answer;
@@ -209,10 +233,20 @@ namespace Kursovay
                                     order_but.Remove(i);
                                     goto end_switch; break;
                                 case 2:
-                                    Sectanswer.Text = Qs.Second_correct_answer;
-                                    order_ans.Remove(b);
-                                    order_but.Remove(i);
-                                    goto end_switch; break;
+                                    if (Qs.Second_correct_answer != null && Qs.Second_correct_answer != "")
+                                    {
+                                        Sectanswer.Text = Qs.Second_correct_answer;
+                                        order_but.Remove(i);
+
+                                        order_ans.Remove(b);
+                                        goto end_switch;
+                                    }
+                                    else {
+                                        var a = order_ans.IndexOf(b);
+                                        order_ans[a] = 4;
+                                        goto end_switch;
+                                    }
+                                    break;
                                 case 3:
                                     Sectanswer.Text = Qs.First_answer;
                                     order_ans.Remove(b);
@@ -241,10 +275,19 @@ namespace Kursovay
 
                                     break;
                                 case 2:
-                                    Thiranswer.Text = Qs.Second_correct_answer;
-                                    order_ans.Remove(b);
-                                    order_but.Remove(i);
-                                    goto end_switch;
+                                    if (Qs.Second_correct_answer != null && Qs.Second_correct_answer != "")
+                                    {
+                                        Thiranswer.Text = Qs.Second_correct_answer;
+                                        order_ans.Remove(b);
+                                        order_but.Remove(i);
+
+                                        goto end_switch;
+                                    }
+                                    else {
+                                        var a = order_ans.IndexOf(b);
+                                        order_ans[a] = 4;
+                                        goto end_switch;
+                                    }
 
                                     break;
                                 case 3:
@@ -270,31 +313,54 @@ namespace Kursovay
                             switch (b)
                             {
                                 case 1:
-                                    Fourthanswer.Text = Qs.Сorrect_answer;
-                                    order_ans.Remove(b);
-                                    order_but.Remove(i);
-                                    goto end_switch;
+                                    if (Qs.Second_correct_answer != null && Qs.Second_correct_answer != "")
+                                    {
+                                        Fourthanswer.Text = Qs.Сorrect_answer;
+                                        order_but.Remove(i);
+                                        order_ans.Remove(b);
+                                        goto end_switch;
+                                    }
+                                    else { Fourthanswer.Visibility = Visibility.Hidden;
+                                        order_ans.Remove(b);
+                                    }
                                     break;
                                 case 2:
-                                    Fourthanswer.Text = Qs.Second_correct_answer;
-                                    order_ans.Remove(b);
-                                    order_but.Remove(i);
-                                    goto end_switch;
+                                    if (Qs.Second_correct_answer != null && Qs.Second_correct_answer != "")
+                                    {
+                                        Fourthanswer.Text = Qs.Second_correct_answer;
+                                        order_but.Remove(i);
+                                        order_ans.Remove(b);
+                                        goto end_switch;
+                                    }
+                                    else { Fourthanswer.Visibility = Visibility.Hidden;
+                                        order_ans.Remove(b);
+                                    }
 
                                     break;
                                 case 3:
-                                    Fourthanswer.Text = Qs.First_answer;
-                                    order_ans.Remove(b);
-                                    order_but.Remove(i);
-                                    goto end_switch;
-
+                                    if (Qs.Second_correct_answer != null && Qs.Second_correct_answer != "")
+                                    {
+                                        Fourthanswer.Text = Qs.First_answer;
+                                        order_ans.Remove(b);
+                                        order_but.Remove(i);
+                                        goto end_switch;
+                                    }
+                                    else { Fourthanswer.Visibility = Visibility.Hidden;
+                                        order_ans.Remove(b);
+                                    }
                                     break;
                                 case 4:
-                                    Fourthanswer.Text = Qs.Second_answer;
-                                    order_ans.Remove(b);
-                                    order_but.Remove(i);
-                                    goto end_switch;
+                                    if (Qs.Second_correct_answer != null && Qs.Second_correct_answer != "")
+                                    {
+                                        Fourthanswer.Text = Qs.Second_answer;
+                                        order_ans.Remove(b);
+                                        order_but.Remove(i);
 
+                                        goto end_switch;
+                                    }
+                                    else { Fourthanswer.Visibility = Visibility.Hidden;
+                                        order_ans.Remove(b);
+                                    }
                                     break;
                             }
                         
@@ -323,7 +389,10 @@ namespace Kursovay
 
 
 
-       
+       private void dsdsds()
+        {
+
+        }
 
 
 
