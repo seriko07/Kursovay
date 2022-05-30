@@ -28,8 +28,6 @@ namespace Kursovay
             TestId = test.ID;
             users1 = users;
             //ID_test = Ts.ID;
-            Qs = Core.db.Questions.First(c => c.ID_test == TestId);
-            QS_ID = Qs.ID;
             
             
             List_Qss = Core.db.Questions.Where(u => u.ID_test == test1.ID).ToList();
@@ -54,12 +52,17 @@ namespace Kursovay
             //}
         }
 
+        public void Textqs()
+        {
+
+
+        }
     
 
         public Test Ts { get; set; }
         public List<Questions> Ques { get; set; }
 
-        public int amount_cor_ans;
+        public double amount_cor_ans;
         public int ans;
         public Questions Qs { get; set; }
         public Users users1 { get; set; }
@@ -67,6 +70,9 @@ namespace Kursovay
         public List <Questions> List_Qss { get; set; }
 
         public int ID_test;
+        public double first_ans;
+        public double sec_ans;
+        public double res;
 
         public int QS_ID;
         public int Qs_id;
@@ -155,17 +161,52 @@ namespace Kursovay
                 this.Close();
             }
             Ques_xaml.Text = Qs.Question;
-            if (Qs.Second_correct_answer!=null && Qs.Second_correct_answer !="")   
+            if (Qs.Open_question==true)
+            {
+                Firs_but.Visibility = Visibility.Hidden;
+                Sec_but.Visibility = Visibility.Hidden;                
+                Thir_but.Visibility = Visibility.Hidden;
+                Fourtanswer_but.Visibility = Visibility.Hidden;
+                Text_box_ans.Visibility = Visibility.Visible;
+                Text_box_but.Visibility = Visibility.Visible;
+                return;
+
+            }
+            if (Qs.Second_correct_answer!=null && Qs.Second_correct_answer !=""|| Qs.Answer_two_questions!=null)   
             {
                  order_but = new List<int>(Enumerable.Range(1, 4));
                  order_ans = new List<int>(Enumerable.Range(1, 4));
                 Fourtanswer_but.Visibility = Visibility.Visible;
+                Grid.SetColumnSpan(Sec_but, 1);
+                Grid.SetColumn(Thir_but, 2);
+                Firs_but.Visibility = Visibility.Visible;
+                Sec_but.Visibility = Visibility.Visible;
+                Thir_but.Visibility = Visibility.Visible;
+                Fourtanswer_but.Visibility = Visibility.Visible;
+                Firs_but.IsEnabled=true;
+                Sec_but.IsEnabled = true;
+                Thir_but.IsEnabled = true;
+                Fourtanswer_but.IsEnabled = true;
+                Text_box_ans.Visibility = Visibility.Hidden;
+                Text_box_but.Visibility = Visibility.Hidden;
+
 
             }
             else {
                  order_but = new List<int>(Enumerable.Range(1, 3));
                 order_ans = new List<int>(Enumerable.Range(1, 3));
                 Fourtanswer_but.Visibility = Visibility.Hidden;
+                Grid.SetColumnSpan(Sec_but, 2);
+                Grid.SetColumn(Thir_but, 3);
+                Firs_but.Visibility = Visibility.Visible;
+                Sec_but.Visibility = Visibility.Visible;
+                Thir_but.Visibility = Visibility.Visible;
+                Firs_but.IsEnabled = true;
+                Sec_but.IsEnabled = true;
+                Thir_but.IsEnabled = true;
+                Fourtanswer_but.Visibility = Visibility.Hidden;
+                Text_box_ans.Visibility = Visibility.Hidden;
+                Text_box_but.Visibility = Visibility.Hidden;
             }
             
             order_ans.Shuffle();
@@ -195,7 +236,7 @@ namespace Kursovay
                                     if (Qs.Second_correct_answer != null && Qs.Second_correct_answer != "")
                                     {
                                         Firranswer.Text = Qs.Second_correct_answer;
-
+                                        order_but.Remove(i);
                                         order_ans.Remove(b);
                                         goto end_switch;
                                     }
@@ -387,10 +428,17 @@ namespace Kursovay
 
 
 
+ 
 
-
-       private void dsdsds()
+       private void Checking_for_two_answers(double d)
         {
+           res = res + d;
+            if (res == 1)
+            {
+                Qs_id++;
+                tworightans();
+
+            }
 
         }
 
@@ -402,14 +450,17 @@ namespace Kursovay
 
 
         private void First_but_click(object sender, RoutedEventArgs e)
-        {
-            if (Firranswer.Text == Qs.Сorrect_answer|| Firranswer.Text == Qs.Second_correct_answer)
+        { 
+            if (Qs.Answer_two_questions == true)
             {
-                amount_cor_ans++;
+                if (Firranswer.Text == Qs.Сorrect_answer || Firranswer.Text == Qs.Second_correct_answer) { Firs_but.IsEnabled = false; amount_cor_ans = +0.5; Checking_for_two_answers(0.5);  }
+                else { Firs_but.IsEnabled = false; Checking_for_two_answers(0.5); }
             }
-            Qs_id++;
-            tworightans();
-            
+            else if (Firranswer.Text == Qs.Сorrect_answer || Firranswer.Text == Qs.Second_correct_answer) { amount_cor_ans ++; Qs_id++; tworightans(); } else { Qs_id++; tworightans(); } 
+
+
+
+
             //random_ques();
         }
 
@@ -417,22 +468,24 @@ namespace Kursovay
 
         private void Thir_but_Click(object sender, RoutedEventArgs e)
         {
-            if (Thiranswer.Text == Qs.Сorrect_answer|| Thiranswer.Text==Qs.Second_correct_answer)
+            if (Qs.Answer_two_questions == true)
             {
-                amount_cor_ans++;
+                if (Thiranswer.Text == Qs.Сorrect_answer || Thiranswer.Text == Qs.Second_correct_answer) { Thir_but.IsEnabled = false; amount_cor_ans = +0.5; Checking_for_two_answers(0.5);  }
+                else { Thir_but.IsEnabled = false; Checking_for_two_answers(0.5);  }
             }
-            Qs_id++;
-            tworightans();
+            else if (Thiranswer.Text == Qs.Сorrect_answer || Thiranswer.Text == Qs.Second_correct_answer) { amount_cor_ans++; Qs_id++; tworightans(); } else { Qs_id++; tworightans(); }
+
         }
 
         private void Sec_but_click(object sender, RoutedEventArgs e)
         {
-            if (Sectanswer.Text == Qs.Сorrect_answer || Sectanswer.Text == Qs.Second_correct_answer)
+            if (Qs.Answer_two_questions == true)
             {
-                amount_cor_ans++;
+                if (Sectanswer.Text == Qs.Сorrect_answer || Sectanswer.Text == Qs.Second_correct_answer) { Sec_but.IsEnabled = false; amount_cor_ans = +0.5; Checking_for_two_answers(0.5); }
+                else { Firs_but.IsEnabled = false; Checking_for_two_answers(0.5); }
             }
-            Qs_id++;
-            tworightans();
+            else if (Sectanswer.Text == Qs.Сorrect_answer || Sectanswer.Text == Qs.Second_correct_answer) { amount_cor_ans++; Qs_id++; tworightans(); } else { Qs_id++; tworightans(); }
+
 
         }
 
@@ -440,13 +493,24 @@ namespace Kursovay
 
         private void Fourth_but_Click(object sender, RoutedEventArgs e)
         {
-            if (Fourthanswer.Text == Qs.Сorrect_answer || Fourthanswer.Text== Qs.Second_correct_answer)
+            if (Qs.Answer_two_questions == true)
+            {
+                if (Fourthanswer.Text == Qs.Сorrect_answer || Fourthanswer.Text == Qs.Second_correct_answer) { Fourtanswer_but.IsEnabled = false; amount_cor_ans = +0.5; Checking_for_two_answers(0.5); }
+                else { Fourtanswer_but.IsEnabled = false; Checking_for_two_answers(0.5); }
+            }
+            else if (Fourthanswer.Text == Qs.Сorrect_answer || Fourthanswer.Text == Qs.Second_correct_answer) { amount_cor_ans++; Qs_id++; tworightans(); } else { Qs_id++; tworightans(); }
+
+        }
+
+        private void Text_box_but_Click(object sender, RoutedEventArgs e)
+        {
+            if (Text_box_ans.Text== Qs.Сorrect_answer|| Text_box_ans.Text == Qs.Second_correct_answer)
             {
                 amount_cor_ans++;
             }
             Qs_id++;
-            tworightans();
 
+            tworightans();
         }
     }
 

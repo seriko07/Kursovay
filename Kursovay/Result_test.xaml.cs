@@ -25,7 +25,7 @@ namespace Kursovay
         public Results Resultssss { get; set; }
         public Grade grade { get; set; }
 
-        public Result_test(int ans, int amount_cor_ans, Users users, Test test)
+        public Result_test(int ans, double amount_cor_ans, Users users, Test test)
         {
 
 

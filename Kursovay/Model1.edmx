@@ -41,6 +41,7 @@
           <Property Name="ID_test" Type="int" />
           <Property Name="Second_correct_answer" Type="nvarchar(max)" />
           <Property Name="Open_question" Type="bit" />
+          <Property Name="Answer_two_questions" Type="bit" />
         </EntityType>
         <EntityType Name="Results">
           <Key>
@@ -354,6 +355,7 @@
           <Property Name="ID_test" Type="Int32" />
           <Property Name="Second_correct_answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Open_question" Type="Boolean" />
+          <Property Name="Answer_two_questions" Type="Boolean" />
           <NavigationProperty Name="Test" Relationship="Self.FK_questions_Test" FromRole="Questions" ToRole="Test" />
         </EntityType>
         <EntityType Name="Results">
@@ -692,6 +694,7 @@
                 <ScalarProperty Name="ID_test" ColumnName="ID_test" />
                 <ScalarProperty Name="Second_correct_answer" ColumnName="Second_correct_answer" />
                 <ScalarProperty Name="Open_question" ColumnName="Open_question" />
+                <ScalarProperty Name="Answer_two_questions" ColumnName="Answer_two_questions" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
         Title="Tests" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="Grid_test">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -29,31 +29,34 @@
         <!--<TextBlock HorizontalAlignment="Left" Margin="288,194,0,0" TextWrapping="Wrap" Text="{Binding Title}"  VerticalAlignment="Top"/>-->
         <Label Content="{Binding Ts.Title}" HorizontalAlignment="Left" VerticalAlignment="Top" 
           Height="53" Width="386" Grid.ColumnSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" Margin="10,0,0,0"/>
-        <TextBox BorderBrush="Black" Text="{Binding Qs.Question}" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" x:Name="Ques_xaml" TextWrapping="Wrap" 
+        <TextBox BorderBrush="Black" Text="{Binding Qs.Question}" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" x:Name="Ques_xaml" TextWrapping="Wrap" 
                FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Background="White" Opacity="0.9" 
-               Height="122" Grid.RowSpan="2" Width="450" Margin="173,0,0,0" Grid.ColumnSpan="4" IsReadOnly="True"  />
+               Height="122" Grid.RowSpan="2" Width="450"  Grid.ColumnSpan="4" IsReadOnly="True"  />
 
-        <Button BorderBrush="Black"  Grid.Row="3" Grid.RowSpan="3" Grid.Column="0"  Click="First_but_click" HorizontalAlignment="Right" Width="160" Height="95" FontFamily="/Kursovay;component/#Cocomat Pro" Background="#ff6347" Foreground="Black" Opacity="0.9"   VerticalAlignment="Top"  >
+        <Button x:Name="Firs_but" Visibility="Hidden" BorderBrush="Black"  Grid.Row="3" Grid.RowSpan="3" Grid.Column="0"  Click="First_but_click" HorizontalAlignment="Right" Width="160" Height="95" FontFamily="/Kursovay;component/#Cocomat Pro" Background="#ff6347" Foreground="Black" Opacity="0.9"   VerticalAlignment="Top"  >
             <TextBlock x:Name="Firranswer" Text="1" TextWrapping="Wrap" 
                        TextAlignment="Center"/>
         </Button>
 
 
-        <Button  BorderBrush="Black" Grid.Column="1" HorizontalAlignment="Center" Width="160" Height="95" Grid.Row="3" VerticalAlignment="Top" FontFamily="/Kursovay;component/#Cocomat Pro"  Click="Sec_but_click" Background="#ff6347" Foreground="Black" Opacity="0.9" Grid.RowSpan="2">
+        <Button x:Name="Sec_but" Visibility="Hidden" Grid.ColumnSpan="1" BorderBrush="Black" Grid.Column="1" HorizontalAlignment="Center" Width="160" Height="95" Grid.Row="3" VerticalAlignment="Top" FontFamily="/Kursovay;component/#Cocomat Pro"  Click="Sec_but_click" Background="#ff6347" Foreground="Black" Opacity="0.9" Grid.RowSpan="2">
             <TextBlock x:Name="Sectanswer" Text="2" TextWrapping="Wrap"
                        TextAlignment="Center"/>
         </Button>
 
 
-        <Button  Grid.Column="2" BorderBrush="Black" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="160" Height="95"   FontFamily="/Kursovay;component/#Cocomat Pro" RenderTransformOrigin="0.52,0.2" Click="Thir_but_Click"  Background="#ff6347 " Foreground="Black" Opacity="0.9" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <Button x:Name="Thir_but" Visibility="Hidden"  Grid.Column="2" BorderBrush="Black" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="160" Height="95"   FontFamily="/Kursovay;component/#Cocomat Pro" RenderTransformOrigin="0.52,0.2" Click="Thir_but_Click"  Background="#ff6347 " Foreground="Black" Opacity="0.9" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <TextBlock x:Name="Thiranswer" Text="3" TextWrapping="Wrap"
                        TextAlignment="Center"/>
         </Button>
-        <Button x:Name="Fourtanswer_but"  Grid.Column="3" BorderBrush="Black" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="160" Height="95"    FontFamily="/Kursovay;component/#Cocomat Pro" RenderTransformOrigin="0.52,0.2" Click="Fourth_but_Click"  Background="#ff6347 " Foreground="Black" Opacity="0.9" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <Button x:Name="Fourtanswer_but"  Visibility="Hidden" Grid.Column="3" BorderBrush="Black" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="160" Height="95"    FontFamily="/Kursovay;component/#Cocomat Pro" RenderTransformOrigin="0.52,0.2" Click="Fourth_but_Click"  Background="#ff6347 " Foreground="Black" Opacity="0.9" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <TextBlock x:Name="Fourthanswer" Text="4" TextWrapping="Wrap"
                        TextAlignment="Center"/>
         </Button>
-        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Width="Auto" Height="Auto" MinWidth="400" MinHeight="50" Visibility="Hidden"  HorizontalAlignment="Left"  Grid.Row="3" AcceptsReturn="True" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20"/>
+        <TextBox x:Name="Text_box_ans"  Grid.Column="1" Grid.ColumnSpan="2" Width="Auto" Height="Auto" MinWidth="400" MinHeight="50" Visibility="Visible"  HorizontalAlignment="Left"  Grid.Row="3" AcceptsReturn="True" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20"/>
+        <Button x:Name="Text_box_but" Grid.Column="3" Grid.ColumnSpan="2" Width="Auto" Height="Auto" MinWidth="100" MinHeight="50" Visibility="Visible"  Content="Подтвердить" HorizontalAlignment="Left"  Grid.Row="3"  VerticalAlignment="Top" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Background="#ff6347" Click="Text_box_but_Click">
+
+        </Button>
 
 
 
