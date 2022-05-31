@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
-        Title="Tests" Height="450" Width="800">
+        WindowState="Maximized"
+
+        
+        Title="Tests">
     <Grid x:Name="Grid_test">
 
         <Grid.ColumnDefinitions>
@@ -27,11 +30,11 @@
 
 
         <!--<TextBlock HorizontalAlignment="Left" Margin="288,194,0,0" TextWrapping="Wrap" Text="{Binding Title}"  VerticalAlignment="Top"/>-->
-        <Label Content="{Binding Ts.Title}" HorizontalAlignment="Left" VerticalAlignment="Top" 
-          Height="53" Width="386" Grid.ColumnSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" Margin="10,0,0,0"/>
+        <Label Content="{Binding Qs.Test.Title}" HorizontalAlignment="Left" VerticalAlignment="Stretch" 
+          Height="53" Width="386" Grid.ColumnSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" />
         <TextBox BorderBrush="Black" Text="{Binding Qs.Question}" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" x:Name="Ques_xaml" TextWrapping="Wrap" 
                FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Background="White" Opacity="0.9" 
-               Height="122" Grid.RowSpan="2" Width="450"  Grid.ColumnSpan="4" IsReadOnly="True"  />
+               Height="122" Grid.RowSpan="2" Width="Auto" MaxWidth="800"  Grid.ColumnSpan="4" IsReadOnly="True" />
 
         <Button x:Name="Firs_but" Visibility="Hidden" BorderBrush="Black"  Grid.Row="3" Grid.RowSpan="3" Grid.Column="0"  Click="First_but_click" HorizontalAlignment="Right" Width="160" Height="95" FontFamily="/Kursovay;component/#Cocomat Pro" Background="#ff6347" Foreground="Black" Opacity="0.9"   VerticalAlignment="Top"  >
             <TextBlock x:Name="Firranswer" Text="1" TextWrapping="Wrap" 

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
-        ResizeMode="CanMinimize"
-        Title="Tests" Height="450" Width="800">
+        WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="503*"></ColumnDefinition>

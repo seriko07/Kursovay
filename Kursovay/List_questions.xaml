@@ -61,6 +61,7 @@
                         </DataGridTextColumn>
 
                         <DataGridCheckBoxColumn x:Name="CheckBox_list" IsThreeState="False" Binding="{Binding Open_question }" Header="Ответ письменный" Width="*"></DataGridCheckBoxColumn>
+                        <DataGridCheckBoxColumn x:Name="CheckBox_two_ques_list" IsThreeState="False" Binding="{Binding Answer_two_questions}" Header="Выбрать два варианта ответа" Width="*"></DataGridCheckBoxColumn>
                         
                         
                     </DataGrid.Columns>

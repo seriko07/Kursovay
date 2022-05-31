@@ -259,9 +259,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="photo_2021-11-25_23-20-50.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="pages\" />
   </ItemGroup>
   <ItemGroup>

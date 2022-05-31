@@ -5,55 +5,93 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
-        ResizeMode="CanMinimize"
-        Title="Tests" Height="450" Width="800">
+        Title="Tests"
+         WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
+    <Window.Resources>
+        <Style x:Key="Header">
+            <Setter Property="Control.FontSize" Value="15"/>
+            
+        </Style>
+      
+
+
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="223*"/>
-            <ColumnDefinition Width="215*"/>
-            <ColumnDefinition Width="232*"/>
+            <ColumnDefinition Width="639*"/>
+            <ColumnDefinition Width="641*"/>
+            <ColumnDefinition Width="640*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height ="0.16*"></RowDefinition>
+            <RowDefinition Height ="0.25*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <DataGrid AutoGenerateColumns="False"  x:Name="testgrid" MouseUp="Testgrid_MouseUp" Grid.Row="1" Grid.ColumnSpan="3" CanUserAddRows="False"  >
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontSize" Value="22" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.RowStyle>
+                <Style  TargetType="DataGridRow" >
+                    <Setter Property="FontSize" Value="24"/>
+                </Style>
+            </DataGrid.RowStyle>
+            
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Название лекции" Width="*"/>
+
+                <DataGridTextColumn 
+                    
+                    Binding="{Binding Title}" 
+                                  
+                    Header="Название лекции" 
+                                   
+                    Width="*"
+                                   
+                    >
+                    
+                    
+                </DataGridTextColumn>
+                                    
+                       
+                                    
                 <DataGridTextColumn Binding="{Binding Teachers.FCS}" Width="*" Header="Учитель" />
                 <DataGridTextColumn Binding="{Binding Date_of_creation, StringFormat= D,ConverterCulture=ru }" Header="Дата создания" Width="*"/>
+             
+                
+                
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid Grid.Row="0" Grid.ColumnSpan="4">
+        <Grid Grid.Row="0" Grid.ColumnSpan="3" Margin="0,0,0,851" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="43*"/>
-                <ColumnDefinition Width="37*"/>
-                <ColumnDefinition Width="80*"/>
-                <ColumnDefinition Width="80*"/>
-                <ColumnDefinition Width="80*"/>
-                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
 
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="74*"></RowDefinition>
+         
             </Grid.RowDefinitions>
             <TextBlock 
-                HorizontalAlignment="Center" VerticalAlignment="Top"  Height="52" Width="300" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22" Grid.Column="0" Grid.ColumnSpan="3"  >
+                HorizontalAlignment="Center" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="42" Grid.Column="0"  Height="101" Width="188" Grid.RowSpan="2"  >
                 Выберите <LineBreak/> лекцию
             </TextBlock>
-            <Button  Background="#ff6347" VerticalAlignment="Center" Click="Editing_Test" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="140" BorderBrush="Black" Grid.Column="3"  >
+            <Button  Background="#ff6347" VerticalAlignment="Center" Click="Editing_Test" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Height="70" Width="200" BorderBrush="Black" Grid.Column="2"    >
                 <TextBlock TextAlignment="Center"> Редактировать  <LineBreak/> урок</TextBlock>
             </Button>
-            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="New_lesson" BorderBrush="Black" Background="#ff6347" Width="140"  Grid.Column="4"  >
+            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Height="70" Width="200" Click="New_lesson" BorderBrush="Black" Background="#ff6347"  Grid.Column="3"  >
                 <TextBlock TextAlignment="Center"> Создать  <LineBreak/> урок</TextBlock>
             </Button>
-            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="Del_lesson" BorderBrush="Black" Background="#ff6347" Width="140"  Grid.Column="5"  >
+            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Height="70" Width="200" Click="Del_lesson" BorderBrush="Black" Background="#ff6347"  Grid.Column="5" Grid.RowSpan="2"  >
                 <TextBlock TextAlignment="Center"> Удалить  <LineBreak/> урок</TextBlock>
             </Button>
-            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Click="Open_Rs" BorderBrush="Black" Background="#ff6347" Width="140"  Grid.Column="2" >
-                <TextBlock TextAlignment="Center"> Журнал  </TextBlock>
+            <Button  VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20"  Click="Open_Rs" BorderBrush="Black" Background="#ff6347"  Grid.Column="1" Height="70" Width="200"  Grid.RowSpan="2" >
+                <TextBlock TextAlignment="Center"> Журнал</TextBlock>
             </Button>
 
 

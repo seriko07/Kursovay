@@ -5,22 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
-        Title="Tests" Height="450" Width="800"
-        ResizeMode="CanMinimize"
-        WindowStartupLocation="CenterOwner">
+        Title="Tests" 
+        WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
 
     <Grid Background="White">
 
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="23*"></ColumnDefinition>
-            <ColumnDefinition Width="34*"/>
-            <ColumnDefinition Width="57*"></ColumnDefinition>
-            <ColumnDefinition Width="57*"></ColumnDefinition>
-            <ColumnDefinition Width="57*"></ColumnDefinition>
-            <ColumnDefinition Width="57*"></ColumnDefinition>
-            <ColumnDefinition Width="57*"></ColumnDefinition>
-            <ColumnDefinition Width="57*"></ColumnDefinition>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -29,26 +26,54 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
 
         </Grid.RowDefinitions>
-        <Label Content="Авторизация" HorizontalAlignment="Left" Grid.Column="3" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="59" Width="296" FontSize="44" Foreground="Black" RenderTransformOrigin="0.52,0.632" FontFamily="/Kursovay;component/#Cocomat Pro" Margin="25,23,0,0"/>
+        <Label Content="Авторизация" HorizontalAlignment="Center" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Row="1"  FontSize="72" Foreground="Black"  FontFamily="/Kursovay;component/#Cocomat Pro"  />
 
-        <Label Content="Логин:"  Grid.Column="3" Grid.Row="1"  VerticalAlignment="Center" Height="84" FontSize="33" Foreground="Black" Grid.ColumnSpan="2"  Grid.RowSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" Margin="0,0,82,0"/>
-        <Label Content="Пароль:" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="84" Width="133" FontSize="33 " Foreground="Black" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,58,0,0" Grid.RowSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro" />
-        <TextBox x:Name="log" HorizontalAlignment="Left" Height="40"  TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Top" Width="162" RenderTransformOrigin="0.466,-0.147" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="55,47,0,0" Grid.RowSpan="2" Text="q" />
-        <PasswordBox x:Name="pas" HorizontalAlignment="Left" Height="40" BorderBrush="Black" VerticalAlignment="Top" Width="162" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Margin="55,70,0,0" Grid.RowSpan="2" Password="q" />
-        <Button x:Name="button_login" Content="Авторизоваться" HorizontalAlignment= "Left"  VerticalAlignment="Center" Width="132" 
-                Click="Button_autoriz" Height="53" Grid.Row="4" Grid.Column="3" BorderBrush="Black"
-               FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" Grid.ColumnSpan="2"
-                Foreground="Black"  Margin="11,0,0,0" FontSize="14" />
-        <Button x:Name="button_login_user" Content="Авторизоваться учеником" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="132" 
+        <Label Content="Логин:"  Grid.Column="2" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Right"  FontSize="36" Foreground="Black" FontFamily="/Kursovay;component/#Cocomat Pro"    />
+
+        <Label Content="Пароль:" HorizontalAlignment="Right"  VerticalAlignment="Top" FontSize="35 " Foreground="Black" Grid.Column="2" Grid.Row="3"  FontFamily="/Kursovay;component/#Cocomat Pro"  />
+
+        <TextBox x:Name="log" HorizontalAlignment="Left" Height="45"  TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Center" Width="162"  Grid.Row="2" Grid.Column="3"  Text="q" />
+
+        <PasswordBox x:Name="pas" HorizontalAlignment="Left" Height="45" BorderBrush="Black" VerticalAlignment="Top" Width="162" Grid.Row="3" Grid.Column="3"  Password="q"  />
+
+
+        <Button x:Name="button_login" Content="Авторизоваться" HorizontalAlignment= "Stretch"  VerticalAlignment="Stretch"  Height="70" Width="200"
+                Click="Button_autoriz"  Grid.Row="6" Grid.Column="2" BorderBrush="Black"
+               FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" 
+                Foreground="Black" FontSize="14" />
+
+
+        <Button x:Name="button_reg" Content="Регистрация" 
+                Click="Button_reg_Click"  Grid.Row="5" Grid.Column="3" BorderBrush="Black"
+                FontFamily="/Kursovay;component/#Cocomat Pro"   Background="#ff6347"  FontSize="14" Height="70" Width="200" />
+
+
+
+        <Label  x:Name="error_lab" Content="" HorizontalAlignment="Center" FontFamily="c:\users\shakh\desktop\diplom\kursovay\fonts\cocomatpro-regular.ttf" Foreground="Red" FontSize="20" Grid.Column="2"  Grid.Row="1" VerticalAlignment="Center"
+                Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+
+
+
+
+
+
+
+
+
+
+        <Button x:Name="button_login_user" Content="Авторизоваться учеником" HorizontalAlignment="Center"  VerticalAlignment="Center" 
                 Click="button_login_user_Click_1" Height="53" Grid.Row="4" Grid.Column="1" BorderBrush="Black"
-               FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" Grid.ColumnSpan="2"
-                Foreground="Black"  FontSize="14" Margin="41,0,0,0" />
-        <Button x:Name="button_reg" Content="Регистрация" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="132"
-                Click="Button_reg_Click" Height="53" Grid.Row="4" Grid.Column="4" BorderBrush="Black"
-                FontFamily="/Kursovay;component/#Cocomat Pro" Grid.ColumnSpan="2"  Background="#ff6347" Margin="84,0,0,0" FontSize="14"/>
-        <Label Grid.Column="3" x:Name="error_lab" Content="" HorizontalAlignment="Center" FontFamily="c:\users\shakh\desktop\diplom\kursovay\fonts\cocomatpro-regular.ttf" Foreground="Red" FontSize="14" Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Top" Width="204"/>
+               FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" 
+                Foreground="Black"  FontSize="14" Visibility="Hidden" />
+
+
+
+
+
 
     </Grid>
 </Window>

@@ -144,33 +144,16 @@ namespace Kursovay
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //InitializeComponent();
+            if (Title.Text == "" || Title.Text == null)
+            {
+                Title.Text = "Введите название лекции";
+                Title.Foreground = Brushes.Gray;
+            }
+        }
 
-            //var questions = Core.db.Questions.ToList();
-            //try
-            //{
-            //    //questions = Core.db.Questions.Where(u => u.ID_test == CurrentTest.ID).ToList();
-
-            //}
-            //catch (Exception)
-            //{
-
-            //}
-            //Console.WriteLine(questions.Count);
-                            //questions2 = Core.db.Questions.Where(u => u.ID_test == test.ID).ToList();
-
-
-
-            //foreach (var item in questions)
-            //{
-            //    if (item.ID_test == CurrentTest.ID)
-            //    {
-            //        View_test.Visibility = Visibility.Visible;
-            //    }
-            //    else { View_test.Visibility = Visibility.Collapsed; }
-            //    InitializeComponent();
-
-            //}
+        private void Title_TextChanged(object sender, TextChangedEventArgs e)
+        {
+       
         }
     }
 }
