@@ -141,6 +141,11 @@ namespace Kursovay
             test_Student.Show();
 
         }
+
+        private void FCS_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
 

@@ -24,7 +24,7 @@
         
         <RichTextBox x:Name="Theory_text" BorderThickness="0" BorderBrush="{x:Null}" Width="800" HorizontalAlignment="Stretch"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"    />
         
-        <Button x:Name="test_but" BorderBrush="Black" Content="Перейти к тесту" Background="#ff6347 " HorizontalAlignment="Left"  VerticalAlignment="Center" Height="70" Width="200" Click="Test_click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Grid.Column="1" Margin="3,0,0,0" />
+        <Button x:Name="test_but" BorderBrush="Black" Content="Перейти к тесту" Background="#ff6347 " HorizontalAlignment="Center"  VerticalAlignment="Center" Height="70" Width="200" Click="Test_click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Grid.Column="1"  />
         
         <Button x:Name="task_but" BorderBrush="Black" Visibility="Visible"  Content="Перейти к заданию" Background="#ff6347 " HorizontalAlignment="Right"  VerticalAlignment="Center" Height="70" Width="200" Click="Task_click" FontFamily="/Kursovay;component/#Cocomat Pro" Grid.Column="1" FontSize="15" Margin="150,0,0,0"   />
 

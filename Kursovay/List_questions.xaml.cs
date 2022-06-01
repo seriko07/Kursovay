@@ -85,6 +85,7 @@ namespace Kursovay
         private void questions_grid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.Header = (e.Row.GetIndex()+1).ToString();
+          
             
         }
         private void criteria_for_the_test(object sender, RoutedEventArgs e)

@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
-        ResizeMode="CanMinimize"
-        Title="Results_students" Height="450" Width="800">
+        WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -25,12 +24,32 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <DataGrid AutoGenerateColumns="False" CanUserAddRows="False"  x:Name="results_grid" Grid.Row="1" Grid.ColumnSpan="3" >
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="FontSize" Value="22" />
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.RowStyle>
+                    <Style  TargetType="DataGridRow" >
+                        <Setter Property="FontSize" Value="22"/>
+                    </Style>
+                </DataGrid.RowStyle>
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Users.FCS}" Header="ФИО" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Users.Group.Number}" Header="Группа" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Test.Title}" Header="Лекция" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Result}" Header="Оценка за тест" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Assessment_task}" Header="Оценка за практ задание" Width="*"/>
+                    <DataGridCheckBoxColumn Binding="{Binding Task_done}"  Width="*" IsThreeState="False" >
+
+                        <DataGridCheckBoxColumn.Header>
+                        <TextBlock 
+                                    Text="Сделано ли практическое задание"
+                                    TextWrapping="Wrap"
+                                />
+                        </DataGridCheckBoxColumn.Header>
+
+                   </DataGridCheckBoxColumn>
                 </DataGrid.Columns>
             </DataGrid>
 
@@ -49,22 +68,22 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock 
-                     HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="138" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22" Margin="7,-2,0,0">
+                     HorizontalAlignment="Center" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="45" >
                     Журнал
                 </TextBlock>
-                <Button BorderBrush="Black" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="140"  Grid.Column="2" Click="Button_Click" >
+                <Button BorderBrush="Black" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Height="70" Background="#ff6347" Width="200"  Grid.Column="2" Click="Button_Click" >
                     <TextBlock TextAlignment="Center">Сохранить</TextBlock>
                 </Button>
-                <Button BorderBrush="Black" Click="Check_task" VerticalAlignment="Center"      FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="150"  Grid.Column="3"   >
-                    <TextBlock TextAlignment="Center" Height="40" Width="146">Перейти к практич<LineBreak/>еской части ученика</TextBlock>
+                <Button BorderBrush="Black" Click="Check_task" VerticalAlignment="Center"      FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="19" Height="70" Background="#ff6347" Width="200"  Grid.Column="3"   >
+                    <TextBlock TextAlignment="Center"  TextWrapping="Wrap" >Перейти к практической части ученика</TextBlock>
                 </Button>
-                <Button BorderBrush="Black"  Background="#ff6347" VerticalAlignment="Center" Click="Open_lt" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="140"  Grid.Column="1"  >
+                <Button BorderBrush="Black"  Background="#ff6347" VerticalAlignment="Center" Click="Open_lt" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Height="70" Width="200"  Grid.Column="1"  >
                     <TextBlock TextAlignment="Center"> Открыть список  <LineBreak/> лекций</TextBlock>
                 </Button>
-                <Button BorderBrush="Black"  Background="#ff6347" VerticalAlignment="Center" Click="Delete_res" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Width="140"  Grid.Column="4"  >
+                <Button BorderBrush="Black"  Background="#ff6347" VerticalAlignment="Center" Click="Delete_res" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Height="70" Width="200"  Grid.Column="4"  >
                     <TextBlock TextAlignment="Center"> Удалить <LineBreak/> результат</TextBlock>
                 </Button>
-                <TextBlock x:Name="error_lab" Text="" TextWrapping="Wrap" HorizontalAlignment="Left"  FontFamily="c:\users\shakh\desktop\diplom\kursovay\fonts\cocomatpro-regular.ttf" Foreground="Red" FontSize="10" VerticalAlignment="Top" Width="156" Margin="4,22,0,0"/>
+                <TextBlock x:Name="error_lab" Visibility="Visible" Text="" TextWrapping="Wrap" HorizontalAlignment="Center"  FontFamily="c:\users\shakh\desktop\diplom\kursovay\fonts\cocomatpro-regular.ttf" Foreground="Red" FontSize="15" VerticalAlignment="Bottom" MaxWidth="300" />
 
 
 

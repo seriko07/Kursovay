@@ -34,7 +34,7 @@
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.RowStyle>
                 <Style  TargetType="DataGridRow" >
-                    <Setter Property="FontSize" Value="24"/>
+                    <Setter Property="FontSize" Value="22"/>
                 </Style>
             </DataGrid.RowStyle>
             

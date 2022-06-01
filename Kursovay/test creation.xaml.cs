@@ -46,25 +46,25 @@ namespace Kursovay
         
         private void Save_test_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                char ch = '%';
-                int a = mark_3.Text.IndexOf(ch);
-                mark_3.Text = mark_3.Text.Remove(a);
-                a = mark_4.Text.IndexOf(ch);
-                mark_4.Text = mark_4.Text.Remove(a);
-                a = mark_5.Text.IndexOf(ch);
-                mark_5.Text = mark_5.Text.Remove(a);
-                mark3 = Convert.ToInt32(mark_3.Text);
-                mark4 = Convert.ToInt32(mark_4.Text);
-                mark5 = Convert.ToInt32(mark_5.Text);
+            //try
+            //{
+            //    char ch = '%';
+            //    int a = mark_3.Text.IndexOf(ch);
+            //    mark_3.Text = mark_3.Text.Remove(a);
+            //    a = mark_4.Text.IndexOf(ch);
+            //    mark_4.Text = mark_4.Text.Remove(a);
+            //    a = mark_5.Text.IndexOf(ch);
+            //    mark_5.Text = mark_5.Text.Remove(a);
+            //    mark3 = Convert.ToInt32(mark_3.Text);
+            //    mark4 = Convert.ToInt32(mark_4.Text);
+            //    mark5 = Convert.ToInt32(mark_5.Text);
 
-            }
-            catch (Exception)
-            {
-                error_label.Visibility = Visibility.Visible;
-                return;
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    error_label.Visibility = Visibility.Visible;
+            //    return;
+            //}
             if (mark3 > 100 || mark4 > 100 || mark5 > 100)
             {
                 error_label.Visibility = Visibility.Visible;
@@ -95,9 +95,10 @@ namespace Kursovay
             }
             else
             {
-                grade.assessment_5 = mark5;
-                grade.assessment_4 = mark4;
-                grade.assessment_3 = mark3;
+               
+                grade.assessment_5 = Convert.ToInt32(mark_5.Text);
+                grade.assessment_4 = Convert.ToInt32(mark_4.Text);
+                grade.assessment_3 = Convert.ToInt32(mark_3.Text);
                 grade.ID_Test = Test.ID;
              
                 Core.db.SaveChanges();
