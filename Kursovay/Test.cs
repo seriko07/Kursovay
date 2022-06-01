@@ -24,7 +24,6 @@ namespace Kursovay
     
         public int ID { get; set; }
         public string Title { get; set; }
-        public string Theory { get; set; }
         public int TeacherID { get; set; }
         public Nullable<System.DateTime> Date_of_creation { get; set; }
         public string Task { get; set; }

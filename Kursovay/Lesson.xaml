@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Tests"
         WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
-    
+
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
@@ -28,26 +28,115 @@
 
 
 
-        <Button Content="Сохранить" Grid.Column="3"  Grid.Row="4" VerticalAlignment="Center" BorderBrush="Black" HorizontalAlignment="Center" Height="70" Width="200" FontSize="20" Click="Save_click" FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347"/>
+        <Button Content="Сохранить" Grid.Column="3"  Grid.Row="4" VerticalAlignment="Center" BorderBrush="Black" HorizontalAlignment="Center" Height="70" Width="200" FontSize="20"  FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" Click="Save_click"/>
 
         <Button Content="Создать тест" Grid.Column="4" Grid.Row="3" Grid.RowSpan="5" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Height="70" Width="200" FontSize="20"  x:Name="View_test" Click="Button_Click_1" FontFamily="/Kursovay;component/#Cocomat Pro" Background="#ff6347" />
 
 
 
-        <TextBox  Name="Theory" AcceptsReturn="True" Text="{Binding currentTest.Theory}" Grid.RowSpan="4" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="3" TextWrapping="Wrap"/>
-       
-        
-       
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10"  MinHeight="34"  TextWrapping="Wrap"  Text="{Binding currentTest.Title}" MinWidth="250" Name="Title" FontFamily="/Kursovay;component/#Cocomat Pro" Grid.ColumnSpan="2" FontSize="25" BorderThickness="2" BorderBrush="Black" TextChanged="Title_TextChanged" />
+        <RichTextBox  x:Name="Theory" AcceptsReturn="True"  Grid.RowSpan="4" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="3" />
+
+
+
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10"  MinHeight="34"  TextWrapping="Wrap"  Text="{Binding currentTest.Title}" MinWidth="250" Name="Title" FontFamily="/Kursovay;component/#Cocomat Pro" Grid.ColumnSpan="2" FontSize="25" BorderThickness="2" BorderBrush="Black" />
         <!--<Button Content="Создать критерии к тесту" Grid.Column="4"  Grid.Row="3" Grid.RowSpan="5" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="45"  Click="Button_Click_Test" FontFamily="/Kursovay;component/#Cocomat Pro" Background="#ff6347" />-->
-        
-       
-        
+
+
+
         <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Margin="10"   FontSize="25" Background="White"  VerticalAlignment="Bottom">
             <TextBlock TextAlignment="Center">Напишите задание</TextBlock>
         </Label>
-       
-        
+
+
         <TextBox  Name="Task" Text="{Binding currentTest.Task}" AcceptsReturn="True"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="4" BorderBrush="Black" BorderThickness="2" TextWrapping="Wrap"  />
+        <ToolBarTray Grid.Column="2"  Grid.Row="0" VerticalAlignment="Bottom" Width="650"  >
+
+            <ToolBarTray.Resources>
+                <Style TargetType="{x:Type Image}">
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Width" Value="30"/>
+                    <Setter Property="TextAlignment" Value="Center"/>
+                    <Setter Property="FontFamily" Value="Palatino Linotype"/>
+                    <Setter Property="FontSize" Value ="14"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </ToolBarTray.Resources>
+
+
+
+
+            <ToolBar  Background="White" Width="650" ToolTip="Commands in this group use only WPF" >
+
+                
+                <Button Command="Undo" ToolTip="Undo">
+                    <Image Source="Icons/Undo.png"/>
+                </Button>
+
+                <Button Command="Redo" ToolTip="Redo">
+                    <Image Source="Icons/Redo.png"/>
+                </Button>
+                <Separator/>
+                <Button Command="Cut" ToolTip="Cut">
+                    <Image Source="Icons/Cut.png"/>
+                </Button>
+                <Button Command="Copy" ToolTip="Copy">
+                    <Image Source="Icons/Copy.png"/>
+                </Button>
+                <Button Command="Paste" ToolTip="Paste">
+                    <Image Source="Icons/Paste.png"/>
+                </Button>
+                <Separator/>
+                <Button Command="ToggleBold" ToolTip="Bold">
+                    <TextBlock Text="B" FontWeight="Bold"/>
+                </Button>
+                <Button Command="ToggleItalic" ToolTip="Italic">
+                    <TextBlock Text="I" FontStyle="Italic"/>
+                </Button>
+                <Button Command="ToggleUnderline" ToolTip="Underline">
+                    <TextBlock Text="U" TextDecorations="Underline"/>
+                </Button>
+                <Separator/>
+                <Button Command="IncreaseFontSize" ToolTip="Increase Font Size">
+                    <Image Source="Icons/IncreaseFontSize.png"/>
+                </Button>
+                <Button Command="DecreaseFontSize" ToolTip="Decrease Font Size">
+                    <Image Source="Icons/DecreaseFontSize.png"/>
+                </Button>
+                <Separator/>
+                <Button Command="ToggleBullets" ToolTip="Bullets">
+                    <Image Source="Icons/ToggleBullets.png"/>
+                </Button>
+                <Button Command="ToggleNumbering" ToolTip="Numbering">
+                    <Image Source="Icons/ToggleNumbering.png"/>
+                </Button>
+                <Separator/>
+                <Button Command="DecreaseIndentation" ToolTip="Decrease Indentation">
+                    <Image Source="Icons/DecreaseIndentation.png"/>
+                </Button>
+                <Button Command="IncreaseIndentation" ToolTip="Increase Indentation">
+                    <Image Source="Icons/IncreaseIndentation.png"/>
+                </Button>
+                <Separator/>
+                <Button Command="AlignLeft" ToolTip="Align Left">
+                    <Image Source="Icons/AlignLeft.png"/>
+                </Button>
+                <Button Command="AlignCenter" ToolTip="Align Center">
+                    <Image Source="Icons/AlignCenter.png"/>
+                </Button>
+                <Button Command="AlignRight" ToolTip="Align Right">
+                    <Image Source="Icons/AlignRight.png"/>
+                </Button>
+                <Button Command="AlignJustify" ToolTip="Align Justify">
+                    <Image Source="Icons/AlignJustify.png"/>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+
     </Grid>
 </Window>

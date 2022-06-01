@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
-        Title="List_questions" Height="450" Width="800">
+        WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid>
         <Grid>
             <Grid>
@@ -21,7 +21,11 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <DataGrid AutoGenerateColumns="False" x:Name="questions_grid" Grid.Row="1" Grid.ColumnSpan="5" LoadingRow="questions_grid_LoadingRow" >
-                    
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="FontSize" Value="22" />
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Question}" Header="Вопрос" Width="*">
                         <DataGridTextColumn.ElementStyle>
@@ -30,14 +34,27 @@
                             </Style>
                         </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                            <DataGridTextColumn Binding="{Binding Сorrect_answer}" Header="Правильный ответ" Width="*">
+                        <DataGridTextColumn Binding="{Binding Сorrect_answer}" Width="*" >
+                            <DataGridTextColumn.Header>
+                                <TextBlock Text="Правильный ответ"
+                                           TextWrapping="Wrap"/>
+
+                            </DataGridTextColumn.Header>
                             <DataGridTextColumn.ElementStyle>
                                 <Style>
                                     <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                        <DataGridTextColumn Binding="{Binding Second_correct_answer}" Header="Второй вариант правильного ответа " Width="*">
+                        <DataGridTextColumn Binding="{Binding Second_correct_answer}"  Width="*">
+                            <DataGridTextColumn.Header>
+                                <TextBlock
+                                    Text="Второй вариант правильного ответа "
+                                    TextWrapping="Wrap"
+                                    
+                                />
+                                
+                            </DataGridTextColumn.Header>
                             <DataGridTextColumn.ElementStyle>
                                 <Style>
                                     <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -61,7 +78,21 @@
                         </DataGridTextColumn>
 
                         <DataGridCheckBoxColumn x:Name="CheckBox_list" IsThreeState="False" Binding="{Binding Open_question }" Header="Ответ письменный" Width="*"></DataGridCheckBoxColumn>
-                        <DataGridCheckBoxColumn x:Name="CheckBox_two_ques_list" IsThreeState="False" Binding="{Binding Answer_two_questions}" Header="Выбрать два варианта ответа" Width="*"></DataGridCheckBoxColumn>
+                        
+                        
+                        
+                        <DataGridCheckBoxColumn x:Name="CheckBox_two_ques_list" IsThreeState="False" Binding="{Binding Answer_two_questions}"
+                                                
+                                                 Width="*">
+                            <DataGridCheckBoxColumn.Header>
+                                <TextBlock
+                                    Text="Выбрать два варианта ответа"
+                                    TextWrapping="Wrap"
+                                />
+                            </DataGridCheckBoxColumn.Header>
+                            
+                            
+                        </DataGridCheckBoxColumn>
                         
                         
                     </DataGrid.Columns>
@@ -80,17 +111,18 @@
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label Content="Вопросы теста " HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="220" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="22" Grid.Column="0" Grid.ColumnSpan="2" />
-                    <Button BorderBrush="Black" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="140"  Grid.Column="4" Click="Button_Click"  >
+                    <Label Content="Вопросы теста " HorizontalAlignment="Left" VerticalAlignment="Center" Height="Auto" Width="Auto" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="35" Grid.Column="0" Grid.ColumnSpan="2" />
+                    
+                    <Button BorderBrush="Black" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Height="70" Background="#ff6347" Width="200"    Grid.Column="4" Click="Button_Click"  >
                         <TextBlock TextAlignment="Center">Сохранить</TextBlock>
                     </Button>  
-                    <Button BorderBrush="Black" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="140"  Grid.Column="3" Click="Dell_click"  >
+                    <Button BorderBrush="Black" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Height="70" Background="#ff6347" Width="200"  Grid.Column="3" Click="Dell_click"  >
                         <TextBlock TextAlignment="Center">Удалить вопрос</TextBlock>
                     </Button>
-                     <Button BorderBrush="Black" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="140"  Grid.Column="2" Click="Add_click"  >
+                    <Button BorderBrush="Black" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Height="70" Background="#ff6347" Width="200"   Grid.Column="2" Click="Add_click"  >
                         <TextBlock TextAlignment="Center">Добавить вопросы</TextBlock>
                     </Button>
-                    <Button BorderBrush="Black" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Height="50" Background="#ff6347" Width="140"  Grid.Column="1" Click="criteria_for_the_test"  >
+                    <Button BorderBrush="Black" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Height="70" Background="#ff6347" Width="200"   Grid.Column="1" Click="criteria_for_the_test"  >
                         <TextBlock TextAlignment="Center">Создать критерии<LineBreak></LineBreak> к тесту</TextBlock>
                     </Button>
                     

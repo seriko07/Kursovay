@@ -38,6 +38,29 @@ namespace Kursovay
             Test_theory = test;
             users1 = users;
 
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string path = (desktop + "\\Lectures\\" + Test_theory.Title.ToString() + ".rtf");
+
+            {
+                System.Windows.Documents.TextRange range;
+                System.IO.FileStream fStream;
+                var dataFormat = DataFormats.Rtf;
+
+                try
+                {
+                    // Open the document in the RichTextBox.
+                    range = new System.Windows.Documents.TextRange(Theory_text.Document.ContentStart, Theory_text.Document.ContentEnd);
+                    fStream = new System.IO.FileStream(path, System.IO.FileMode.Open);
+                    range.Load(fStream, dataFormat);
+                    fStream.Close();
+                }
+                catch (System.Exception)
+                {
+                    MessageBox.Show("File could not be opened. Make sure the file is a text file.");
+                }
+
+
+            }
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

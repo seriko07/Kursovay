@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,11 @@ namespace Kursovay
         public Test currentTest { get; set; }
         public Test CurrentTest { get; set; }
         public Test newtest1 { get; set; }
+
+        public Test newtest = new Test();
+
+        public string pathcurrentfile;
+
         public Lesson(Teachers Teacher, Test test)
         {
 
@@ -32,86 +38,158 @@ namespace Kursovay
             currentTest = test;
             CurrentTest = test;
             var questions = Core.db.Questions.ToList();
-            //foreach (var item in questions)
-            //{
-            //    if (item.ID_test == currentTest.ID)
-            //    {
-            //        View_test.Visibility = Visibility.Visible;
-            //    }
-            //}
+
             T = Teacher;
-            
-            //if (currentTest != null)
-            //{
-            //    Theory.Text = currentTest.Theory;
-            //   Title.Text = currentTest.Title;
 
-            //    Core.db.SaveChanges();
-            //}
+            if (CurrentTest != null)
+            {
+                string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                 pathcurrentfile = (desktop + "\\Lectures\\" + CurrentTest.Title.ToString() + ".rtf");
 
+                {
+                    System.Windows.Documents.TextRange range;
+                    System.IO.FileStream fStream;
+                    var dataFormat = DataFormats.Rtf;
+
+                    try
+                    {
+                        // Open the document in the RichTextBox.
+                        range = new System.Windows.Documents.TextRange(Theory.Document.ContentStart, Theory.Document.ContentEnd);
+                        fStream = new System.IO.FileStream(pathcurrentfile, System.IO.FileMode.Open);
+                        range.Load(fStream, dataFormat);
+                        fStream.Close();
+                    }
+                    catch (System.Exception)
+                    {
+                        MessageBox.Show("File could not be opened. Make sure the file is a text file.");
+                    }
+
+
+                }
+
+
+
+            }
         }
-        //public Test(Test test)
-        //{
-        //    Test test = new Test();
 
-        //    InitializeComponent();
-        //    d = test;
-        //    Title.Text = d.Title;
-  
-        //}        
-        //public Lesson(Test selectedItem)
-        //{
-        //    this.selectedItem = selectedItem;
-        //}
 
-       
 
         public void savetest()
         {
-            if (currentTest != null)
+            //if (currentTest != null)
+            //{
+            //    currentTest.Theory = Theory.Text;
+            //    currentTest.Title = Title.Text;
+            //    currentTest.Task = Task.Text;
+            //    Core.db.SaveChanges();
+            //    Lesson l2 = new Lesson(T, currentTest);
+            //    l2.Show();
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    Test newtest = new Test();
+            //    try
+            //    {
+            //        newtest.ID = Core.db.Test.ToList().Last().ID + 1;
+
+            //    }
+            //    catch (Exception)
+            //    {
+            //        newtest.ID = 1;
+            //    }
+            //    newtest.Title = Title.Text;
+            //    newtest.Theory = Theory.Text;
+            //    newtest.TeacherID = T.ID;
+            //    newtest.Date_of_creation = DateTime.Now;
+            //    newtest.Task = Task.Text;
+            //    Core.db.Test.Add(newtest);
+            //    Core.db.SaveChanges();
+            //    Lesson l2 = new Lesson(T, newtest);
+            //    l2.Show();
+            //    this.Close();
+            //    newtest1  = newtest;
+            //}
+        }
+
+        private void Save_click(object sender, RoutedEventArgs e)
+        {
+
+
+            if (CurrentTest != null)
             {
-                currentTest.Theory = Theory.Text;
-                currentTest.Title = Title.Text;
-                currentTest.Task = Task.Text;
+                string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+
+                FileInfo fileInf = new FileInfo(pathcurrentfile);
+                if (fileInf.Exists)
+                {
+                    fileInf.Delete();
+
+                }
+                CurrentTest.Task = Task.Text;
+                CurrentTest.Title = Title.Text;
                 Core.db.SaveChanges();
-                Lesson l2 = new Lesson(T, currentTest);
-                l2.Show();
-                this.Close();
+                string path = (desktop + "\\Lectures\\" + Title.Text.ToString() + ".rtf");
+
+                {
+                    System.Windows.Documents.TextRange range;
+                    System.IO.FileStream fStream;
+                    var dataFormat = DataFormats.Rtf;
+
+                    try
+                    {
+                        // Open the document in the RichTextBox.
+                        range = new System.Windows.Documents.TextRange(Theory.Document.ContentStart, Theory.Document.ContentEnd);
+                        fStream = new System.IO.FileStream(path, System.IO.FileMode.OpenOrCreate);
+                        range.Save(fStream, dataFormat);
+                        fStream.Close();
+                    }
+                    catch (System.Exception)
+                    {
+                        MessageBox.Show("File could not be opened. Make sure the file is a text file.");
+                    }
+                }
             }
             else
             {
-                Test newtest = new Test();
-                try
+                string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+                string path = (desktop + "\\Lectures\\" + Title.Text.ToString() + ".rtf");
+
                 {
+                    System.Windows.Documents.TextRange range;
+                    System.IO.FileStream fStream;
+                    var dataFormat = DataFormats.Rtf;
+
+                    try
+                    {
+                        // Open the document in the RichTextBox.
+                        range = new System.Windows.Documents.TextRange(Theory.Document.ContentStart, Theory.Document.ContentEnd);
+                        fStream = new System.IO.FileStream(path, System.IO.FileMode.OpenOrCreate);
+                        range.Save(fStream, dataFormat);
+                        fStream.Close();
+                    }
+                    catch (System.Exception)
+                    {
+                        MessageBox.Show("File could not be opened. Make sure the file is a text file.");
+                    }
+                    newtest.Task = Task.Text;
+                    newtest.TeacherID = T.ID;
+                    newtest.Title = Title.Text;
+                    newtest.Date_of_creation = DateTime.Now;
                     newtest.ID = Core.db.Test.ToList().Last().ID + 1;
+                    Core.db.Test.Add(newtest);
+                    Core.db.SaveChanges();
+                }
 
-                }
-                catch (Exception)
-                {
-                    newtest.ID = 1;
-                }
-                newtest.Title = Title.Text;
-                newtest.Theory = Theory.Text;
-                newtest.TeacherID = T.ID;
-                newtest.Date_of_creation = DateTime.Now;
-                newtest.Task = Task.Text;
-                Core.db.Test.Add(newtest);
-                Core.db.SaveChanges();
-                Lesson l2 = new Lesson(T, newtest);
-                l2.Show();
-                this.Close();
-                newtest1  = newtest;
+                
+
             }
+            this.Close();
         }
-        
-        private void Save_click(object sender, RoutedEventArgs e)
-        {
-            savetest();
-        }
-
         private void Button_Click_Test(object sender, RoutedEventArgs e)
         {
-            savetest();
             if (currentTest != null)
             {
                 test_creation test_Creation = new test_creation(CurrentTest);
@@ -122,17 +200,9 @@ namespace Kursovay
                 test_creation test_Creation = new test_creation(newtest1);
                 test_Creation.Show();
             }
-           
-            var questions = Core.db.Questions.ToList();
-            //foreach (var item in questions)
-            //{
-            //    if (item.ID_test == currentTest.ID)
-            //    {
-            //        View_test.Visibility = Visibility.Visible;
-            //    }
-            //    else { View_test.Visibility = Visibility.Collapsed; }
 
-            //}
+            var questions = Core.db.Questions.ToList();
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -153,7 +223,17 @@ namespace Kursovay
 
         private void Title_TextChanged(object sender, TextChangedEventArgs e)
         {
-       
+
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+
+
+
+        }
+
+        
     }
 }

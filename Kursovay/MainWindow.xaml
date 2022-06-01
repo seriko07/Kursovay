@@ -43,12 +43,12 @@
         <Button x:Name="button_login" Content="Авторизоваться" HorizontalAlignment= "Stretch"  VerticalAlignment="Stretch"  Height="70" Width="200"
                 Click="Button_autoriz"  Grid.Row="6" Grid.Column="2" BorderBrush="Black"
                FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" 
-                Foreground="Black" FontSize="14" />
+                Foreground="Black" FontSize="20" />
 
 
         <Button x:Name="button_reg" Content="Регистрация" 
                 Click="Button_reg_Click"  Grid.Row="5" Grid.Column="3" BorderBrush="Black"
-                FontFamily="/Kursovay;component/#Cocomat Pro"   Background="#ff6347"  FontSize="14" Height="70" Width="200" />
+                FontFamily="/Kursovay;component/#Cocomat Pro"   Background="#ff6347"  FontSize="20" Height="70" Width="200" />
 
 
 
@@ -68,7 +68,7 @@
         <Button x:Name="button_login_user" Content="Авторизоваться учеником" HorizontalAlignment="Center"  VerticalAlignment="Center" 
                 Click="button_login_user_Click_1" Height="53" Grid.Row="4" Grid.Column="1" BorderBrush="Black"
                FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" 
-                Foreground="Black"  FontSize="14" Visibility="Hidden" />
+                Foreground="Black"  FontSize="14" Visibility="Visible" />
 
 
 

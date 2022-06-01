@@ -6,16 +6,18 @@
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        Title="Tests" Height="450" Width="800">
+        WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
+
 
     <Grid >
 
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
 
+            <ColumnDefinition></ColumnDefinition>
+    
+            
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -29,22 +31,44 @@
 
         </Grid.RowDefinitions>
 
-        <TextBlock TextWrapping ="Wrap" Text="На оценку 5 нужно сделать от :" HorizontalAlignment="Center"  Grid.Column="0"  Grid.Row="1"  VerticalAlignment="Center"   FontSize="24" Foreground="Black" FontFamily="/Kursovay;component/#Cocomat Pro"/>
+        <TextBlock TextWrapping ="Wrap" Text="На оценку 5 нужно сделать от: " HorizontalAlignment="Right"  Grid.Column="0"  Grid.Row="1"  VerticalAlignment="Center"   FontSize="24" Foreground="Black" FontFamily="/Kursovay;component/#Cocomat Pro"/>
         <!--<Label Content="Введите кол-во вопрос:" HorizontalAlignment="Left"  Grid.Column="0" Grid.Row="1"  VerticalAlignment="Center" Height="60" Width="316" FontSize="24" Foreground="White" Grid.ColumnSpan="2"/>-->
-        <TextBlock TextWrapping ="Wrap" Text="На оценку 4 нужно сделать от :" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="60"  FontSize="24" Foreground="Black" Grid.Column="0" Grid.Row="2"  FontFamily="/Kursovay;component/#Cocomat Pro" />
-        <TextBlock TextWrapping ="Wrap" Text="Один правильный ответ это:" HorizontalAlignment="Left"  VerticalAlignment="Center"  FontSize="24" Foreground="Black"  Grid.Row="4" FontFamily="/Kursovay;component/#Cocomat Pro" Margin="23,0,0,0"/>
-        <Label Content="Вопросов в тесте:" HorizontalAlignment="Left"  VerticalAlignment="Center"  FontSize="24" Foreground="Black"  Grid.Row="5" FontFamily="/Kursovay;component/#Cocomat Pro" Margin="19,0,0,0"/>
-        <TextBlock TextWrapping ="Wrap" Text="На оценку 3 нужно сделать от :" HorizontalAlignment="Left"   VerticalAlignment="Center"  FontSize="24" Foreground="Black"  Grid.Row="3" FontFamily="/Kursovay;component/#Cocomat Pro" Margin="24,0,0,0"/>
-        <TextBox x:Name="mark_5" Text="90%"  HorizontalAlignment="Right" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center"  Width="213"  Grid.Row="1" Grid.Column="1"  BorderThickness="3" FontSize="24" FontFamily="/Kursovay;component/#Cocomat Pro" />
-        <TextBox x:Name="mark_4" HorizontalAlignment="Center" Height="40"  VerticalAlignment="Center" Width="213" Grid.Row="2" Grid.Column="1" Margin="51,10,0,10" BorderThickness="3" FontSize="24" FontFamily="/Kursovay;component/#Cocomat Pro" Text="75%"/>
-        <TextBox x:Name="mark_3" HorizontalAlignment="Right" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="213"  Grid.Row="3" Grid.Column="1"  BorderThickness="3" FontSize="24" FontFamily="/Kursovay;component/#Cocomat Pro" KeyDown="mark_3_KeyDown" Text="50%"/>
-        <TextBox x:Name="One_correct_answer" IsReadOnly="True" HorizontalAlignment="Center" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="213" FontSize="24" FontFamily="/Kursovay;component/#Cocomat Pro" Grid.Row="4" Grid.Column="1" Margin="51,10,0,10" BorderThickness="3"/>
-        <TextBox x:Name="counter" IsReadOnly="True" HorizontalAlignment="Center" Height="40" FontSize="24" FontFamily="/Kursovay;component/#Cocomat Pro" TextWrapping="Wrap" VerticalAlignment="Center" Width="213"  Grid.Row="5" Grid.Column="1" Margin="51,10,0,10" BorderThickness="3"/>
+        <TextBlock TextWrapping ="Wrap" Text="На оценку 4 нужно сделать от:  " HorizontalAlignment="Right"  VerticalAlignment="Center" Height="Auto"  FontSize="24" Foreground="Black" Grid.Column="0" Grid.Row="2"  FontFamily="/Kursovay;component/#Cocomat Pro" />
+        
+        <TextBlock TextWrapping ="Wrap" Text="Один правильный ответ это: " HorizontalAlignment="Right"  VerticalAlignment="Center"  FontSize="24" Foreground="Black"  Grid.Row="4" FontFamily="/Kursovay;component/#Cocomat Pro" />
+        
+        <Label Content="Вопросов в тесте:" HorizontalAlignment="Right"  VerticalAlignment="Center"  FontSize="24" Foreground="Black"  Grid.Row="5" FontFamily="/Kursovay;component/#Cocomat Pro" />
+        
+        <TextBlock TextWrapping ="Wrap" Text="На оценку 3 нужно сделать от:  " HorizontalAlignment="Right"   VerticalAlignment="Center"  FontSize="24" Foreground="Black"  Grid.Row="3" FontFamily="/Kursovay;component/#Cocomat Pro" />
+        
         <!--<TextBox x:Name="number_of_questions" HorizontalAlignment="Center" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="212" RenderTransformOrigin="0.466,-0.147" Grid.Row="1" Grid.Column="1" Margin="52,10,0,10" />-->
         <!--<Button BorderBrush="Black" x:Name="one_more_ques" Content="Оставить по умолчании" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="157" Click="Button_add_ques" Height="52" Grid.Row="5" Grid.Column="2" FontFamily="/Kursovay;component/#Cocomat Pro" Background="#ff6347" />-->
-        <Button BorderBrush="Black" x:Name="Save_test" Content="Сохранить" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="157" Click="Save_test_Click" Height="52" Grid.Row="6" Grid.Column="2"  Grid.RowSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347"/>
-        <TextBlock Text="Критерии оценки теста" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="25"   HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="27,0,0,0"/>
-        <Label Grid.Column="1" x:Name="error_label" Grid.ColumnSpan="2" Visibility="Hidden" Content="Введены некоректные данные" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Foreground="Red" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Margin="63,0,0,0"/>
+        <Button BorderBrush="Black" x:Name="Save_test" Content="Сохранить" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="200" Click="Save_test_Click" Height="70" Grid.Row="6" Grid.Column="2" FontSize="20"  Grid.RowSpan="2" FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347"/>
+        
+        <TextBlock Text="  Критерии оценивания теста" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="35"   HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+        
+        <Label Grid.Column="1" x:Name="error_label" Grid.ColumnSpan="2" Visibility="Hidden" Content="Введены некоректные данные" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Foreground="Red" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" />
+
+
+
+
+        <TextBox x:Name="mark_5" Text="90%"  HorizontalAlignment="Left" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center"  Width="213"  Grid.Row="1" Grid.Column="2"  BorderThickness="3" FontSize="24" FontFamily="/Kursovay;component/#Cocomat Pro" />
+        
+        <TextBox x:Name="mark_4" HorizontalAlignment="Left" Height="40"  VerticalAlignment="Center" Width="213" Grid.Row="2" Grid.Column="1" BorderThickness="3" FontSize="24" FontFamily="/Kursovay;component/#Cocomat Pro" Text="75%"/>
+        
+        <TextBox x:Name="mark_3" HorizontalAlignment="Left" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="213"  Grid.Row="3" Grid.Column="1"  BorderThickness="3" FontSize="24" FontFamily="/Kursovay;component/#Cocomat Pro" KeyDown="mark_3_KeyDown" Text="50%"/>
+        
+        <TextBox x:Name="One_correct_answer" IsReadOnly="True" HorizontalAlignment="Left" Height="40"  TextWrapping="Wrap" VerticalAlignment="Center" Width="213" FontSize="24" FontFamily="/Kursovay;component/#Cocomat Pro" Grid.Row="4" Grid.Column="1" BorderThickness="3"/>
+        
+        <TextBox x:Name="counter" IsReadOnly="True" HorizontalAlignment="Left" Height="40" FontSize="24" FontFamily="/Kursovay;component/#Cocomat Pro" TextWrapping="Wrap" VerticalAlignment="Center" Width="213"  Grid.Row="5" Grid.Column="1" BorderThickness="3"/>
+
+
+
+
+
+
+
+
 
     </Grid>
 </Window>

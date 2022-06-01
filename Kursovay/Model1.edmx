@@ -90,7 +90,6 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Theory" Type="text" Nullable="false" />
           <Property Name="TeacherID" Type="int" Nullable="false" />
           <Property Name="Date of creation" Type="date" />
           <Property Name="Task" Type="nvarchar(max)" />
@@ -412,7 +411,6 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Theory" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TeacherID" Type="Int32" Nullable="false" />
           <Property Name="Date_of_creation" Type="DateTime" Precision="0" />
           <Property Name="Task" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -748,7 +746,6 @@
               <MappingFragment StoreEntitySet="Test">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Theory" ColumnName="Theory" />
                 <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
                 <ScalarProperty Name="Date_of_creation" ColumnName="Date of creation" />
                 <ScalarProperty Name="Task" ColumnName="Task" />
