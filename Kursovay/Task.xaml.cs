@@ -163,7 +163,7 @@ namespace Kursovay
 
 
             
-
+                 
 
             }
             else TxtTask.Text = test1.Task;
