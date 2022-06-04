@@ -43,8 +43,19 @@ namespace Kursovay
         }
         private void Dell_click(object sender, RoutedEventArgs e)
         {
-            var si= ((Questions)questions_grid.SelectedItem);
-            Core.db.Questions.Remove(si);
+            
+
+            try
+            {
+                var si = ((Questions)questions_grid.SelectedItem);
+                Core.db.Questions.Remove(si);
+
+            }
+            catch (Exception)
+            {
+                
+            }  
+            
             Core.db.SaveChanges();
             questions2 = Core.db.Questions.Where(u => u.ID_test == test.ID).ToList();
             questions_grid.ItemsSource = questions2;
@@ -67,8 +78,25 @@ namespace Kursovay
             {
                 
                 questions = (Questions)questions_grid.SelectedItem;
-                questions.ID = Core.db.Questions.ToList().Last().ID + 1;
+                if (questions.ID!=0)
+                {
+                    Core.db.SaveChanges();
+                    return;
+                }
+                try
+                {
+                    questions.ID = Core.db.Questions.ToList().Last().ID + 1;
+                }
+                catch (System.InvalidOperationException)
+                {
+
+                    questions.ID = 1;
+
+                }
+
+
                 questions.ID_test =test.ID;
+
 
                 Core.db.Questions.Add(questions);
                 Core.db.SaveChanges();

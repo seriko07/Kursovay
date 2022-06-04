@@ -75,10 +75,21 @@ namespace Kursovay
             {
 
             }
-            r = Core.db.Results.Where(c => c.IDTest == Si.ID).ToList();
-            w = Core.db.Questions.Where(c => c.ID_test == Si.ID).ToList();
-            Core.db.Results.RemoveRange(r);
-            Core.db.Questions.RemoveRange(w);
+            try
+            {
+                r = Core.db.Results.Where(c => c.IDTest == Si.ID).ToList();
+                w = Core.db.Questions.Where(c => c.ID_test == Si.ID).ToList();
+                Core.db.Results.RemoveRange(r);
+                Core.db.Questions.RemoveRange(w);
+                var s = Core.db.Grade.Where(c => c.ID_Test == Si.ID).ToList();
+                Core.db.Grade.RemoveRange(s);
+
+            }
+            catch (System.Reflection.TargetException)
+            {
+
+            }
+            
             Core.db.SaveChanges();
             Tests = Core.db.Test.ToList();
             testgrid.ItemsSource = Tests;

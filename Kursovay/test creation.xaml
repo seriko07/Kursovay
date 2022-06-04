@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
-
+Title="Tests"
         WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
 
 

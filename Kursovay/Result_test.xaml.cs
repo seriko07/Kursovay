@@ -63,6 +63,8 @@ namespace Kursovay
 
                 grade = (Grade)Core.db.Grade.FirstOrDefault(u => u.ID == 1);
             }
+           
+             
             int grade_5 = (int)grade.assessment_5;
             int grade_4 = (int)grade.assessment_4;
             int grade_3 = (int)grade.assessment_3;

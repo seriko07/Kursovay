@@ -34,7 +34,7 @@
 
 
 
-        <RichTextBox  x:Name="Theory" AcceptsReturn="True"  Grid.RowSpan="4" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="3" />
+        <RichTextBox  x:Name="Theory"  AcceptsReturn="True"  Grid.RowSpan="4" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="3" />
 
 
 
@@ -49,7 +49,7 @@
 
 
         <TextBox  Name="Task" Text="{Binding currentTest.Task}" AcceptsReturn="True"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="4" BorderBrush="Black" BorderThickness="2" TextWrapping="Wrap"  />
-        <ToolBarTray Grid.Column="2"  Grid.Row="0" VerticalAlignment="Bottom" Width="650"  >
+        <ToolBarTray Grid.Column="2"  Grid.Row="0"  VerticalAlignment="Bottom" Width="650"  >
 
             <ToolBarTray.Resources>
                 <Style TargetType="{x:Type Image}">
@@ -71,7 +71,7 @@
 
 
 
-            <ToolBar  Background="White" Width="650" ToolTip="Commands in this group use only WPF" >
+            <ToolBar  Background="White" Width="650"  ToolTip="Commands in this group use only WPF" >
 
                 
                 <Button Command="Undo" ToolTip="Undo">

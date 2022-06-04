@@ -44,7 +44,7 @@ namespace Kursovay
             if (CurrentTest != null)
             {
                 string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                 pathcurrentfile = (desktop + "\\Lectures\\" + CurrentTest.Title.ToString() + ".rtf");
+                pathcurrentfile = (desktop + "\\Lectures\\" + CurrentTest.Title.ToString() + ".rtf");
 
                 {
                     System.Windows.Documents.TextRange range;
@@ -61,7 +61,6 @@ namespace Kursovay
                     }
                     catch (System.Exception)
                     {
-                        MessageBox.Show("File could not be opened. Make sure the file is a text file.");
                     }
 
 
@@ -110,11 +109,6 @@ namespace Kursovay
             //    this.Close();
             //    newtest1  = newtest;
             //}
-        }
-
-        private void Save_click(object sender, RoutedEventArgs e)
-        {
-
 
             if (CurrentTest != null)
             {
@@ -178,15 +172,108 @@ namespace Kursovay
                     newtest.TeacherID = T.ID;
                     newtest.Title = Title.Text;
                     newtest.Date_of_creation = DateTime.Now;
-                    newtest.ID = Core.db.Test.ToList().Last().ID + 1;
+                    try
+                    {
+                        newtest.ID = Core.db.Test.ToList().Last().ID + 1;
+
+                    }
+                    catch (Exception)
+                    {
+                        newtest.ID = 1;
+                    }
                     Core.db.Test.Add(newtest);
                     Core.db.SaveChanges();
                 }
 
-                
+
 
             }
             this.Close();
+        }
+
+        private void Save_click(object sender, RoutedEventArgs e)
+        {
+            savetest();
+
+            //if (CurrentTest != null)
+            //{
+            //    string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+
+            //    FileInfo fileInf = new FileInfo(pathcurrentfile);
+            //    if (fileInf.Exists)
+            //    {
+            //        fileInf.Delete();
+
+            //    }
+            //    CurrentTest.Task = Task.Text;
+            //    CurrentTest.Title = Title.Text;
+            //    Core.db.SaveChanges();
+            //    string path = (desktop + "\\Lectures\\" + Title.Text.ToString() + ".rtf");
+
+            //    {
+            //        System.Windows.Documents.TextRange range;
+            //        System.IO.FileStream fStream;
+            //        var dataFormat = DataFormats.Rtf;
+
+            //        try
+            //        {
+            //            // Open the document in the RichTextBox.
+            //            range = new System.Windows.Documents.TextRange(Theory.Document.ContentStart, Theory.Document.ContentEnd);
+            //            fStream = new System.IO.FileStream(path, System.IO.FileMode.OpenOrCreate);
+            //            range.Save(fStream, dataFormat);
+            //            fStream.Close();
+            //        }
+            //        catch (System.Exception)
+            //        {
+            //            MessageBox.Show("File could not be opened. Make sure the file is a text file.");
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            //    string path = (desktop + "\\Lectures\\" + Title.Text.ToString() + ".rtf");
+
+            //    {
+            //        System.Windows.Documents.TextRange range;
+            //        System.IO.FileStream fStream;
+            //        var dataFormat = DataFormats.Rtf;
+
+            //        try
+            //        {
+            //            // Open the document in the RichTextBox.
+            //            range = new System.Windows.Documents.TextRange(Theory.Document.ContentStart, Theory.Document.ContentEnd);
+            //            fStream = new System.IO.FileStream(path, System.IO.FileMode.OpenOrCreate);
+            //            range.Save(fStream, dataFormat);
+            //            fStream.Close();
+            //        }
+            //        catch (System.Exception)
+            //        {
+            //            MessageBox.Show("File could not be opened. Make sure the file is a text file.");
+            //        }
+            //        newtest.Task = Task.Text;
+            //        newtest.TeacherID = T.ID;
+            //        newtest.Title = Title.Text;
+            //        newtest.Date_of_creation = DateTime.Now;
+            //        try
+            //        {
+            //            newtest.ID = Core.db.Test.ToList().Last().ID + 1;
+
+            //        }
+            //        catch (Exception)
+            //        {
+            //            newtest.ID = 1;
+            //        }
+            //        Core.db.Test.Add(newtest);
+            //        Core.db.SaveChanges();
+            //    }
+
+                
+
+            //}
+            //this.Close();
         }
         private void Button_Click_Test(object sender, RoutedEventArgs e)
         {
@@ -207,9 +294,17 @@ namespace Kursovay
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            
             savetest();
-            List_questions questions = new List_questions(CurrentTest);
-            questions.Show();
+            if (CurrentTest==null)
+            {
+                List_questions questions = new List_questions(newtest); 
+                questions.Show();
+            }
+            else { List_questions questions = new List_questions(CurrentTest);
+                questions.Show(); }
+            
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
+        Title="Tests"
         WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
 
 
@@ -30,7 +31,7 @@
 
 
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"     Grid.Column="0" Grid.Row="1"  Grid.ColumnSpan="1" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30"><Run Text="Имя"></Run></TextBlock>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"    FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" Grid.Row="2"><Run Text="Фамилия"/></TextBlock>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"    FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" Grid.Row="2"  ><Run Text="Фамилия"/></TextBlock>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"   FontFamily="/Kursovay;component/#Cocomat Pro"  FontSize="30" Grid.Row="3"><Run Text="Отчество"/></TextBlock>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"    FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" Grid.Row="4"><Run Text="Пол"/></TextBlock>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"   FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="30" Grid.Row="5"><Run Text="Роль"/></TextBlock>
@@ -42,11 +43,11 @@
 
 
 
-        <TextBox x:Name="Name" Grid.Column="1" Grid.Row="1" Width="250" Height="36"  />
-        <TextBox x:Name="Surname" Grid.Column="1" Grid.Row="2" Width="250"  Height="36"  />
-        <TextBox x:Name="Patronymic" Grid.Column="1" Grid.Row="3" Width="250"  Height="36"  />
+        <TextBox x:Name="Name" Grid.Column="1" Grid.Row="1" Width="250" FontSize="25" Height="36"  />
+        <TextBox x:Name="Surname" Grid.Column="1" Grid.Row="2" Width="250" FontSize="25" Height="36"  />
+        <TextBox x:Name="Patronymic" Grid.Column="1" Grid.Row="3" Width="250" FontSize="25" Height="36"  />
 
-        <ComboBox x:Name="GenderID"  Grid.Column="1" Grid.Row="4" Width="250" Height="36" 
+        <ComboBox x:Name="GenderID"  Grid.Column="1" Grid.Row="4" Width="250" FontSize="20" Height="36" 
                  IsEditable="False"
                  IsReadOnly="true"
                 >
@@ -66,7 +67,7 @@
 
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding RoleName}" FontFamily="/Kursovay;component/#Cocomat Pro"/>
+                    <Label Content="{Binding RoleName}" FontSize="20" FontFamily="/Kursovay;component/#Cocomat Pro"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
@@ -76,17 +77,19 @@
 
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Number}" FontFamily="/Kursovay;component/#Cocomat Pro"/>
+                    <Label Content="{Binding Number}" FontSize="20" FontFamily="/Kursovay;component/#Cocomat Pro"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <TextBox x:Name="Login" Grid.Column="1" Grid.Row="7" Width="250"  Height="36"  />
-        <PasswordBox x:Name="Password" Grid.Column="1" Grid.Row="8" Width="250"  Height="36"  />
-        <Button Click="Add_Click" Width="200" HorizontalAlignment="Left" Grid.Column="0"  Grid.ColumnSpan="2"  Grid.Row="9" BorderBrush="Black"
-                   FontSize="20" FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" Height="70" Margin="700,22,0,25"  >Сохранить</Button>
-        <Button Click="Go_back" Width="200" Grid.Column="1" Grid.Row="9" BorderBrush="Black"
-                 HorizontalAlignment="Right"  FontSize="20" FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" Height="70" Grid.ColumnSpan="2" Margin="0,22,730,25">Перейти назад</Button>
+        <TextBox x:Name="Login" Grid.Column="1" Grid.Row="7" Width="250" FontSize="25"  Height="36"  />
+
+        <PasswordBox x:Name="Password" Grid.Column="1" Grid.Row="8" Width="250" FontSize="25"  Height="36"  />
+
+        <Button Click="Add_Click" Width="200" HorizontalAlignment="Left" Grid.Column="0"  Grid.ColumnSpan="2"  Grid.Row="8" BorderBrush="Black"
+                   FontSize="20" FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" Height="70" Margin="701,117,0,47" Grid.RowSpan="2"  >Сохранить</Button>
+        <Button Click="Go_back" Width="200" Grid.Column="1" Grid.Row="8" BorderBrush="Black"
+                 HorizontalAlignment="Right"  FontSize="20" FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" Height="70" Grid.ColumnSpan="2" Margin="0,117,729,47" Grid.RowSpan="2">Перейти назад</Button>
 
 
 

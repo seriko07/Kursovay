@@ -35,9 +35,9 @@
 
         <Label Content="Пароль:" HorizontalAlignment="Right"  VerticalAlignment="Top" FontSize="35 " Foreground="Black" Grid.Column="2" Grid.Row="3"  FontFamily="/Kursovay;component/#Cocomat Pro"  />
 
-        <TextBox x:Name="log" HorizontalAlignment="Left" Height="45"  TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Center" Width="162"  Grid.Row="2" Grid.Column="3"  Text="q" />
+        <TextBox x:Name="log" FontSize="20" HorizontalAlignment="Left" Height="45"  TextWrapping="Wrap" BorderBrush="Black" VerticalAlignment="Center" MinWidth="162"  Grid.Row="2" Grid.Column="3"  Text="q" />
 
-        <PasswordBox x:Name="pas" HorizontalAlignment="Left" Height="45" BorderBrush="Black" VerticalAlignment="Top" Width="162" Grid.Row="3" Grid.Column="3"  Password="q"  />
+        <PasswordBox x:Name="pas" FontSize="20" HorizontalAlignment="Left" Height="45" BorderBrush="Black" VerticalAlignment="Top" MinWidth="162" Grid.Row="3" Grid.Column="3"  Password="q"  />
 
 
         <Button x:Name="button_login" Content="Авторизоваться" HorizontalAlignment= "Stretch"  VerticalAlignment="Stretch"  Height="70" Width="200"
@@ -68,7 +68,7 @@
         <Button x:Name="button_login_user" Content="Авторизоваться учеником" HorizontalAlignment="Center"  VerticalAlignment="Center" 
                 Click="button_login_user_Click_1" Height="53" Grid.Row="4" Grid.Column="1" BorderBrush="Black"
                FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" 
-                Foreground="Black"  FontSize="14" Visibility="Visible" />
+                Foreground="Black"  FontSize="14" Visibility="Hidden" />
 
 
 

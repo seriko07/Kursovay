@@ -42,7 +42,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Выберите  лекцию" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="auto" Width="auto" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="45"/>
+        <Label Content="Выберите урок" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="auto" Width="auto" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="45"/>
         <Button Content="Перейти к лекции" BorderBrush="Black" Background="#ff6347 " HorizontalAlignment="Right"  VerticalAlignment="Center" Width="200" Height="70" Click="Button_Click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20"  />
         <Label x:Name="error_lab" Content="" HorizontalAlignment="Center"  FontFamily="c:\users\shakh\desktop\diplom\kursovay\fonts\cocomatpro-regular.ttf" Foreground="Red" FontSize="14" VerticalAlignment="Top" Width="204" Margin="0,25,0,0"/>
     </Grid>

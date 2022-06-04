@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
         WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920"
+        Title="Tests"
         Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>

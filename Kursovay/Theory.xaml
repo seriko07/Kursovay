@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursovay"
         mc:Ignorable="d"
+        Title="Tests"
         WindowState="Maximized" d:DesignHeight="1080" d:DesignWidth="1920">
     
     <Grid>
@@ -22,7 +23,7 @@
         
         <TextBlock x:Name="Name_Theory"  Text="{Binding Test_theory.Title}" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="45" FontFamily="/Kursovay;component/#Cocomat Pro"/>
         
-        <RichTextBox x:Name="Theory_text" BorderThickness="0" BorderBrush="{x:Null}" Width="800" HorizontalAlignment="Stretch"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"    />
+        <RichTextBox x:Name="Theory_text" BorderThickness="0" BorderBrush="{x:Null}"  HorizontalAlignment="Stretch"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"    />
         
         <Button x:Name="test_but" BorderBrush="Black" Content="Перейти к тесту" Background="#ff6347 " HorizontalAlignment="Center"  VerticalAlignment="Center" Height="70" Width="200" Click="Test_click" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="15" Grid.Column="1"  />
         

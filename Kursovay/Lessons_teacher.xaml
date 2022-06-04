@@ -79,7 +79,7 @@
             </Grid.RowDefinitions>
             <TextBlock 
                 HorizontalAlignment="Center" VerticalAlignment="Center"  FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="42" Grid.Column="0"  Height="101" Width="188" Grid.RowSpan="2"  >
-                Выберите <LineBreak/> лекцию
+                Выберите <LineBreak/> урок
             </TextBlock>
             <Button  Background="#ff6347" VerticalAlignment="Center" Click="Editing_Test" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="20" Height="70" Width="200" BorderBrush="Black" Grid.Column="2"    >
                 <TextBlock TextAlignment="Center"> Редактировать  <LineBreak/> урок</TextBlock>
