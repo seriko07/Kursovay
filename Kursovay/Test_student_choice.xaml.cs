@@ -172,7 +172,7 @@ namespace Kursovay
                 return;
 
             }
-            if (Qs.Second_correct_answer!=null && Qs.Second_correct_answer !=""|| Qs.Answer_two_questions!=null)   
+            if (Qs.Second_correct_answer!=null && Qs.Second_correct_answer !=""|| Qs.Answer_two_questions==true)   
             {
                  order_but = new List<int>(Enumerable.Range(1, 4));
                  order_ans = new List<int>(Enumerable.Range(1, 4));

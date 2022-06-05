@@ -89,7 +89,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="TeacherID" Type="int" Nullable="false" />
           <Property Name="Date of creation" Type="date" />
           <Property Name="Task" Type="nvarchar(max)" />
@@ -410,7 +410,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TeacherID" Type="Int32" Nullable="false" />
           <Property Name="Date_of_creation" Type="DateTime" Precision="0" />
           <Property Name="Task" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />

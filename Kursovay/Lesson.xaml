@@ -12,17 +12,17 @@
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="521*"></ColumnDefinition>
+            <ColumnDefinition Width="752*"></ColumnDefinition>
+            <ColumnDefinition Width="637*"></ColumnDefinition>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="71*"></RowDefinition>
+            <RowDefinition Height="71*"></RowDefinition>
+            <RowDefinition Height="71*"></RowDefinition>
+            <RowDefinition Height="88*"></RowDefinition>
+            <RowDefinition Height="54*"></RowDefinition>
 
         </Grid.RowDefinitions>
 
@@ -30,7 +30,7 @@
 
         <Button Content="Сохранить" Grid.Column="3"  Grid.Row="4" VerticalAlignment="Center" BorderBrush="Black" HorizontalAlignment="Center" Height="70" Width="200" FontSize="20"  FontFamily="/Kursovay;component/#Cocomat Pro"  Background="#ff6347" Click="Save_click"/>
 
-        <Button Content="Создать тест" Grid.Column="4" Grid.Row="3" Grid.RowSpan="5" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Height="70" Width="200" FontSize="20"  x:Name="View_test" Click="Button_Click_1" FontFamily="/Kursovay;component/#Cocomat Pro" Background="#ff6347" />
+        <Button Content="Создать тест" Grid.Column="3" Grid.Row="3" BorderBrush="Black" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="70" Width="200" FontSize="20"  x:Name="View_test" Click="Button_Click_1" FontFamily="/Kursovay;component/#Cocomat Pro" Background="#ff6347"  />
 
 
 
@@ -38,18 +38,18 @@
 
 
 
-        <TextBox HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10"  MinHeight="34"  TextWrapping="Wrap"  Text="{Binding currentTest.Title}" MinWidth="250" Name="Title" FontFamily="/Kursovay;component/#Cocomat Pro" Grid.ColumnSpan="2" FontSize="25" BorderThickness="2" BorderBrush="Black" />
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Bottom"   MinHeight="34"  TextWrapping="Wrap"  Text="{Binding currentTest.Title}" MinWidth="250" Name="Title" FontFamily="/Kursovay;component/#Cocomat Pro" FontSize="25" BorderThickness="2" BorderBrush="Black" Foreground="Black" Grid.Column="1" Height="34"    />
         <!--<Button Content="Создать критерии к тесту" Grid.Column="4"  Grid.Row="3" Grid.RowSpan="5" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="45"  Click="Button_Click_Test" FontFamily="/Kursovay;component/#Cocomat Pro" Background="#ff6347" />-->
 
 
 
-        <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" Margin="10"   FontSize="25" Background="White"  VerticalAlignment="Bottom">
+        <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center"    FontSize="25" Background="White"  VerticalAlignment="Bottom" Height="43" Width="227">
             <TextBlock TextAlignment="Center">Напишите задание</TextBlock>
         </Label>
 
 
-        <TextBox  Name="Task" Text="{Binding currentTest.Task}" AcceptsReturn="True"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="4" BorderBrush="Black" BorderThickness="2" TextWrapping="Wrap"  />
-        <ToolBarTray Grid.Column="2"  Grid.Row="0"  VerticalAlignment="Bottom" Width="650"  >
+        <TextBox  Name="Task" Text="{Binding currentTest.Task}" AcceptsReturn="True"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="3" BorderBrush="Black" BorderThickness="2" TextWrapping="Wrap"  />
+        <ToolBarTray Grid.Column="2"  Grid.Row="0"  VerticalAlignment="Bottom" Grid.ColumnSpan="1" Height="35" HorizontalAlignment="Right"  Background="White" >
 
             <ToolBarTray.Resources>
                 <Style TargetType="{x:Type Image}">
@@ -60,6 +60,7 @@
                     </Style.Triggers>
                 </Style>
                 <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Background" Value="White"/>
                     <Setter Property="Width" Value="30"/>
                     <Setter Property="TextAlignment" Value="Center"/>
                     <Setter Property="FontFamily" Value="Palatino Linotype"/>
@@ -71,9 +72,9 @@
 
 
 
-            <ToolBar  Background="White" Width="650"  ToolTip="Commands in this group use only WPF" >
+            <ToolBar  Background="White" Width="650"  ToolTip="Commands in this group use only WPF"  >
 
-                
+
                 <Button Command="Undo" ToolTip="Undo">
                     <Image Source="Icons/Undo.png"/>
                 </Button>

@@ -182,7 +182,15 @@ namespace Kursovay
                         newtest.ID = 1;
                     }
                     Core.db.Test.Add(newtest);
-                    Core.db.SaveChanges();
+
+                    try
+                    {
+                        Core.db.SaveChanges();
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    
                 }
 
 
@@ -314,6 +322,7 @@ namespace Kursovay
                 Title.Text = "Введите название лекции";
                 Title.Foreground = Brushes.Gray;
             }
+            Title.Foreground = Brushes.Black;
         }
 
         private void Title_TextChanged(object sender, TextChangedEventArgs e)
